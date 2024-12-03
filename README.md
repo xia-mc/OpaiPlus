@@ -9,4 +9,4 @@ A example extension implementation with [opensource-components](https://github.c
 
 ## Screenshots
 
-![1](java_TY47l4ZCBx.png)
+![1](https://i.imgur.com/AvaprIf.png)
