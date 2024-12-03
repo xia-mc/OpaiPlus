@@ -7,3 +7,6 @@ A example extension implementation with [opensource-components](https://github.c
 - **AutoWool**: automatically buy wool when you don't have enough
 - **CustomScoreboard**: a custom scoreboard widget
 
+## Screenshots
+
+![1](java_TY47l4ZCBx.png)
