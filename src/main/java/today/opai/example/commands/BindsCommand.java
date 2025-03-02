@@ -14,7 +14,7 @@ public class BindsCommand extends ExtensionCommand {
     public void onExecute(String[] strings) {
         ExampleExtension.openAPI.printMessage("§aBinds:");
         for (PresetModule module : ExampleExtension.openAPI.getModuleManager().getModules()) {
-            if(module.getKey() != 0){
+            if(module.getKey() != -1){
                 ExampleExtension.openAPI.printMessage("§7" + module.getName() + ": §f" + Keyboard.getKeyName(module.getKey()));
             }
         }
