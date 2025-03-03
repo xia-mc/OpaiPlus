@@ -1,0 +1,31 @@
+<config>
+    <input>
+        <jar in="../libs/OpaiPlus-universal.jar" out="../libs/OpaiPlus-obfuscated.jar"/>
+    </input>
+
+    <keep-names>
+        <class access="protected+">
+            <!-- <field access="protected+"/>
+            <method access="protected+"/> -->
+        </class>
+    </keep-names>
+
+    <classpath>
+%CLASSPATH%
+    </classpath>
+
+    <property name="string-encryption" value="maximum-with-warnings"/>
+    <property name="string-encryption-type" value="strong"/>
+    <property name="control-flow-obfuscation" value="enable"/>
+    <property name="extensive-flow-obfuscation" value="maximum"/>
+    <property name="default-package" value=""/>
+    <property name="force-default-package" value="enable"/>
+    <property name="synthetize-methods" value="all"/>
+    <property name="synthetize-fields" value="all"/>
+    <property name="finalize" value="enable"/>
+    <property name="member-reorder" value="random"/>
+    <property name="inner-classes" value="remove"/>
+    <property name="generics" value="remove"/>
+
+    <property name="log-file" value="allatori-log.xml"/>
+</config>

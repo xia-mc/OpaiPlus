@@ -7,7 +7,6 @@ plugins {
 }
 
 group = "asia.lira"
-version = "0.0.1"
 val buildDir = layout.buildDirectory.get().asFile
 
 repositories {
@@ -63,47 +62,85 @@ val javaRuntime: String = when {
         // JDK 9+
         "$javaHome/jmods/java.base.jmod"
     }
+
     else -> {
         // JDK 8
         "$javaHome/lib/rt.jar"
     }
 }
 
-val r8 = tasks.register("r8") {
+fun doOptimize(inputJar: File, outputJar: File) {
+    if (!r8Jar.exists()) {
+        throw GradleException("R8 JAR not found at ${r8Jar.absolutePath}, please reconfigure the gradle project.")
+    }
+
+    val configFile = File(rootDir, "r8-rules.pro")
+
+    exec {
+        val command = mutableListOf(
+            "java", "-cp", r8Jar.absolutePath,
+            "com.android.tools.r8.R8",
+            "--classfile",
+            "--release",
+            "--pg-conf", configFile.absolutePath,
+            "--lib", javaHome,
+            "--output", outputJar.absolutePath,
+            inputJar.absolutePath
+        )
+
+        dependenciesJars.forEach { jar ->
+            command.add("--classpath")
+            command.add(jar.absolutePath)
+        }
+
+        commandLine(command)
+    }
+}
+
+val optimize = tasks.register("optimize") {
     group = "optimization"
     description = "Run R8 to minimize the shadowJar output"
 
     doLast {
-        val inputJar = File(buildDir, "libs/%s-%s-unoptimized.jar".format(project.name, version))
-        val outputJar = File(buildDir, "libs/%s-%s-universal.jar".format(project.name, version))
-        val configFile = File(rootDir, "r8-rules.pro")
+        val inputJar = File(buildDir, "libs/%s-unoptimized.jar".format(project.name))
+        val outputJar = File(buildDir, "libs/%s-universal.jar".format(project.name))
 
-        if (!r8Jar.exists()) {
-            throw GradleException("R8 JAR not found at ${r8Jar.absolutePath}, please download it manually.")
-        }
-
-        exec {
-            val command = mutableListOf(
-                "java", "-cp", r8Jar.absolutePath,
-                "com.android.tools.r8.R8",
-                "--classfile",
-                "--release",
-                "--pg-conf", configFile.absolutePath,
-                "--lib", javaHome,
-                "--output", outputJar.absolutePath,
-                inputJar.absolutePath
-            )
-
-            dependenciesJars.forEach { jar ->
-                command.add("--classpath")
-                command.add(jar.absolutePath)
-            }
-
-            commandLine(command)
-        }
+        doOptimize(inputJar, outputJar)
     }
+
+    finalizedBy(obfuscate)
 }
 
+val allatoriJar = File(rootDir, "tools/allatori.jar")
+
+val obfuscate = tasks.register("obfuscate") {
+    group = "obfuscation"
+    description = "Run Allatori to obfuscate the R8 output"
+
+    doLast {
+        if (!allatoriJar.exists()) {
+            throw GradleException("Allatori JAR not found at ${allatoriJar.absolutePath}, please download it manually.")
+        }
+
+        val configTemplate = File(rootDir, "allatori.xml")
+        val configFile = File(buildDir, "tmp/allatori.xml")
+
+        val classpathEntries = dependenciesJars.joinToString(separator = "\n") { jar ->
+            """        <jar name="${jar.absolutePath}"/>"""
+        }
+
+        configFile.writeText(configTemplate.readText().replace("%CLASSPATH%", classpathEntries))
+
+        exec {
+            commandLine("java", "-jar", allatoriJar.absolutePath, configFile)
+        }
+
+        doOptimize(
+            File(buildDir, "libs/%s-obfuscated.jar".format(project.name)),
+            File(buildDir, "libs/%s.jar".format(project.name))
+        )
+    }
+}
 
 tasks {
     jar {
@@ -141,7 +178,7 @@ tasks {
         mergeServiceFiles()
         configurations = listOf(project.configurations.runtimeClasspath.get())
 
-        finalizedBy(r8)
+        finalizedBy(optimize)
     }
 
     assemble {

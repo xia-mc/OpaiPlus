@@ -1,0 +1,1886 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+   Allatori Obfuscator v9.3 DEMO
+   Web: http://www.allatori.com
+
+   Log created: Tue Mar 04 02:04:24 CST 2025
+-->
+
+<!--
+[WARNING] Class 'today.opai.api.interfaces.EventHandler' cannot be found.
+[WARNING] Class 'today.opai.api.features.ExtensionModule' cannot be found.
+[WARNING] Class 'today.opai.api.Extension' cannot be found.
+[WARNING] Some classes weren't found. It may result in weaker obfuscation. Add needed jars to the 'classpath' element of the configuration file.
+[ERROR] CLASS NOT FOUND: today/opai/api/interfaces/EventHandler
+[ERROR]   ADD NEEDED JAR TO THE 'classpath' ELEMENT OF THE CONFIGURATION FILE.
+[ERROR] CLASS NOT FOUND: today.opai.api.events.EventChatReceived
+[ERROR]   ADD NEEDED JAR TO THE 'classpath' ELEMENT OF THE CONFIGURATION FILE.
+[ERROR] CLASS NOT FOUND: today.opai.api.interfaces.game.network.client.CPacket02UseEntity
+[ERROR]   ADD NEEDED JAR TO THE 'classpath' ELEMENT OF THE CONFIGURATION FILE.
+[ERROR] CLASS NOT FOUND: today.opai.api.interfaces.game.network.client.CPacket0BEntityAction
+[ERROR]   ADD NEEDED JAR TO THE 'classpath' ELEMENT OF THE CONFIGURATION FILE.
+[ERROR] CLASS NOT FOUND: today.opai.api.OpenAPI
+[ERROR]   ADD NEEDED JAR TO THE 'classpath' ELEMENT OF THE CONFIGURATION FILE.
+-->
+
+<!--
+0 classes renamed
+4 methods renamed
+0 fields renamed
+
+40 local variables optimized:
+   4 merged and removed
+   0 removed (unused)
+   0 removed (assigned a value but never used)
+   36 usage optimized
+-->
+
+<allatori>
+ <mapping>
+  <class old="__pycache__.W0" new="__pycache__.W0">
+   <method old="a()J" new="a" s="0" e="0"/>
+   <field old="a L__pycache__/A;" new="a"/>
+  </class>
+  <class old="__pycache__.a" new="__pycache__.a">
+   <method old="a()I" new="a"/>
+   <method old="a(I)J" new="a" s="0" e="0"/>
+   <method old="a(II)L__pycache__/L;" new="a"/>
+   <method old="b()I" new="b" s="0" e="0"/>
+   <method old="c()L__pycache__/L;" new="c"/>
+   <method old="characteristics()I" new="characteristics"/>
+   <method old="estimateSize()J" new="estimateSize"/>
+   <method old="forEachRemaining(Ljava/lang/Object;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/LongConsumer;)V" new="forEachRemaining"/>
+   <method old="getComparator()Ljava/util/Comparator;" new="getComparator"/>
+   <method old="tryAdvance(Ljava/lang/Object;)Z" new="tryAdvance"/>
+   <method old="tryAdvance(Ljava/util/function/Consumer;)Z" new="tryAdvance"/>
+   <method old="tryAdvance(Ljava/util/function/LongConsumer;)Z" new="tryAdvance"/>
+   <method old="trySplit()Ljava/util/Spliterator$OfLong;" new="trySplit"/>
+   <method old="trySplit()Ljava/util/Spliterator$OfPrimitive;" new="trySplit"/>
+   <method old="trySplit()Ljava/util/Spliterator;" new="trySplit"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c Z" new="c"/>
+   <field old="d L__pycache__/J;" new="d"/>
+  </class>
+  <class old="__pycache__.b" new="__pycache__.b">
+   <method old="a()V" new="a"/>
+   <method old="a(I)J" new="a" s="0" e="0"/>
+   <method old="a(II)V" new="a" s="0" e="0"/>
+   <method old="a(III[J)V" new="a" s="0" e="0"/>
+   <method old="a(II[J)V" new="a" s="0" e="0"/>
+   <method old="a(IJ)V" new="a" s="0" e="0"/>
+   <method old="a(IL__pycache__/C;)Z" new="a" s="0" e="0"/>
+   <method old="a(J)V" new="a" s="0" e="0"/>
+   <method old="a(L__pycache__/C;)Z" new="a"/>
+   <method old="a(L__pycache__/D;)V" new="a"/>
+   <method old="a(Ljava/util/List;)I" new="a"/>
+   <method old="a(Ljava/util/function/LongConsumer;)V" new="a"/>
+   <method old="a(Ljava/util/function/LongPredicate;)Z" new="a"/>
+   <method old="a(Ljava/util/function/Predicate;J)Z" new="a"/>
+   <method old="add(ILjava/lang/Object;)V" new="add"/>
+   <method old="add(Ljava/lang/Object;)Z" new="add"/>
+   <method old="addAll(ILjava/util/Collection;)Z" new="addAll" s="0" e="0"/>
+   <method old="addAll(Ljava/util/Collection;)Z" new="addAll"/>
+   <method old="b()L__pycache__/L;" new="b" s="0" e="0"/>
+   <method old="b(I)J" new="b" s="0" e="0"/>
+   <method old="b(IJ)J" new="b" s="0" e="0"/>
+   <method old="b(J)Z" new="b" s="0" e="0"/>
+   <method old="b(L__pycache__/D;)V" new="b"/>
+   <method old="c(I)V" new="c"/>
+   <method old="c(J)I" new="c"/>
+   <method old="clear()V" new="clear"/>
+   <method old="compareTo(Ljava/lang/Object;)I" new="compareTo" s="0" e="0"/>
+   <method old="contains(Ljava/lang/Object;)Z" new="contains"/>
+   <method old="containsAll(Ljava/util/Collection;)Z" new="containsAll"/>
+   <method old="d(I)V" new="d"/>
+   <method old="d(J)I" new="d"/>
+   <method old="equals(Ljava/lang/Object;)Z" new="equals"/>
+   <method old="forEach(Ljava/util/function/Consumer;)V" new="forEach"/>
+   <method old="get(I)Ljava/lang/Object;" new="get"/>
+   <method old="hashCode()I" new="hashCode"/>
+   <method old="indexOf(Ljava/lang/Object;)I" new="indexOf"/>
+   <method old="iterator()L__pycache__/K;" new="iterator" s="0" e="0"/>
+   <method old="iterator()Ljava/util/Iterator;" new="iterator" s="0" e="0"/>
+   <method old="lastIndexOf(Ljava/lang/Object;)I" new="lastIndexOf"/>
+   <method old="listIterator()Ljava/util/ListIterator;" new="listIterator" s="0" e="0"/>
+   <method old="listIterator(I)L__pycache__/K;" new="listIterator" s="0" e="0"/>
+   <method old="listIterator(I)Ljava/util/ListIterator;" new="listIterator"/>
+   <method old="remove(I)Ljava/lang/Object;" new="remove"/>
+   <method old="remove(Ljava/lang/Object;)Z" new="remove"/>
+   <method old="removeAll(Ljava/util/Collection;)Z" new="removeAll"/>
+   <method old="removeIf(Ljava/util/function/Predicate;)Z" new="removeIf"/>
+   <method old="replaceAll(Ljava/util/function/UnaryOperator;)V" new="replaceAll"/>
+   <method old="retainAll(Ljava/util/Collection;)Z" new="retainAll"/>
+   <method old="set(ILjava/lang/Object;)Ljava/lang/Object;" new="set"/>
+   <method old="size()I" new="size" s="0" e="0"/>
+   <method old="sort(Ljava/util/Comparator;)V" new="sort"/>
+   <method old="spliterator()Ljava/util/Spliterator;" new="spliterator" s="0" e="0"/>
+   <method old="subList(II)Ljava/util/List;" new="subList" s="0" e="0"/>
+   <method old="toString()Ljava/lang/String;" new="toString"/>
+   <field old="a L__pycache__/J;" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d Z" new="d"/>
+  </class>
+  <class old="__pycache__.c" new="__pycache__.c">
+   <method old="a()J" new="a" s="0" e="0"/>
+   <method old="a(J)V" new="a" s="0" e="0"/>
+   <method old="add(Ljava/lang/Object;)V" new="add"/>
+   <method old="b(J)V" new="b" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="hasNext()Z" new="hasNext" s="0" e="0"/>
+   <method old="hasPrevious()Z" new="hasPrevious" s="0" e="0"/>
+   <method old="next()Ljava/lang/Long;" new="next"/>
+   <method old="next()Ljava/lang/Object;" new="next"/>
+   <method old="nextIndex()I" new="nextIndex" s="0" e="0"/>
+   <method old="nextLong()J" new="nextLong" s="0" e="0"/>
+   <method old="previous()Ljava/lang/Object;" new="previous"/>
+   <method old="previousIndex()I" new="previousIndex" s="0" e="0"/>
+   <method old="remove()V" new="remove" s="0" e="0"/>
+   <method old="set(Ljava/lang/Object;)V" new="set"/>
+   <field old="a L__pycache__/K;" new="a"/>
+   <field old="b L__pycache__/b;" new="b"/>
+  </class>
+  <class old="__pycache__.d" new="__pycache__.d">
+   <method old="a()J" new="a"/>
+   <method old="a(I)J" new="a" s="0" e="0"/>
+   <method old="a(IJ)V" new="a" s="0" e="0"/>
+   <method old="a(J)V" new="a" s="0" e="0"/>
+   <method old="add(Ljava/lang/Object;)V" new="add"/>
+   <method old="b()I" new="b" s="0" e="0"/>
+   <method old="b(I)V" new="b" s="0" e="0"/>
+   <method old="b(IJ)V" new="b" s="0" e="0"/>
+   <method old="b(J)V" new="b"/>
+   <method old="forEachRemaining(Ljava/lang/Object;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/LongConsumer;)V" new="forEachRemaining"/>
+   <method old="hasNext()Z" new="hasNext"/>
+   <method old="hasPrevious()Z" new="hasPrevious"/>
+   <method old="next()Ljava/lang/Long;" new="next"/>
+   <method old="next()Ljava/lang/Object;" new="next"/>
+   <method old="nextIndex()I" new="nextIndex"/>
+   <method old="nextLong()J" new="nextLong"/>
+   <method old="previous()Ljava/lang/Object;" new="previous"/>
+   <method old="previousIndex()I" new="previousIndex"/>
+   <method old="remove()V" new="remove" s="0" e="0"/>
+   <method old="set(Ljava/lang/Object;)V" new="set"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d L__pycache__/b;" new="d"/>
+   <field old="e Z" new="e"/>
+  </class>
+  <class old="__pycache__.Q0" new="__pycache__.Q0">
+   <field old="a L__pycache__/O0;" new="a"/>
+  </class>
+  <class old="__pycache__.v0" new="__pycache__.v0">
+   <field old="a [Ljava/lang/Object;" new="a"/>
+   <field old="b [Ljava/lang/Object;" new="b"/>
+  </class>
+  <class old="__pycache__.e" new="__pycache__.e">
+   <method old="a(I)J" new="a"/>
+   <method old="a(II)V" new="a"/>
+   <method old="a(III[J)V" new="a"/>
+   <method old="a(II[J)V" new="a"/>
+   <method old="a(IJ)V" new="a"/>
+   <method old="a(IL__pycache__/C;)Z" new="a"/>
+   <method old="a(J)V" new="a"/>
+   <method old="a(L__pycache__/C;)Z" new="a" s="0" e="0"/>
+   <method old="a(L__pycache__/D;)V" new="a"/>
+   <method old="a(Ljava/util/List;)I" new="a" s="0" e="0"/>
+   <method old="a(Ljava/util/function/LongConsumer;)V" new="a" s="0" e="0"/>
+   <method old="a(Ljava/util/function/LongPredicate;)Z" new="a"/>
+   <method old="a(Ljava/util/function/Predicate;J)Z" new="a"/>
+   <method old="add(ILjava/lang/Object;)V" new="add"/>
+   <method old="add(Ljava/lang/Object;)Z" new="add" s="0" e="0"/>
+   <method old="addAll(ILjava/util/Collection;)Z" new="addAll" s="0" e="0"/>
+   <method old="addAll(Ljava/util/Collection;)Z" new="addAll" s="0" e="0"/>
+   <method old="b(I)J" new="b"/>
+   <method old="b(IJ)J" new="b"/>
+   <method old="b(J)Z" new="b"/>
+   <method old="b(L__pycache__/D;)V" new="b"/>
+   <method old="c(I)V" new="c" s="0" e="0"/>
+   <method old="c(J)I" new="c" s="0" e="0"/>
+   <method old="clear()V" new="clear" s="0" e="0"/>
+   <method old="contains(Ljava/lang/Object;)Z" new="contains"/>
+   <method old="containsAll(Ljava/util/Collection;)Z" new="containsAll" s="0" e="0"/>
+   <method old="d(I)V" new="d" s="0" e="0"/>
+   <method old="d(J)I" new="d" s="0" e="0"/>
+   <method old="equals(Ljava/lang/Object;)Z" new="equals" s="0" e="0"/>
+   <method old="forEach(Ljava/util/function/Consumer;)V" new="forEach"/>
+   <method old="get(I)Ljava/lang/Object;" new="get"/>
+   <method old="hashCode()I" new="hashCode" s="0" e="0"/>
+   <method old="indexOf(Ljava/lang/Object;)I" new="indexOf"/>
+   <method old="iterator()L__pycache__/K;" new="iterator" s="0" e="0"/>
+   <method old="iterator()Ljava/util/Iterator;" new="iterator" s="0" e="0"/>
+   <method old="lastIndexOf(Ljava/lang/Object;)I" new="lastIndexOf"/>
+   <method old="listIterator()Ljava/util/ListIterator;" new="listIterator" s="0" e="0"/>
+   <method old="listIterator(I)L__pycache__/K;" new="listIterator"/>
+   <method old="listIterator(I)Ljava/util/ListIterator;" new="listIterator" s="0" e="0"/>
+   <method old="remove(I)Ljava/lang/Object;" new="remove"/>
+   <method old="remove(Ljava/lang/Object;)Z" new="remove"/>
+   <method old="removeAll(Ljava/util/Collection;)Z" new="removeAll" s="0" e="0"/>
+   <method old="removeIf(Ljava/util/function/Predicate;)Z" new="removeIf"/>
+   <method old="replaceAll(Ljava/util/function/UnaryOperator;)V" new="replaceAll"/>
+   <method old="retainAll(Ljava/util/Collection;)Z" new="retainAll" s="0" e="0"/>
+   <method old="set(ILjava/lang/Object;)Ljava/lang/Object;" new="set"/>
+   <method old="sort(Ljava/util/Comparator;)V" new="sort"/>
+   <method old="toString()Ljava/lang/String;" new="toString" s="0" e="0"/>
+  </class>
+  <class old="__pycache__.f" new="__pycache__.f">
+   <method old="a()L__pycache__/J0;" new="a"/>
+   <method old="a(Ljava/util/function/BiConsumer;L__pycache__/T;)V" new="a"/>
+   <method old="apply(Ljava/lang/Object;)Ljava/lang/Object;" new="apply"/>
+   <method old="compute(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;" new="compute"/>
+   <method old="computeIfPresent(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;" new="computeIfPresent"/>
+   <method old="containsKey(Ljava/lang/Object;)Z" new="containsKey"/>
+   <method old="entrySet()Ljava/util/Set;" new="entrySet"/>
+   <method old="forEach(Ljava/util/function/BiConsumer;)V" new="forEach"/>
+   <method old="get(Ljava/lang/Object;)Ljava/lang/Object;" new="get"/>
+   <method old="merge(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;" new="merge"/>
+   <method old="put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" new="put"/>
+   <method old="putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" new="putIfAbsent"/>
+   <method old="remove(Ljava/lang/Object;)Ljava/lang/Object;" new="remove"/>
+   <method old="remove(Ljava/lang/Object;Ljava/lang/Object;)Z" new="remove"/>
+   <method old="replace(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" new="replace"/>
+   <method old="replace(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z" new="replace"/>
+  </class>
+  <class old="__pycache__.g" new="__pycache__.g">
+   <method old="a()L__pycache__/J0;" new="a"/>
+   <method old="a(Ljava/util/function/BiConsumer;L__pycache__/T;)V" new="a"/>
+   <method old="apply(Ljava/lang/Object;)Ljava/lang/Object;" new="apply"/>
+   <method old="compute(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;" new="compute"/>
+   <method old="computeIfPresent(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;" new="computeIfPresent"/>
+   <method old="containsKey(Ljava/lang/Object;)Z" new="containsKey"/>
+   <method old="entrySet()Ljava/util/Set;" new="entrySet"/>
+   <method old="equals(Ljava/lang/Object;)Z" new="equals" s="0" e="0"/>
+   <method old="forEach(Ljava/util/function/BiConsumer;)V" new="forEach"/>
+   <method old="get(Ljava/lang/Object;)Ljava/lang/Object;" new="get"/>
+   <method old="merge(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;" new="merge"/>
+   <method old="put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" new="put"/>
+   <method old="putAll(Ljava/util/Map;)V" new="putAll" s="0" e="0"/>
+   <method old="putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" new="putIfAbsent"/>
+   <method old="remove(Ljava/lang/Object;)Ljava/lang/Object;" new="remove"/>
+   <method old="remove(Ljava/lang/Object;Ljava/lang/Object;)Z" new="remove"/>
+   <method old="replace(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" new="replace"/>
+   <method old="replace(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z" new="replace"/>
+   <method old="toString()Ljava/lang/String;" new="toString" s="0" e="0"/>
+  </class>
+  <class old="__pycache__.h" new="__pycache__.h">
+   <method old="a(II)V" new="a"/>
+   <method old="a(II[Ljava/lang/Object;)V" new="a"/>
+   <method old="a(I[Ljava/lang/Object;II)V" new="a"/>
+   <method old="iterator()L__pycache__/z0;" new="iterator"/>
+   <method old="listIterator(I)L__pycache__/F0;" new="listIterator"/>
+   <method old="sort(Ljava/util/Comparator;)V" new="sort"/>
+   <method old="toString()Ljava/lang/String;" new="toString" s="0" e="0"/>
+  </class>
+  <class old="__pycache__.i" new="__pycache__.i">
+   <method old="add(Ljava/lang/Object;)V" new="add"/>
+   <method old="hasPrevious()Z" new="hasPrevious"/>
+   <method old="previous()Ljava/lang/Object;" new="previous"/>
+   <method old="remove()V" new="remove"/>
+   <method old="set(Ljava/lang/Object;)V" new="set"/>
+  </class>
+  <class old="__pycache__.K0" new="__pycache__.K0">
+   <method old="addAll(Ljava/util/Collection;)Z" new="addAll"/>
+   <method old="clear()V" new="clear"/>
+   <method old="clone()Ljava/lang/Object;" new="clone"/>
+   <method old="contains(Ljava/lang/Object;)Z" new="contains"/>
+   <method old="containsAll(Ljava/util/Collection;)Z" new="containsAll"/>
+   <method old="equals(Ljava/lang/Object;)Z" new="equals" s="0" e="0"/>
+   <method old="forEach(Ljava/util/function/Consumer;)V" new="forEach"/>
+   <method old="hashCode()I" new="hashCode"/>
+   <method old="iterator()L__pycache__/z0;" new="iterator"/>
+   <method old="iterator()Ljava/util/Iterator;" new="iterator"/>
+   <method old="remove(Ljava/lang/Object;)Z" new="remove"/>
+   <method old="removeAll(Ljava/util/Collection;)Z" new="removeAll"/>
+   <method old="removeIf(Ljava/util/function/Predicate;)Z" new="removeIf"/>
+   <method old="retainAll(Ljava/util/Collection;)Z" new="retainAll"/>
+   <method old="size()I" new="size"/>
+   <method old="spliterator()Ljava/util/Spliterator;" new="spliterator"/>
+   <method old="toArray()[Ljava/lang/Object;" new="toArray"/>
+   <method old="toArray([Ljava/lang/Object;)[Ljava/lang/Object;" new="toArray"/>
+   <method old="toString()Ljava/lang/String;" new="toString"/>
+  </class>
+  <class old="__pycache__.p0" new="__pycache__.p0">
+   <method old="a()I" new="a"/>
+   <method old="a(I)Ljava/lang/Object;" new="a" s="0" e="0"/>
+   <method old="a(II)L__pycache__/M0;" new="a"/>
+   <method old="b()I" new="b" s="0" e="0"/>
+   <method old="characteristics()I" new="characteristics"/>
+   <method old="estimateSize()J" new="estimateSize"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="tryAdvance(Ljava/util/function/Consumer;)Z" new="tryAdvance" s="0" e="0"/>
+   <method old="trySplit()Ljava/util/Spliterator;" new="trySplit"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c Z" new="c"/>
+   <field old="d L__pycache__/q0;" new="d"/>
+  </class>
+  <class old="__pycache__.j" new="__pycache__.j">
+   <method old="a()I" new="a"/>
+   <method old="a(I)Ljava/lang/Object;" new="a" s="0" e="0"/>
+   <method old="a(II)L__pycache__/M0;" new="a"/>
+   <method old="b()I" new="b" s="0" e="0"/>
+   <method old="characteristics()I" new="characteristics"/>
+   <method old="estimateSize()J" new="estimateSize"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="tryAdvance(Ljava/util/function/Consumer;)Z" new="tryAdvance"/>
+   <method old="trySplit()Ljava/util/Spliterator;" new="trySplit"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c Z" new="c"/>
+   <field old="d L__pycache__/E0;" new="d"/>
+  </class>
+  <class old="__pycache__.k" new="__pycache__.k">
+   <method old="a()V" new="a"/>
+   <method old="a(II)V" new="a" s="0" e="0"/>
+   <method old="a(II[Ljava/lang/Object;)V" new="a" s="0" e="0"/>
+   <method old="a(I[Ljava/lang/Object;II)V" new="a" s="0" e="0"/>
+   <method old="a(Ljava/util/List;)I" new="a"/>
+   <method old="add(ILjava/lang/Object;)V" new="add" s="0" e="0"/>
+   <method old="add(Ljava/lang/Object;)Z" new="add" s="0" e="0"/>
+   <method old="addAll(ILjava/util/Collection;)Z" new="addAll" s="0" e="0"/>
+   <method old="addAll(Ljava/util/Collection;)Z" new="addAll"/>
+   <method old="b()L__pycache__/M0;" new="b" s="0" e="0"/>
+   <method old="c(I)V" new="c"/>
+   <method old="clear()V" new="clear"/>
+   <method old="compareTo(Ljava/lang/Object;)I" new="compareTo" s="0" e="0"/>
+   <method old="contains(Ljava/lang/Object;)Z" new="contains"/>
+   <method old="d(I)V" new="d"/>
+   <method old="equals(Ljava/lang/Object;)Z" new="equals"/>
+   <method old="forEach(Ljava/util/function/Consumer;)V" new="forEach"/>
+   <method old="get(I)Ljava/lang/Object;" new="get" s="0" e="0"/>
+   <method old="hashCode()I" new="hashCode"/>
+   <method old="indexOf(Ljava/lang/Object;)I" new="indexOf"/>
+   <method old="iterator()L__pycache__/z0;" new="iterator" s="0" e="0"/>
+   <method old="iterator()Ljava/util/Iterator;" new="iterator" s="0" e="0"/>
+   <method old="lastIndexOf(Ljava/lang/Object;)I" new="lastIndexOf"/>
+   <method old="listIterator()Ljava/util/ListIterator;" new="listIterator" s="0" e="0"/>
+   <method old="listIterator(I)L__pycache__/F0;" new="listIterator" s="0" e="0"/>
+   <method old="listIterator(I)Ljava/util/ListIterator;" new="listIterator"/>
+   <method old="remove(I)Ljava/lang/Object;" new="remove" s="0" e="0"/>
+   <method old="set(ILjava/lang/Object;)Ljava/lang/Object;" new="set" s="0" e="0"/>
+   <method old="size()I" new="size" s="0" e="0"/>
+   <method old="sort(Ljava/util/Comparator;)V" new="sort"/>
+   <method old="spliterator()Ljava/util/Spliterator;" new="spliterator" s="0" e="0"/>
+   <method old="subList(II)Ljava/util/List;" new="subList" s="0" e="0"/>
+   <method old="toArray()[Ljava/lang/Object;" new="toArray"/>
+   <method old="toArray([Ljava/lang/Object;)[Ljava/lang/Object;" new="toArray"/>
+   <method old="toString()Ljava/lang/String;" new="toString"/>
+   <field old="a L__pycache__/E0;" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d Z" new="d"/>
+  </class>
+  <class old="__pycache__.l" new="__pycache__.l">
+   <method old="add(Ljava/lang/Object;)V" new="add" s="0" e="0"/>
+   <method old="hasNext()Z" new="hasNext" s="0" e="0"/>
+   <method old="hasPrevious()Z" new="hasPrevious" s="0" e="0"/>
+   <method old="next()Ljava/lang/Object;" new="next" s="0" e="0"/>
+   <method old="nextIndex()I" new="nextIndex" s="0" e="0"/>
+   <method old="previous()Ljava/lang/Object;" new="previous" s="0" e="0"/>
+   <method old="previousIndex()I" new="previousIndex" s="0" e="0"/>
+   <method old="remove()V" new="remove" s="0" e="0"/>
+   <method old="set(Ljava/lang/Object;)V" new="set" s="0" e="0"/>
+   <field old="a L__pycache__/F0;" new="a"/>
+   <field old="b L__pycache__/k;" new="b"/>
+  </class>
+  <class old="__pycache__.m" new="__pycache__.m">
+   <method old="a(I)Ljava/lang/Object;" new="a" s="0" e="0"/>
+   <method old="a(ILjava/lang/Object;)V" new="a" s="0" e="0"/>
+   <method old="add(Ljava/lang/Object;)V" new="add" s="0" e="0"/>
+   <method old="b()I" new="b" s="0" e="0"/>
+   <method old="b(I)V" new="b" s="0" e="0"/>
+   <method old="b(ILjava/lang/Object;)V" new="b" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="hasNext()Z" new="hasNext"/>
+   <method old="hasPrevious()Z" new="hasPrevious"/>
+   <method old="next()Ljava/lang/Object;" new="next"/>
+   <method old="nextIndex()I" new="nextIndex"/>
+   <method old="previous()Ljava/lang/Object;" new="previous"/>
+   <method old="previousIndex()I" new="previousIndex"/>
+   <method old="remove()V" new="remove" s="0" e="0"/>
+   <method old="set(Ljava/lang/Object;)V" new="set"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d L__pycache__/k;" new="d"/>
+   <field old="e Z" new="e"/>
+  </class>
+  <class old="__pycache__.n" new="__pycache__.n">
+   <method old="a(II)V" new="a"/>
+   <method old="a(II[Ljava/lang/Object;)V" new="a"/>
+   <method old="a(I[Ljava/lang/Object;II)V" new="a"/>
+   <method old="a(Ljava/util/List;)I" new="a" s="0" e="0"/>
+   <method old="addAll(Ljava/util/Collection;)Z" new="addAll" s="0" e="0"/>
+   <method old="c(I)V" new="c" s="0" e="0"/>
+   <method old="clear()V" new="clear" s="0" e="0"/>
+   <method old="contains(Ljava/lang/Object;)Z" new="contains" s="0" e="0"/>
+   <method old="d(I)V" new="d" s="0" e="0"/>
+   <method old="equals(Ljava/lang/Object;)Z" new="equals" s="0" e="0"/>
+   <method old="forEach(Ljava/util/function/Consumer;)V" new="forEach" s="0" e="0"/>
+   <method old="hashCode()I" new="hashCode" s="0" e="0"/>
+   <method old="indexOf(Ljava/lang/Object;)I" new="indexOf" s="0" e="0"/>
+   <method old="iterator()L__pycache__/z0;" new="iterator" s="0" e="0"/>
+   <method old="iterator()Ljava/util/Iterator;" new="iterator" s="0" e="0"/>
+   <method old="lastIndexOf(Ljava/lang/Object;)I" new="lastIndexOf" s="0" e="0"/>
+   <method old="listIterator()Ljava/util/ListIterator;" new="listIterator" s="0" e="0"/>
+   <method old="listIterator(I)L__pycache__/F0;" new="listIterator"/>
+   <method old="listIterator(I)Ljava/util/ListIterator;" new="listIterator" s="0" e="0"/>
+   <method old="sort(Ljava/util/Comparator;)V" new="sort"/>
+   <method old="toArray()[Ljava/lang/Object;" new="toArray" s="0" e="0"/>
+   <method old="toArray([Ljava/lang/Object;)[Ljava/lang/Object;" new="toArray" s="0" e="0"/>
+   <method old="toString()Ljava/lang/String;" new="toString" s="0" e="0"/>
+  </class>
+  <class old="__pycache__.E0" new="__pycache__.E0">
+   <method old="a(II)V" new="a"/>
+   <method old="a(II[Ljava/lang/Object;)V" new="a"/>
+   <method old="a(I[Ljava/lang/Object;II)V" new="a"/>
+   <method old="iterator()L__pycache__/z0;" new="iterator"/>
+   <method old="listIterator(I)L__pycache__/F0;" new="listIterator"/>
+   <method old="sort(Ljava/util/Comparator;)V" new="sort" s="0" e="0"/>
+  </class>
+  <class old="__pycache__.j0" new="__pycache__.j0">
+   <method old="AllatoriDecryptString(Ljava/lang/String;)Ljava/lang/String;" new="ALLATORIxDEMO"/>
+   <method old="a(ILjava/lang/Object;)V" new="a" s="0" e="0"/>
+   <method old="b()I" new="b"/>
+   <method old="forEachRemaining(Ljava/lang/Object;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="hasNext()Z" new="hasNext"/>
+   <method old="next()Ljava/lang/Object;" new="next" s="0" e="0"/>
+   <method old="remove()V" new="remove"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d Z" new="d"/>
+   <field old="e L__pycache__/r0;" new="e"/>
+   <field old="f L__pycache__/l0;" new="f"/>
+   <field old="g L__pycache__/l0;" new="g"/>
+  </class>
+  <class old="__pycache__.o" new="__pycache__.o">
+   <method old="equals(Ljava/lang/Object;)Z" new="equals" s="0" e="0"/>
+   <method old="hashCode()I" new="hashCode" s="0" e="0"/>
+   <method old="iterator()L__pycache__/z0;" new="iterator"/>
+   <method old="toString()Ljava/lang/String;" new="toString"/>
+  </class>
+  <class old="__pycache__.p" new="__pycache__.p">
+  </class>
+  <class old="__pycache__.q" new="__pycache__.q">
+   <method old="a(III)V" new="a"/>
+   <method old="b(III)V" new="b"/>
+   <field old="a Z" new="a"/>
+  </class>
+  <class old="__pycache__.r" new="__pycache__.r">
+   <method old="a()Ltoday/opai/api/interfaces/modules/values/NumberValue;" new="a"/>
+   <method old="a(Ljava/lang/String;Z)Ltoday/opai/api/interfaces/modules/values/BooleanValue;" new="a"/>
+   <method old="a([Ljava/lang/String;)Ltoday/opai/api/interfaces/modules/values/ModeValue;" new="a"/>
+   <method old="addValues([Ltoday/opai/api/interfaces/modules/Value;)V" new="addValues"/>
+   <method old="b()V" new="b" s="0" e="0"/>
+   <method old="onDisabled()V" new="onDisabled" s="0" e="0"/>
+   <method old="onEnabled()V" new="onEnabled" s="0" e="0"/>
+   <method old="onMove(Ltoday/opai/api/events/EventMove;)V" new="onMove" s="0" e="0"/>
+   <method old="onPacketSend(Ltoday/opai/api/events/EventPacketSend;)V" new="onPacketSend" s="0" e="0"/>
+   <method old="onRender2D(Ltoday/opai/api/events/EventRender2D;)V" new="onRender2D" s="0" e="0"/>
+   <field old="a Ltoday/opai/api/OpenAPI;" new="a"/>
+   <field old="b Ltoday/opai/api/interfaces/game/entity/LocalPlayer;" new="b"/>
+   <field old="c Ltoday/opai/api/interfaces/game/world/World;" new="c"/>
+   <field old="d Z" new="d"/>
+   <field old="e Ltoday/opai/api/interfaces/modules/values/BooleanValue;" new="e"/>
+   <field old="f Ltoday/opai/api/interfaces/modules/values/BooleanValue;" new="f"/>
+   <field old="g Ltoday/opai/api/interfaces/modules/values/BooleanValue;" new="g"/>
+   <field old="h Ltoday/opai/api/interfaces/modules/values/BooleanValue;" new="h"/>
+   <field old="i Ltoday/opai/api/interfaces/modules/PresetModule;" new="i"/>
+   <field old="j Ltoday/opai/api/interfaces/modules/PresetModule;" new="j"/>
+   <field old="k Z" new="k"/>
+   <field old="l Z" new="l"/>
+  </class>
+  <class old="__pycache__.s" new="__pycache__.s">
+   <method old="toString()Ljava/lang/String;" new="toString" s="0" e="0"/>
+   <field old="a Ljava/lang/String;" new="a"/>
+   <field old="b Ljava/lang/String;" new="b"/>
+   <field old="c L__pycache__/s;" new="c"/>
+   <field old="d L__pycache__/s;" new="d"/>
+   <field old="e L__pycache__/s;" new="e"/>
+   <field old="f L__pycache__/s;" new="f"/>
+   <field old="g L__pycache__/s;" new="g"/>
+   <field old="h L__pycache__/s;" new="h"/>
+   <field old="i Ljava/util/HashMap;" new="i"/>
+   <field old="j Ljava/util/regex/Pattern;" new="j"/>
+  </class>
+  <class old="__pycache__.t" new="__pycache__.t">
+   <method old="apply(Ljava/lang/Object;)Ljava/lang/Object;" new="apply" s="0" e="0"/>
+   <method old="get(Ljava/lang/Object;)Ljava/lang/Object;" new="get"/>
+  </class>
+  <class old="__pycache__.d0" new="__pycache__.d0">
+   <method old="clear()V" new="clear" s="0" e="0"/>
+   <method old="contains(Ljava/lang/Object;)Z" new="contains" s="0" e="0"/>
+   <method old="equals(Ljava/lang/Object;)Z" new="equals"/>
+   <method old="forEach(Ljava/util/function/Consumer;)V" new="forEach" s="0" e="0"/>
+   <method old="hashCode()I" new="hashCode"/>
+   <method old="iterator()L__pycache__/z0;" new="iterator"/>
+   <method old="iterator()Ljava/util/Iterator;" new="iterator"/>
+   <method old="remove(Ljava/lang/Object;)Z" new="remove" s="0" e="0"/>
+   <method old="size()I" new="size" s="0" e="0"/>
+   <method old="spliterator()Ljava/util/Spliterator;" new="spliterator"/>
+   <method old="toString()Ljava/lang/String;" new="toString"/>
+   <field old="a L__pycache__/l0;" new="a"/>
+  </class>
+  <class old="__pycache__.u" new="__pycache__.u">
+   <method old="AllatoriDecryptString(Ljava/lang/String;)Ljava/lang/String;" new="ALLATORIxDEMO"/>
+   <method old="a(I)I" new="a"/>
+   <method old="a(IF)I" new="a" s="0" e="0"/>
+   <method old="b(IF)I" new="b" s="0" e="0"/>
+  </class>
+  <class old="__pycache__.v" new="__pycache__.v">
+   <method old="a()J" new="a" s="0" e="0"/>
+   <method old="a(J)V" new="a" s="0" e="0"/>
+   <method old="add(Ljava/lang/Object;)V" new="add"/>
+   <method old="b(J)V" new="b" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/lang/Object;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/LongConsumer;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="hasNext()Z" new="hasNext" s="0" e="0"/>
+   <method old="hasPrevious()Z" new="hasPrevious" s="0" e="0"/>
+   <method old="next()Ljava/lang/Long;" new="next"/>
+   <method old="next()Ljava/lang/Object;" new="next"/>
+   <method old="nextIndex()I" new="nextIndex" s="0" e="0"/>
+   <method old="nextLong()J" new="nextLong" s="0" e="0"/>
+   <method old="previous()Ljava/lang/Object;" new="previous"/>
+   <method old="previousIndex()I" new="previousIndex" s="0" e="0"/>
+   <method old="remove()V" new="remove" s="0" e="0"/>
+   <method old="set(Ljava/lang/Object;)V" new="set"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c L__pycache__/A;" new="c"/>
+  </class>
+  <class old="__pycache__.w" new="__pycache__.w">
+   <method old="a()L__pycache__/L;" new="a" s="0" e="0"/>
+   <method old="characteristics()I" new="characteristics"/>
+   <method old="estimateSize()J" new="estimateSize" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/lang/Object;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/LongConsumer;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="getComparator()Ljava/util/Comparator;" new="getComparator"/>
+   <method old="tryAdvance(Ljava/lang/Object;)Z" new="tryAdvance" s="0" e="0"/>
+   <method old="tryAdvance(Ljava/util/function/Consumer;)Z" new="tryAdvance"/>
+   <method old="tryAdvance(Ljava/util/function/LongConsumer;)Z" new="tryAdvance" s="0" e="0"/>
+   <method old="trySplit()Ljava/util/Spliterator$OfLong;" new="trySplit" s="0" e="0"/>
+   <method old="trySplit()Ljava/util/Spliterator$OfPrimitive;" new="trySplit" s="0" e="0"/>
+   <method old="trySplit()Ljava/util/Spliterator;" new="trySplit" s="0" e="0"/>
+   <field old="a Z" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d L__pycache__/A;" new="d"/>
+   <field old="e Z" new="e"/>
+  </class>
+  <class old="__pycache__.x" new="__pycache__.x">
+   <method old="a()J" new="a" s="0" e="0"/>
+   <method old="a(I)J" new="a" s="0" e="0"/>
+   <method old="a(IJ)V" new="a" s="0" e="0"/>
+   <method old="a(J)V" new="a"/>
+   <method old="add(Ljava/lang/Object;)V" new="add"/>
+   <method old="b()I" new="b" s="0" e="0"/>
+   <method old="b(I)V" new="b" s="0" e="0"/>
+   <method old="b(IJ)V" new="b" s="0" e="0"/>
+   <method old="b(J)V" new="b"/>
+   <method old="forEachRemaining(Ljava/lang/Object;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/LongConsumer;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="hasNext()Z" new="hasNext"/>
+   <method old="hasPrevious()Z" new="hasPrevious"/>
+   <method old="next()Ljava/lang/Long;" new="next"/>
+   <method old="next()Ljava/lang/Object;" new="next"/>
+   <method old="nextIndex()I" new="nextIndex"/>
+   <method old="nextLong()J" new="nextLong" s="0" e="0"/>
+   <method old="previous()Ljava/lang/Object;" new="previous"/>
+   <method old="previousIndex()I" new="previousIndex"/>
+   <method old="remove()V" new="remove"/>
+   <method old="set(Ljava/lang/Object;)V" new="set"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d L__pycache__/z;" new="d"/>
+  </class>
+  <class old="__pycache__.y" new="__pycache__.y">
+   <method old="a()I" new="a"/>
+   <method old="a(I)J" new="a" s="0" e="0"/>
+   <method old="a(II)L__pycache__/L;" new="a"/>
+   <method old="b()I" new="b" s="0" e="0"/>
+   <method old="c()L__pycache__/L;" new="c"/>
+   <method old="characteristics()I" new="characteristics"/>
+   <method old="estimateSize()J" new="estimateSize"/>
+   <method old="forEachRemaining(Ljava/lang/Object;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/LongConsumer;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="getComparator()Ljava/util/Comparator;" new="getComparator"/>
+   <method old="tryAdvance(Ljava/lang/Object;)Z" new="tryAdvance" s="0" e="0"/>
+   <method old="tryAdvance(Ljava/util/function/Consumer;)Z" new="tryAdvance"/>
+   <method old="tryAdvance(Ljava/util/function/LongConsumer;)Z" new="tryAdvance" s="0" e="0"/>
+   <method old="trySplit()Ljava/util/Spliterator$OfLong;" new="trySplit"/>
+   <method old="trySplit()Ljava/util/Spliterator$OfPrimitive;" new="trySplit"/>
+   <method old="trySplit()Ljava/util/Spliterator;" new="trySplit"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c Z" new="c"/>
+   <field old="d L__pycache__/z;" new="d"/>
+  </class>
+  <class old="__pycache__.z" new="__pycache__.z">
+   <method old="a()V" new="a"/>
+   <method old="a(I)J" new="a" s="0" e="0"/>
+   <method old="a(II)V" new="a"/>
+   <method old="a(III[J)V" new="a"/>
+   <method old="a(II[J)V" new="a"/>
+   <method old="a(IJ)V" new="a"/>
+   <method old="a(IL__pycache__/C;)Z" new="a"/>
+   <method old="a(J)V" new="a"/>
+   <method old="a(L__pycache__/C;)Z" new="a"/>
+   <method old="a(L__pycache__/D;)V" new="a"/>
+   <method old="a(Ljava/util/List;)I" new="a" s="0" e="0"/>
+   <method old="a(Ljava/util/function/LongConsumer;)V" new="a"/>
+   <method old="a(Ljava/util/function/LongPredicate;)Z" new="a"/>
+   <method old="a(Ljava/util/function/Predicate;J)Z" new="a"/>
+   <method old="add(ILjava/lang/Object;)V" new="add"/>
+   <method old="add(Ljava/lang/Object;)Z" new="add"/>
+   <method old="addAll(ILjava/util/Collection;)Z" new="addAll"/>
+   <method old="addAll(Ljava/util/Collection;)Z" new="addAll"/>
+   <method old="b()L__pycache__/L;" new="b"/>
+   <method old="b(I)J" new="b"/>
+   <method old="b(II[J)I" new="b" s="0" e="0"/>
+   <method old="b(IJ)J" new="b"/>
+   <method old="b(J)Z" new="b"/>
+   <method old="b(L__pycache__/D;)V" new="b"/>
+   <method old="c(I)V" new="c"/>
+   <method old="c(II[J)Z" new="c" s="0" e="0"/>
+   <method old="c(J)I" new="c"/>
+   <method old="clear()V" new="clear"/>
+   <method old="compareTo(Ljava/lang/Object;)I" new="compareTo" s="0" e="0"/>
+   <method old="contains(Ljava/lang/Object;)Z" new="contains"/>
+   <method old="containsAll(Ljava/util/Collection;)Z" new="containsAll"/>
+   <method old="d(I)V" new="d"/>
+   <method old="d(J)I" new="d"/>
+   <method old="equals(Ljava/lang/Object;)Z" new="equals" s="0" e="0"/>
+   <method old="forEach(Ljava/util/function/Consumer;)V" new="forEach"/>
+   <method old="get(I)Ljava/lang/Object;" new="get"/>
+   <method old="hashCode()I" new="hashCode"/>
+   <method old="indexOf(Ljava/lang/Object;)I" new="indexOf"/>
+   <method old="iterator()L__pycache__/K;" new="iterator"/>
+   <method old="iterator()Ljava/util/Iterator;" new="iterator"/>
+   <method old="lastIndexOf(Ljava/lang/Object;)I" new="lastIndexOf"/>
+   <method old="listIterator()Ljava/util/ListIterator;" new="listIterator"/>
+   <method old="listIterator(I)L__pycache__/K;" new="listIterator"/>
+   <method old="listIterator(I)Ljava/util/ListIterator;" new="listIterator"/>
+   <method old="remove(I)Ljava/lang/Object;" new="remove"/>
+   <method old="remove(Ljava/lang/Object;)Z" new="remove"/>
+   <method old="removeAll(Ljava/util/Collection;)Z" new="removeAll"/>
+   <method old="removeIf(Ljava/util/function/Predicate;)Z" new="removeIf"/>
+   <method old="replaceAll(Ljava/util/function/UnaryOperator;)V" new="replaceAll"/>
+   <method old="retainAll(Ljava/util/Collection;)Z" new="retainAll"/>
+   <method old="set(ILjava/lang/Object;)Ljava/lang/Object;" new="set"/>
+   <method old="size()I" new="size"/>
+   <method old="sort(Ljava/util/Comparator;)V" new="sort"/>
+   <method old="spliterator()Ljava/util/Spliterator;" new="spliterator"/>
+   <method old="subList(II)Ljava/util/List;" new="subList"/>
+   <method old="toString()Ljava/lang/String;" new="toString"/>
+   <field old="a L__pycache__/J;" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d Z" new="d"/>
+   <field old="e L__pycache__/A;" new="e"/>
+  </class>
+  <class old="__pycache__.X0" new="__pycache__.X0">
+   <method old="a()Ltoday/opai/api/interfaces/modules/values/NumberValue;" new="a"/>
+   <method old="a(Ljava/lang/String;Z)Ltoday/opai/api/interfaces/modules/values/BooleanValue;" new="a"/>
+   <method old="a([Ljava/lang/String;)Ltoday/opai/api/interfaces/modules/values/ModeValue;" new="a"/>
+   <method old="addValues([Ltoday/opai/api/interfaces/modules/Value;)V" new="addValues"/>
+   <method old="getSuffix()Ljava/lang/String;" new="getSuffix" s="0" e="0"/>
+   <method old="onDisabled()V" new="onDisabled" s="0" e="0"/>
+   <method old="onPacketReceive(Ltoday/opai/api/events/EventPacketReceive;)V" new="onPacketReceive" s="0" e="0"/>
+   <method old="onPlayerUpdate()V" new="onPlayerUpdate" s="0" e="0"/>
+   <field old="a Ltoday/opai/api/OpenAPI;" new="a"/>
+   <field old="b Ltoday/opai/api/interfaces/game/entity/LocalPlayer;" new="b"/>
+   <field old="c Ltoday/opai/api/interfaces/game/world/World;" new="c"/>
+   <field old="d Z" new="d"/>
+   <field old="e Ltoday/opai/api/interfaces/modules/values/ModeValue;" new="e"/>
+   <field old="f Ltoday/opai/api/interfaces/modules/values/NumberValue;" new="f"/>
+   <field old="g Ltoday/opai/api/interfaces/modules/values/BooleanValue;" new="g"/>
+   <field old="h Ltoday/opai/api/interfaces/modules/values/BooleanValue;" new="h"/>
+   <field old="i Ltoday/opai/api/interfaces/modules/special/ModuleKillAura;" new="i"/>
+   <field old="j I" new="j"/>
+  </class>
+  <class old="__pycache__.R0" new="__pycache__.R0">
+   <method old="a()V" new="a"/>
+   <method old="a(Ljava/lang/String;)V" new="a"/>
+   <method old="initialize(Ltoday/opai/api/OpenAPI;)V" new="initialize" s="0" e="0"/>
+   <method old="onUnload()V" new="onUnload" s="0" e="0"/>
+   <field old="a Ltoday/opai/api/OpenAPI;" new="a"/>
+  </class>
+  <class old="__pycache__.w0" new="__pycache__.w0">
+   <method old="hasPrevious()Z" new="hasPrevious"/>
+   <method old="previous()Ljava/lang/Object;" new="previous"/>
+  </class>
+  <class old="__pycache__.L0" new="__pycache__.L0">
+   <field old="a L__pycache__/K0;" new="a"/>
+  </class>
+  <class old="__pycache__.q0" new="__pycache__.q0">
+   <method old="a()V" new="a"/>
+   <method old="a(II)V" new="a"/>
+   <method old="a(II[Ljava/lang/Object;)V" new="a"/>
+   <method old="a(I[Ljava/lang/Object;II)V" new="a"/>
+   <method old="a(Ljava/util/List;)I" new="a" s="0" e="0"/>
+   <method old="add(ILjava/lang/Object;)V" new="add"/>
+   <method old="add(Ljava/lang/Object;)Z" new="add"/>
+   <method old="addAll(ILjava/util/Collection;)Z" new="addAll"/>
+   <method old="addAll(Ljava/util/Collection;)Z" new="addAll"/>
+   <method old="b()L__pycache__/M0;" new="b"/>
+   <method old="b(II[Ljava/lang/Object;)I" new="b" s="0" e="0"/>
+   <method old="c(I)V" new="c"/>
+   <method old="c(II[Ljava/lang/Object;)Z" new="c" s="0" e="0"/>
+   <method old="clear()V" new="clear"/>
+   <method old="compareTo(Ljava/lang/Object;)I" new="compareTo" s="0" e="0"/>
+   <method old="contains(Ljava/lang/Object;)Z" new="contains"/>
+   <method old="d(I)V" new="d"/>
+   <method old="equals(Ljava/lang/Object;)Z" new="equals" s="0" e="0"/>
+   <method old="forEach(Ljava/util/function/Consumer;)V" new="forEach"/>
+   <method old="get(I)Ljava/lang/Object;" new="get" s="0" e="0"/>
+   <method old="hashCode()I" new="hashCode"/>
+   <method old="indexOf(Ljava/lang/Object;)I" new="indexOf"/>
+   <method old="iterator()L__pycache__/z0;" new="iterator"/>
+   <method old="iterator()Ljava/util/Iterator;" new="iterator"/>
+   <method old="lastIndexOf(Ljava/lang/Object;)I" new="lastIndexOf"/>
+   <method old="listIterator()Ljava/util/ListIterator;" new="listIterator"/>
+   <method old="listIterator(I)L__pycache__/F0;" new="listIterator"/>
+   <method old="listIterator(I)Ljava/util/ListIterator;" new="listIterator"/>
+   <method old="remove(I)Ljava/lang/Object;" new="remove"/>
+   <method old="set(ILjava/lang/Object;)Ljava/lang/Object;" new="set"/>
+   <method old="size()I" new="size"/>
+   <method old="sort(Ljava/util/Comparator;)V" new="sort"/>
+   <method old="spliterator()Ljava/util/Spliterator;" new="spliterator"/>
+   <method old="subList(II)Ljava/util/List;" new="subList"/>
+   <method old="toArray()[Ljava/lang/Object;" new="toArray"/>
+   <method old="toArray([Ljava/lang/Object;)[Ljava/lang/Object;" new="toArray"/>
+   <method old="toString()Ljava/lang/String;" new="toString"/>
+   <field old="a L__pycache__/E0;" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d Z" new="d"/>
+   <field old="e L__pycache__/r0;" new="e"/>
+  </class>
+  <class old="__pycache__.F0" new="__pycache__.F0">
+   <method old="add(Ljava/lang/Object;)V" new="add"/>
+   <method old="hasPrevious()Z" new="hasPrevious"/>
+   <method old="previous()Ljava/lang/Object;" new="previous"/>
+   <method old="remove()V" new="remove"/>
+   <method old="set(Ljava/lang/Object;)V" new="set"/>
+  </class>
+  <class old="__pycache__.k0" new="__pycache__.k0">
+   <method old="AllatoriDecryptString(Ljava/lang/String;)Ljava/lang/String;" new="ALLATORIxDEMO"/>
+   <method old="a()L__pycache__/i0;" new="a"/>
+   <method old="a(IIZ)L__pycache__/i0;" new="a"/>
+   <method old="a(ILjava/lang/Object;)V" new="a" s="0" e="0"/>
+   <method old="characteristics()I" new="characteristics" s="0" e="0"/>
+   <method old="estimateSize()J" new="estimateSize"/>
+   <method old="forEachRemaining(Ljava/lang/Object;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="tryAdvance(Ljava/lang/Object;)Z" new="tryAdvance"/>
+   <method old="tryAdvance(Ljava/util/function/Consumer;)Z" new="tryAdvance"/>
+   <method old="trySplit()Ljava/util/Spliterator;" new="trySplit"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d Z" new="d"/>
+   <field old="e Z" new="e"/>
+   <field old="f L__pycache__/l0;" new="f"/>
+   <field old="g L__pycache__/l0;" new="g"/>
+  </class>
+  <class old="__pycache__.e0" new="__pycache__.e0">
+   <method old="AllatoriDecryptString(Ljava/lang/String;)Ljava/lang/String;" new="ALLATORIxDEMO"/>
+   <method old="a()L__pycache__/i0;" new="a"/>
+   <method old="a(IIZ)L__pycache__/i0;" new="a"/>
+   <method old="a(ILjava/lang/Object;)V" new="a" s="0" e="0"/>
+   <method old="characteristics()I" new="characteristics" s="0" e="0"/>
+   <method old="estimateSize()J" new="estimateSize"/>
+   <method old="forEachRemaining(Ljava/lang/Object;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="tryAdvance(Ljava/lang/Object;)Z" new="tryAdvance"/>
+   <method old="tryAdvance(Ljava/util/function/Consumer;)Z" new="tryAdvance"/>
+   <method old="trySplit()Ljava/util/Spliterator;" new="trySplit"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d Z" new="d"/>
+   <field old="e Z" new="e"/>
+   <field old="f L__pycache__/l0;" new="f"/>
+   <field old="g L__pycache__/l0;" new="g"/>
+  </class>
+  <class old="__pycache__.S0" new="__pycache__.S0">
+   <method old="a()D" new="a" s="0" e="0"/>
+   <method old="b()I" new="b" s="0" e="0"/>
+  </class>
+  <class old="__pycache__.x0" new="__pycache__.x0">
+   <method old="iterator()L__pycache__/z0;" new="iterator"/>
+  </class>
+  <class old="__pycache__.M0" new="__pycache__.M0">
+  </class>
+  <class old="__pycache__.r0" new="__pycache__.r0">
+   <method old="a()L__pycache__/M0;" new="a" s="0" e="0"/>
+   <method old="a(II)V" new="a" s="0" e="0"/>
+   <method old="a(II[Ljava/lang/Object;)V" new="a" s="0" e="0"/>
+   <method old="a(IL__pycache__/E0;)Z" new="a" s="0" e="0"/>
+   <method old="a(I[Ljava/lang/Object;II)V" new="a" s="0" e="0"/>
+   <method old="a(L__pycache__/r0;)L__pycache__/r0;" new="a" s="0" e="0"/>
+   <method old="a(Ljava/util/List;)I" new="a"/>
+   <method old="add(ILjava/lang/Object;)V" new="add" s="0" e="0"/>
+   <method old="add(Ljava/lang/Object;)Z" new="add" s="0" e="0"/>
+   <method old="addAll(ILjava/util/Collection;)Z" new="addAll" s="0" e="0"/>
+   <method old="addAll(Ljava/util/Collection;)Z" new="addAll"/>
+   <method old="c(I)V" new="c"/>
+   <method old="clear()V" new="clear" s="0" e="0"/>
+   <method old="clone()Ljava/lang/Object;" new="clone" s="0" e="0"/>
+   <method old="compareTo(Ljava/lang/Object;)I" new="compareTo" s="0" e="0"/>
+   <method old="contains(Ljava/lang/Object;)Z" new="contains"/>
+   <method old="d(I)V" new="d"/>
+   <method old="e(I)V" new="e" s="0" e="0"/>
+   <method old="equals(Ljava/lang/Object;)Z" new="equals" s="0" e="0"/>
+   <method old="forEach(Ljava/util/function/Consumer;)V" new="forEach" s="0" e="0"/>
+   <method old="get(I)Ljava/lang/Object;" new="get" s="0" e="0"/>
+   <method old="hashCode()I" new="hashCode"/>
+   <method old="indexOf(Ljava/lang/Object;)I" new="indexOf" s="0" e="0"/>
+   <method old="isEmpty()Z" new="isEmpty" s="0" e="0"/>
+   <method old="iterator()L__pycache__/z0;" new="iterator"/>
+   <method old="iterator()Ljava/util/Iterator;" new="iterator"/>
+   <method old="lastIndexOf(Ljava/lang/Object;)I" new="lastIndexOf" s="0" e="0"/>
+   <method old="listIterator()Ljava/util/ListIterator;" new="listIterator"/>
+   <method old="listIterator(I)L__pycache__/F0;" new="listIterator" s="0" e="0"/>
+   <method old="listIterator(I)Ljava/util/ListIterator;" new="listIterator" s="0" e="0"/>
+   <method old="remove(I)Ljava/lang/Object;" new="remove" s="0" e="0"/>
+   <method old="remove(Ljava/lang/Object;)Z" new="remove" s="0" e="0"/>
+   <method old="removeAll(Ljava/util/Collection;)Z" new="removeAll" s="0" e="0"/>
+   <method old="removeIf(Ljava/util/function/Predicate;)Z" new="removeIf" s="0" e="0"/>
+   <method old="set(ILjava/lang/Object;)Ljava/lang/Object;" new="set" s="0" e="0"/>
+   <method old="size()I" new="size" s="0" e="0"/>
+   <method old="sort(Ljava/util/Comparator;)V" new="sort" s="0" e="0"/>
+   <method old="spliterator()Ljava/util/Spliterator;" new="spliterator" s="0" e="0"/>
+   <method old="subList(II)Ljava/util/List;" new="subList" s="0" e="0"/>
+   <method old="toArray()[Ljava/lang/Object;" new="toArray" s="0" e="0"/>
+   <method old="toArray([Ljava/lang/Object;)[Ljava/lang/Object;" new="toArray" s="0" e="0"/>
+   <method old="toString()Ljava/lang/String;" new="toString"/>
+   <field old="a Z" new="a"/>
+   <field old="b [Ljava/lang/Object;" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d Z" new="d"/>
+  </class>
+  <class old="__pycache__.G0" new="__pycache__.G0">
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="hasNext()Z" new="hasNext" s="0" e="0"/>
+   <method old="next()Ljava/lang/Object;" new="next" s="0" e="0"/>
+   <method old="remove()V" new="remove" s="0" e="0"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d Z" new="d"/>
+   <field old="e L__pycache__/r0;" new="e"/>
+   <field old="f L__pycache__/I0;" new="f"/>
+  </class>
+  <class old="__pycache__.l0" new="__pycache__.l0">
+   <method old="a()L__pycache__/J0;" new="a" s="0" e="0"/>
+   <method old="a(I)V" new="a" s="0" e="0"/>
+   <method old="a(ILjava/lang/Object;Ljava/lang/Object;)V" new="a" s="0" e="0"/>
+   <method old="a(Ljava/lang/Object;)I" new="a" s="0" e="0"/>
+   <method old="a(Ljava/util/function/BiConsumer;L__pycache__/T;)V" new="a"/>
+   <method old="apply(Ljava/lang/Object;)Ljava/lang/Object;" new="apply"/>
+   <method old="b()Ljava/lang/Object;" new="b" s="0" e="0"/>
+   <method old="b(I)Ljava/lang/Object;" new="b" s="0" e="0"/>
+   <method old="clear()V" new="clear" s="0" e="0"/>
+   <method old="clone()Ljava/lang/Object;" new="clone" s="0" e="0"/>
+   <method old="compute(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;" new="compute" s="0" e="0"/>
+   <method old="computeIfPresent(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;" new="computeIfPresent" s="0" e="0"/>
+   <method old="containsKey(Ljava/lang/Object;)Z" new="containsKey" s="0" e="0"/>
+   <method old="containsValue(Ljava/lang/Object;)Z" new="containsValue" s="0" e="0"/>
+   <method old="entrySet()Ljava/util/Set;" new="entrySet"/>
+   <method old="equals(Ljava/lang/Object;)Z" new="equals"/>
+   <method old="forEach(Ljava/util/function/BiConsumer;)V" new="forEach"/>
+   <method old="get(Ljava/lang/Object;)Ljava/lang/Object;" new="get" s="0" e="0"/>
+   <method old="getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" new="getOrDefault" s="0" e="0"/>
+   <method old="hashCode()I" new="hashCode" s="0" e="0"/>
+   <method old="isEmpty()Z" new="isEmpty" s="0" e="0"/>
+   <method old="keySet()Ljava/util/Set;" new="keySet" s="0" e="0"/>
+   <method old="merge(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;" new="merge" s="0" e="0"/>
+   <method old="put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" new="put" s="0" e="0"/>
+   <method old="putAll(Ljava/util/Map;)V" new="putAll" s="0" e="0"/>
+   <method old="putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" new="putIfAbsent" s="0" e="0"/>
+   <method old="remove(Ljava/lang/Object;)Ljava/lang/Object;" new="remove" s="0" e="0"/>
+   <method old="remove(Ljava/lang/Object;Ljava/lang/Object;)Z" new="remove" s="0" e="0"/>
+   <method old="replace(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" new="replace" s="0" e="0"/>
+   <method old="replace(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z" new="replace" s="0" e="0"/>
+   <method old="size()I" new="size" s="0" e="0"/>
+   <method old="toString()Ljava/lang/String;" new="toString"/>
+   <method old="values()Ljava/util/Collection;" new="values" s="0" e="0"/>
+   <field old="a [Ljava/lang/Object;" new="a"/>
+   <field old="b [Ljava/lang/Object;" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d Z" new="d"/>
+   <field old="e I" new="e"/>
+   <field old="f I" new="f"/>
+   <field old="g I" new="g"/>
+   <field old="h I" new="h"/>
+   <field old="i L__pycache__/g0;" new="i"/>
+   <field old="j L__pycache__/d0;" new="j"/>
+   <field old="k L__pycache__/Y;" new="k"/>
+  </class>
+  <class old="__pycache__.A0" new="__pycache__.A0">
+   <method old="a(I)Ljava/lang/Object;" new="a"/>
+   <method old="add(Ljava/lang/Object;)V" new="add"/>
+   <method old="b()I" new="b"/>
+   <method old="b(I)V" new="b"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="hasNext()Z" new="hasNext" s="0" e="0"/>
+   <method old="hasPrevious()Z" new="hasPrevious"/>
+   <method old="next()Ljava/lang/Object;" new="next" s="0" e="0"/>
+   <method old="previous()Ljava/lang/Object;" new="previous"/>
+   <method old="remove()V" new="remove" s="0" e="0"/>
+   <method old="set(Ljava/lang/Object;)V" new="set"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+  </class>
+  <class old="__pycache__.f0" new="__pycache__.f0">
+   <method old="equals(Ljava/lang/Object;)Z" new="equals" s="0" e="0"/>
+   <method old="getKey()Ljava/lang/Object;" new="getKey" s="0" e="0"/>
+   <method old="getValue()Ljava/lang/Object;" new="getValue" s="0" e="0"/>
+   <method old="hashCode()I" new="hashCode" s="0" e="0"/>
+   <method old="setValue(Ljava/lang/Object;)Ljava/lang/Object;" new="setValue" s="0" e="0"/>
+   <method old="toString()Ljava/lang/String;" new="toString"/>
+   <field old="a I" new="a"/>
+   <field old="b L__pycache__/l0;" new="b"/>
+  </class>
+  <class old="__pycache__.T0" new="__pycache__.T0">
+   <method old="AllatoriDecryptString(Ljava/lang/String;)Ljava/lang/String;" new="ALLATORIxDEMO"/>
+   <method old="a(I)[Ljava/lang/Class;" new="a" s="0" e="0"/>
+   <method old="equals(Ljava/lang/Object;)Z" new="equals" s="0" e="0"/>
+   <method old="hashCode()I" new="hashCode" s="0" e="0"/>
+   <method old="toString()Ljava/lang/String;" new="toString" s="0" e="0"/>
+   <field old="a Ljava/lang/Class;" new="a"/>
+   <field old="b [Ljava/lang/Class;" new="b"/>
+  </class>
+  <class old="__pycache__.y0" new="__pycache__.y0">
+   <method old="addAll(Ljava/util/Collection;)Z" new="addAll"/>
+   <method old="clear()V" new="clear"/>
+   <method old="contains(Ljava/lang/Object;)Z" new="contains"/>
+   <method old="containsAll(Ljava/util/Collection;)Z" new="containsAll" s="0" e="0"/>
+   <method old="forEach(Ljava/util/function/Consumer;)V" new="forEach"/>
+   <method old="hashCode()I" new="hashCode"/>
+   <method old="iterator()L__pycache__/z0;" new="iterator"/>
+   <method old="iterator()Ljava/util/Iterator;" new="iterator"/>
+   <method old="removeAll(Ljava/util/Collection;)Z" new="removeAll"/>
+   <method old="removeIf(Ljava/util/function/Predicate;)Z" new="removeIf" s="0" e="0"/>
+   <method old="retainAll(Ljava/util/Collection;)Z" new="retainAll"/>
+   <method old="size()I" new="size"/>
+   <method old="spliterator()Ljava/util/Spliterator;" new="spliterator"/>
+   <method old="toArray()[Ljava/lang/Object;" new="toArray"/>
+   <method old="toArray([Ljava/lang/Object;)[Ljava/lang/Object;" new="toArray" s="0" e="0"/>
+   <method old="toString()Ljava/lang/String;" new="toString"/>
+  </class>
+  <class old="__pycache__.N0" new="__pycache__.N0">
+   <method old="a()I" new="a"/>
+   <method old="a(I)Ljava/lang/Object;" new="a"/>
+   <method old="a(II)L__pycache__/M0;" new="a"/>
+   <method old="characteristics()I" new="characteristics"/>
+   <method old="estimateSize()J" new="estimateSize" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="tryAdvance(Ljava/util/function/Consumer;)Z" new="tryAdvance" s="0" e="0"/>
+   <field old="a I" new="a"/>
+  </class>
+  <class old="__pycache__.s0" new="__pycache__.s0">
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="hasNext()Z" new="hasNext" s="0" e="0"/>
+   <method old="next()Ljava/lang/Object;" new="next" s="0" e="0"/>
+   <method old="remove()V" new="remove" s="0" e="0"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c L__pycache__/u0;" new="c"/>
+  </class>
+  <class old="__pycache__.H0" new="__pycache__.H0">
+   <method old="characteristics()I" new="characteristics" s="0" e="0"/>
+   <method old="estimateSize()J" new="estimateSize" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="tryAdvance(Ljava/util/function/Consumer;)Z" new="tryAdvance" s="0" e="0"/>
+   <method old="trySplit()Ljava/util/Spliterator;" new="trySplit" s="0" e="0"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d Z" new="d"/>
+   <field old="e Z" new="e"/>
+   <field old="f L__pycache__/I0;" new="f"/>
+  </class>
+  <class old="__pycache__.m0" new="__pycache__.m0">
+   <method old="add(Ljava/lang/Object;)V" new="add" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="hasNext()Z" new="hasNext" s="0" e="0"/>
+   <method old="hasPrevious()Z" new="hasPrevious" s="0" e="0"/>
+   <method old="next()Ljava/lang/Object;" new="next" s="0" e="0"/>
+   <method old="nextIndex()I" new="nextIndex" s="0" e="0"/>
+   <method old="previous()Ljava/lang/Object;" new="previous" s="0" e="0"/>
+   <method old="previousIndex()I" new="previousIndex" s="0" e="0"/>
+   <method old="remove()V" new="remove" s="0" e="0"/>
+   <method old="set(Ljava/lang/Object;)V" new="set" s="0" e="0"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c L__pycache__/r0;" new="c"/>
+  </class>
+  <class old="asia.lira.opaiplus.Main" new="asia.lira.opaiplus.Main">
+   <method old="main([Ljava/lang/String;)V" new="main"/>
+  </class>
+  <class old="__pycache__.B0" new="__pycache__.B0">
+   <method old="a(I)Ljava/lang/Object;" new="a"/>
+   <method old="a(ILjava/lang/Object;)V" new="a"/>
+   <method old="add(Ljava/lang/Object;)V" new="add" s="0" e="0"/>
+   <method old="b()I" new="b"/>
+   <method old="b(I)V" new="b"/>
+   <method old="b(ILjava/lang/Object;)V" new="b"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="hasNext()Z" new="hasNext"/>
+   <method old="hasPrevious()Z" new="hasPrevious" s="0" e="0"/>
+   <method old="next()Ljava/lang/Object;" new="next"/>
+   <method old="nextIndex()I" new="nextIndex" s="0" e="0"/>
+   <method old="previous()Ljava/lang/Object;" new="previous" s="0" e="0"/>
+   <method old="previousIndex()I" new="previousIndex" s="0" e="0"/>
+   <method old="remove()V" new="remove"/>
+   <method old="set(Ljava/lang/Object;)V" new="set" s="0" e="0"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+  </class>
+  <class old="__pycache__.g0" new="__pycache__.g0">
+   <method old="a(Ljava/util/function/Consumer;)V" new="a"/>
+   <method old="clear()V" new="clear" s="0" e="0"/>
+   <method old="contains(Ljava/lang/Object;)Z" new="contains" s="0" e="0"/>
+   <method old="equals(Ljava/lang/Object;)Z" new="equals"/>
+   <method old="forEach(Ljava/util/function/Consumer;)V" new="forEach" s="0" e="0"/>
+   <method old="hashCode()I" new="hashCode"/>
+   <method old="iterator()L__pycache__/z0;" new="iterator"/>
+   <method old="iterator()Ljava/util/Iterator;" new="iterator"/>
+   <method old="remove(Ljava/lang/Object;)Z" new="remove" s="0" e="0"/>
+   <method old="size()I" new="size" s="0" e="0"/>
+   <method old="spliterator()Ljava/util/Spliterator;" new="spliterator"/>
+   <method old="toString()Ljava/lang/String;" new="toString"/>
+   <field old="a L__pycache__/l0;" new="a"/>
+  </class>
+  <class old="__pycache__.a0" new="__pycache__.a0">
+   <method old="AllatoriDecryptString(Ljava/lang/String;)Ljava/lang/String;" new="ALLATORIxDEMO"/>
+   <method old="a()L__pycache__/i0;" new="a"/>
+   <method old="a(IIZ)L__pycache__/i0;" new="a"/>
+   <method old="a(ILjava/lang/Object;)V" new="a" s="0" e="0"/>
+   <method old="characteristics()I" new="characteristics" s="0" e="0"/>
+   <method old="estimateSize()J" new="estimateSize"/>
+   <method old="forEachRemaining(Ljava/lang/Object;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="tryAdvance(Ljava/lang/Object;)Z" new="tryAdvance"/>
+   <method old="tryAdvance(Ljava/util/function/Consumer;)Z" new="tryAdvance"/>
+   <method old="trySplit()Ljava/util/Spliterator;" new="trySplit"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d Z" new="d"/>
+   <field old="e Z" new="e"/>
+   <field old="f L__pycache__/l0;" new="f"/>
+   <field old="g L__pycache__/l0;" new="g"/>
+  </class>
+  <class old="__pycache__.U0" new="__pycache__.U0">
+   <method old="a(L__pycache__/T0;)Ljava/lang/reflect/Constructor;" new="a" s="0" e="0"/>
+   <field old="a L__pycache__/l0;" new="a"/>
+   <field old="b L__pycache__/l0;" new="b"/>
+  </class>
+  <class old="__pycache__.z0" new="__pycache__.z0">
+  </class>
+  <class old="__pycache__.O0" new="__pycache__.O0">
+   <method old="characteristics()I" new="characteristics"/>
+   <method old="clone()Ljava/lang/Object;" new="clone"/>
+   <method old="estimateSize()J" new="estimateSize"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="tryAdvance(Ljava/util/function/Consumer;)Z" new="tryAdvance"/>
+   <method old="trySplit()Ljava/util/Spliterator;" new="trySplit"/>
+  </class>
+  <class old="__pycache__.t0" new="__pycache__.t0">
+   <method old="characteristics()I" new="characteristics"/>
+   <method old="estimateSize()J" new="estimateSize" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="tryAdvance(Ljava/util/function/Consumer;)Z" new="tryAdvance" s="0" e="0"/>
+   <method old="trySplit()Ljava/util/Spliterator;" new="trySplit" s="0" e="0"/>
+   <field old="a Z" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d L__pycache__/u0;" new="d"/>
+   <field old="e Z" new="e"/>
+  </class>
+  <class old="__pycache__.I0" new="__pycache__.I0">
+   <method old="a(L__pycache__/I0;)L__pycache__/I0;" new="a" s="0" e="0"/>
+   <method old="add(Ljava/lang/Object;)Z" new="add" s="0" e="0"/>
+   <method old="addAll(Ljava/util/Collection;)Z" new="addAll" s="0" e="0"/>
+   <method old="c(I)V" new="c" s="0" e="0"/>
+   <method old="clear()V" new="clear" s="0" e="0"/>
+   <method old="clone()Ljava/lang/Object;" new="clone" s="0" e="0"/>
+   <method old="contains(Ljava/lang/Object;)Z" new="contains" s="0" e="0"/>
+   <method old="d(I)V" new="d" s="0" e="0"/>
+   <method old="equals(Ljava/lang/Object;)Z" new="equals"/>
+   <method old="forEach(Ljava/util/function/Consumer;)V" new="forEach" s="0" e="0"/>
+   <method old="hashCode()I" new="hashCode" s="0" e="0"/>
+   <method old="isEmpty()Z" new="isEmpty" s="0" e="0"/>
+   <method old="iterator()L__pycache__/z0;" new="iterator"/>
+   <method old="iterator()Ljava/util/Iterator;" new="iterator"/>
+   <method old="remove(Ljava/lang/Object;)Z" new="remove" s="0" e="0"/>
+   <method old="size()I" new="size" s="0" e="0"/>
+   <method old="spliterator()Ljava/util/Spliterator;" new="spliterator"/>
+   <method old="toString()Ljava/lang/String;" new="toString"/>
+   <field old="a [Ljava/lang/Object;" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c Z" new="c"/>
+   <field old="d I" new="d"/>
+   <field old="e I" new="e"/>
+   <field old="f I" new="f"/>
+   <field old="g I" new="g"/>
+   <field old="h F" new="h"/>
+  </class>
+  <class old="__pycache__.n0" new="__pycache__.n0">
+   <method old="characteristics()I" new="characteristics"/>
+   <method old="estimateSize()J" new="estimateSize" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="tryAdvance(Ljava/util/function/Consumer;)Z" new="tryAdvance" s="0" e="0"/>
+   <method old="trySplit()Ljava/util/Spliterator;" new="trySplit" s="0" e="0"/>
+   <field old="a Z" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d L__pycache__/r0;" new="d"/>
+   <field old="e Z" new="e"/>
+  </class>
+  <class old="__pycache__.C0" new="__pycache__.C0">
+   <method old="add(Ljava/lang/Object;)V" new="add"/>
+   <method old="clone()Ljava/lang/Object;" new="clone"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="hasNext()Z" new="hasNext"/>
+   <method old="hasPrevious()Z" new="hasPrevious"/>
+   <method old="next()Ljava/lang/Object;" new="next"/>
+   <method old="nextIndex()I" new="nextIndex"/>
+   <method old="previous()Ljava/lang/Object;" new="previous"/>
+   <method old="previousIndex()I" new="previousIndex"/>
+   <method old="remove()V" new="remove"/>
+   <method old="set(Ljava/lang/Object;)V" new="set"/>
+  </class>
+  <class old="__pycache__.h0" new="__pycache__.h0">
+   <method old="AllatoriDecryptString(Ljava/lang/String;)Ljava/lang/String;" new="ALLATORIxDEMO"/>
+   <method old="a(ILjava/lang/Object;)V" new="a"/>
+   <method old="b()I" new="b" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/lang/Object;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="hasNext()Z" new="hasNext" s="0" e="0"/>
+   <method old="remove()V" new="remove" s="0" e="0"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d Z" new="d"/>
+   <field old="e L__pycache__/r0;" new="e"/>
+   <field old="f L__pycache__/l0;" new="f"/>
+  </class>
+  <class old="__pycache__.b0" new="__pycache__.b0">
+   <method old="AllatoriDecryptString(Ljava/lang/String;)Ljava/lang/String;" new="ALLATORIxDEMO"/>
+   <method old="a(ILjava/lang/Object;)V" new="a" s="0" e="0"/>
+   <method old="b()I" new="b"/>
+   <method old="forEachRemaining(Ljava/lang/Object;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="hasNext()Z" new="hasNext"/>
+   <method old="next()Ljava/lang/Object;" new="next" s="0" e="0"/>
+   <method old="remove()V" new="remove"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d Z" new="d"/>
+   <field old="e L__pycache__/r0;" new="e"/>
+   <field old="f L__pycache__/l0;" new="f"/>
+   <field old="g L__pycache__/f0;" new="g"/>
+  </class>
+  <class old="__pycache__.V0" new="__pycache__.V0">
+   <method old="a()Ltoday/opai/api/interfaces/modules/values/NumberValue;" new="a"/>
+   <method old="a(Ljava/lang/String;Z)Ltoday/opai/api/interfaces/modules/values/BooleanValue;" new="a"/>
+   <method old="a([Ljava/lang/String;)Ltoday/opai/api/interfaces/modules/values/ModeValue;" new="a"/>
+   <method old="addValues([Ltoday/opai/api/interfaces/modules/Value;)V" new="addValues"/>
+   <method old="onChat(Ltoday/opai/api/events/EventChatReceived;)V" new="onChat" s="0" e="0"/>
+   <method old="onDisabled()V" new="onDisabled" s="0" e="0"/>
+   <method old="onPacketSend(Ltoday/opai/api/events/EventPacketSend;)V" new="onPacketSend" s="0" e="0"/>
+   <field old="a Ltoday/opai/api/OpenAPI;" new="a"/>
+   <field old="b Ltoday/opai/api/interfaces/game/entity/LocalPlayer;" new="b"/>
+   <field old="c Ltoday/opai/api/interfaces/game/world/World;" new="c"/>
+   <field old="d Z" new="d"/>
+   <field old="e Ltoday/opai/api/interfaces/modules/values/BooleanValue;" new="e"/>
+   <field old="f L__pycache__/I0;" new="f"/>
+   <field old="g I" new="g"/>
+   <field old="h Ljava/lang/String;" new="h"/>
+  </class>
+  <class old="__pycache__.A" new="__pycache__.A">
+   <method old="a(I)J" new="a" s="0" e="0"/>
+   <method old="a(II)V" new="a" s="0" e="0"/>
+   <method old="a(III[J)V" new="a" s="0" e="0"/>
+   <method old="a(II[J)V" new="a" s="0" e="0"/>
+   <method old="a(IJ)V" new="a" s="0" e="0"/>
+   <method old="a(IL__pycache__/C;)Z" new="a" s="0" e="0"/>
+   <method old="a(J)V" new="a" s="0" e="0"/>
+   <method old="a(L__pycache__/C;)Z" new="a" s="0" e="0"/>
+   <method old="a(L__pycache__/D;)V" new="a" s="0" e="0"/>
+   <method old="a(Ljava/util/List;)I" new="a"/>
+   <method old="a(Ljava/util/function/LongConsumer;)V" new="a" s="0" e="0"/>
+   <method old="a(Ljava/util/function/LongPredicate;)Z" new="a" s="0" e="0"/>
+   <method old="a(Ljava/util/function/Predicate;J)Z" new="a"/>
+   <method old="add(ILjava/lang/Object;)V" new="add"/>
+   <method old="add(Ljava/lang/Object;)Z" new="add"/>
+   <method old="addAll(ILjava/util/Collection;)Z" new="addAll"/>
+   <method old="addAll(Ljava/util/Collection;)Z" new="addAll"/>
+   <method old="b(I)J" new="b" s="0" e="0"/>
+   <method old="b(IJ)J" new="b" s="0" e="0"/>
+   <method old="b(J)Z" new="b" s="0" e="0"/>
+   <method old="b(L__pycache__/D;)V" new="b" s="0" e="0"/>
+   <method old="c(I)V" new="c"/>
+   <method old="c(J)I" new="c" s="0" e="0"/>
+   <method old="clear()V" new="clear" s="0" e="0"/>
+   <method old="clone()Ljava/lang/Object;" new="clone" s="0" e="0"/>
+   <method old="compareTo(Ljava/lang/Object;)I" new="compareTo" s="0" e="0"/>
+   <method old="contains(Ljava/lang/Object;)Z" new="contains"/>
+   <method old="containsAll(Ljava/util/Collection;)Z" new="containsAll"/>
+   <method old="d(I)V" new="d"/>
+   <method old="d(J)I" new="d" s="0" e="0"/>
+   <method old="e(I)V" new="e" s="0" e="0"/>
+   <method old="equals(Ljava/lang/Object;)Z" new="equals" s="0" e="0"/>
+   <method old="forEach(Ljava/util/function/Consumer;)V" new="forEach"/>
+   <method old="get(I)Ljava/lang/Object;" new="get"/>
+   <method old="hashCode()I" new="hashCode"/>
+   <method old="indexOf(Ljava/lang/Object;)I" new="indexOf"/>
+   <method old="isEmpty()Z" new="isEmpty" s="0" e="0"/>
+   <method old="iterator()L__pycache__/K;" new="iterator"/>
+   <method old="iterator()Ljava/util/Iterator;" new="iterator"/>
+   <method old="lastIndexOf(Ljava/lang/Object;)I" new="lastIndexOf"/>
+   <method old="listIterator()Ljava/util/ListIterator;" new="listIterator"/>
+   <method old="listIterator(I)L__pycache__/K;" new="listIterator" s="0" e="0"/>
+   <method old="listIterator(I)Ljava/util/ListIterator;" new="listIterator" s="0" e="0"/>
+   <method old="remove(I)Ljava/lang/Object;" new="remove"/>
+   <method old="remove(Ljava/lang/Object;)Z" new="remove"/>
+   <method old="removeAll(Ljava/util/Collection;)Z" new="removeAll"/>
+   <method old="removeIf(Ljava/util/function/Predicate;)Z" new="removeIf"/>
+   <method old="replaceAll(Ljava/util/function/UnaryOperator;)V" new="replaceAll"/>
+   <method old="retainAll(Ljava/util/Collection;)Z" new="retainAll"/>
+   <method old="set(ILjava/lang/Object;)Ljava/lang/Object;" new="set"/>
+   <method old="size()I" new="size" s="0" e="0"/>
+   <method old="sort(Ljava/util/Comparator;)V" new="sort"/>
+   <method old="spliterator()Ljava/util/Spliterator;" new="spliterator" s="0" e="0"/>
+   <method old="subList(II)Ljava/util/List;" new="subList" s="0" e="0"/>
+   <method old="toString()Ljava/lang/String;" new="toString"/>
+   <field old="a [J" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c Z" new="c"/>
+  </class>
+  <class old="__pycache__.B" new="__pycache__.B">
+   <method old="a(III[J)I" new="a" s="0" e="0"/>
+   <method old="a(II[J)V" new="a" s="0" e="0"/>
+   <method old="a([JI)V" new="a" s="0" e="0"/>
+   <method old="a([JIIIL__pycache__/D;)I" new="a" s="0" e="0"/>
+   <method old="a([JIIL__pycache__/D;)V" new="a" s="0" e="0"/>
+   <method old="a([JIIL__pycache__/D;[J)V" new="a" s="0" e="0"/>
+   <method old="b(III[J)V" new="b" s="0" e="0"/>
+   <field old="a [J" new="a"/>
+   <field old="b [J" new="b"/>
+  </class>
+  <class old="__pycache__.C" new="__pycache__.C">
+   <method old="a(J)V" new="a"/>
+   <method old="a(Ljava/util/function/LongConsumer;)V" new="a"/>
+   <method old="a(Ljava/util/function/LongPredicate;)Z" new="a" s="0" e="0"/>
+   <method old="a(Ljava/util/function/Predicate;J)Z" new="a" s="0" e="0"/>
+   <method old="b(J)Z" new="b"/>
+   <method old="contains(Ljava/lang/Object;)Z" new="contains" s="0" e="0"/>
+   <method old="forEach(Ljava/util/function/Consumer;)V" new="forEach" s="0" e="0"/>
+   <method old="iterator()L__pycache__/K;" new="iterator"/>
+   <method old="remove(Ljava/lang/Object;)Z" new="remove" s="0" e="0"/>
+   <method old="removeIf(Ljava/util/function/Predicate;)Z" new="removeIf" s="0" e="0"/>
+  </class>
+  <class old="__pycache__.D" new="__pycache__.D">
+   <method old="a(L__pycache__/D;)L__pycache__/D;" new="a" s="0" e="0"/>
+   <method old="a(L__pycache__/D;JJ)I" new="a" s="0" e="0"/>
+   <method old="a(Ljava/lang/Long;Ljava/lang/Long;)I" new="a" s="0" e="0"/>
+   <method old="compare(JJ)I" new="compare"/>
+   <method old="compare(Ljava/lang/Object;Ljava/lang/Object;)I" new="compare" s="0" e="0"/>
+   <method old="reversed()L__pycache__/D;" new="reversed" s="0" e="0"/>
+   <method old="reversed()Ljava/util/Comparator;" new="reversed" s="0" e="0"/>
+   <method old="thenComparing(Ljava/util/Comparator;)Ljava/util/Comparator;" new="thenComparing" s="0" e="0"/>
+  </class>
+  <class old="__pycache__.P0" new="__pycache__.P0">
+   <method old="a()I" new="a" s="0" e="0"/>
+   <method old="a(I)Ljava/lang/Object;" new="a"/>
+   <method old="a(II)L__pycache__/M0;" new="a"/>
+   <method old="b()I" new="b"/>
+   <method old="characteristics()I" new="characteristics"/>
+   <method old="estimateSize()J" new="estimateSize"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="tryAdvance(Ljava/util/function/Consumer;)Z" new="tryAdvance"/>
+   <method old="trySplit()Ljava/util/Spliterator;" new="trySplit" s="0" e="0"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c Z" new="c"/>
+  </class>
+  <class old="__pycache__.E" new="__pycache__.E">
+   <method old="a(L__pycache__/D;)L__pycache__/D;" new="a"/>
+   <method old="a(L__pycache__/D;JJ)I" new="a"/>
+   <method old="a(Ljava/lang/Long;Ljava/lang/Long;)I" new="a" s="0" e="0"/>
+   <method old="compare(JJ)I" new="compare" s="0" e="0"/>
+   <method old="compare(Ljava/lang/Object;Ljava/lang/Object;)I" new="compare" s="0" e="0"/>
+   <method old="reversed()L__pycache__/D;" new="reversed"/>
+   <method old="reversed()Ljava/util/Comparator;" new="reversed"/>
+   <method old="thenComparing(Ljava/util/Comparator;)Ljava/util/Comparator;" new="thenComparing"/>
+   <field old="a Ljava/util/Comparator;" new="a"/>
+  </class>
+  <class old="__pycache__.u0" new="__pycache__.u0">
+   <method old="a()L__pycache__/M0;" new="a" s="0" e="0"/>
+   <method old="add(Ljava/lang/Object;)Z" new="add" s="0" e="0"/>
+   <method old="clear()V" new="clear" s="0" e="0"/>
+   <method old="clone()Ljava/lang/Object;" new="clone" s="0" e="0"/>
+   <method old="contains(Ljava/lang/Object;)Z" new="contains" s="0" e="0"/>
+   <method old="equals(Ljava/lang/Object;)Z" new="equals"/>
+   <method old="hashCode()I" new="hashCode"/>
+   <method old="isEmpty()Z" new="isEmpty" s="0" e="0"/>
+   <method old="iterator()L__pycache__/z0;" new="iterator"/>
+   <method old="iterator()Ljava/util/Iterator;" new="iterator"/>
+   <method old="remove(Ljava/lang/Object;)Z" new="remove" s="0" e="0"/>
+   <method old="size()I" new="size" s="0" e="0"/>
+   <method old="spliterator()Ljava/util/Spliterator;" new="spliterator" s="0" e="0"/>
+   <method old="toArray()[Ljava/lang/Object;" new="toArray" s="0" e="0"/>
+   <method old="toArray([Ljava/lang/Object;)[Ljava/lang/Object;" new="toArray" s="0" e="0"/>
+   <method old="toString()Ljava/lang/String;" new="toString"/>
+   <field old="a [Ljava/lang/Object;" new="a"/>
+   <field old="b I" new="b"/>
+  </class>
+  <class old="__pycache__.F" new="__pycache__.F">
+   <method old="a(L__pycache__/D;)L__pycache__/D;" new="a"/>
+   <method old="a(L__pycache__/D;JJ)I" new="a"/>
+   <method old="a(Ljava/lang/Long;Ljava/lang/Long;)I" new="a"/>
+   <method old="compare(JJ)I" new="compare" s="0" e="0"/>
+   <method old="compare(Ljava/lang/Object;Ljava/lang/Object;)I" new="compare"/>
+   <method old="reversed()L__pycache__/D;" new="reversed" s="0" e="0"/>
+   <method old="reversed()Ljava/util/Comparator;" new="reversed" s="0" e="0"/>
+   <method old="thenComparing(Ljava/util/Comparator;)Ljava/util/Comparator;" new="thenComparing"/>
+   <field old="a L__pycache__/D;" new="a"/>
+  </class>
+  <class old="__pycache__.G" new="__pycache__.G">
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining" s="0" e="0"/>
+  </class>
+  <class old="__pycache__.H" new="__pycache__.H">
+   <method old="a()J" new="a"/>
+   <method old="a(I)J" new="a"/>
+   <method old="a(J)V" new="a"/>
+   <method old="add(Ljava/lang/Object;)V" new="add"/>
+   <method old="b()I" new="b"/>
+   <method old="b(I)V" new="b"/>
+   <method old="b(J)V" new="b"/>
+   <method old="forEachRemaining(Ljava/lang/Object;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/LongConsumer;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="hasNext()Z" new="hasNext" s="0" e="0"/>
+   <method old="hasPrevious()Z" new="hasPrevious"/>
+   <method old="next()Ljava/lang/Long;" new="next"/>
+   <method old="next()Ljava/lang/Object;" new="next"/>
+   <method old="nextLong()J" new="nextLong" s="0" e="0"/>
+   <method old="previous()Ljava/lang/Object;" new="previous"/>
+   <method old="remove()V" new="remove" s="0" e="0"/>
+   <method old="set(Ljava/lang/Object;)V" new="set"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+  </class>
+  <class old="__pycache__.I" new="__pycache__.I">
+   <method old="a()J" new="a" s="0" e="0"/>
+   <method old="a(I)J" new="a"/>
+   <method old="a(IJ)V" new="a"/>
+   <method old="a(J)V" new="a" s="0" e="0"/>
+   <method old="add(Ljava/lang/Object;)V" new="add"/>
+   <method old="b()I" new="b"/>
+   <method old="b(I)V" new="b"/>
+   <method old="b(IJ)V" new="b"/>
+   <method old="b(J)V" new="b" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/lang/Object;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/LongConsumer;)V" new="forEachRemaining"/>
+   <method old="hasNext()Z" new="hasNext"/>
+   <method old="hasPrevious()Z" new="hasPrevious" s="0" e="0"/>
+   <method old="next()Ljava/lang/Long;" new="next"/>
+   <method old="next()Ljava/lang/Object;" new="next"/>
+   <method old="nextIndex()I" new="nextIndex" s="0" e="0"/>
+   <method old="nextLong()J" new="nextLong"/>
+   <method old="previous()Ljava/lang/Object;" new="previous"/>
+   <method old="previousIndex()I" new="previousIndex" s="0" e="0"/>
+   <method old="remove()V" new="remove"/>
+   <method old="set(Ljava/lang/Object;)V" new="set"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+  </class>
+  <class old="__pycache__.J" new="__pycache__.J">
+   <method old="a(I)J" new="a"/>
+   <method old="a(II)V" new="a"/>
+   <method old="a(III[J)V" new="a"/>
+   <method old="a(II[J)V" new="a"/>
+   <method old="a(IJ)V" new="a"/>
+   <method old="a(J)V" new="a"/>
+   <method old="a(L__pycache__/D;)V" new="a" s="0" e="0"/>
+   <method old="a(Ljava/util/function/LongConsumer;)V" new="a"/>
+   <method old="a(Ljava/util/function/LongPredicate;)Z" new="a"/>
+   <method old="a(Ljava/util/function/Predicate;J)Z" new="a"/>
+   <method old="add(ILjava/lang/Object;)V" new="add" s="0" e="0"/>
+   <method old="b(I)J" new="b"/>
+   <method old="b(IJ)J" new="b"/>
+   <method old="b(J)Z" new="b"/>
+   <method old="b(L__pycache__/D;)V" new="b" s="0" e="0"/>
+   <method old="c(J)I" new="c"/>
+   <method old="contains(Ljava/lang/Object;)Z" new="contains"/>
+   <method old="d(J)I" new="d"/>
+   <method old="forEach(Ljava/util/function/Consumer;)V" new="forEach"/>
+   <method old="get(I)Ljava/lang/Object;" new="get" s="0" e="0"/>
+   <method old="indexOf(Ljava/lang/Object;)I" new="indexOf" s="0" e="0"/>
+   <method old="iterator()L__pycache__/K;" new="iterator"/>
+   <method old="lastIndexOf(Ljava/lang/Object;)I" new="lastIndexOf" s="0" e="0"/>
+   <method old="listIterator(I)L__pycache__/K;" new="listIterator"/>
+   <method old="remove(I)Ljava/lang/Object;" new="remove" s="0" e="0"/>
+   <method old="remove(Ljava/lang/Object;)Z" new="remove"/>
+   <method old="removeIf(Ljava/util/function/Predicate;)Z" new="removeIf"/>
+   <method old="replaceAll(Ljava/util/function/UnaryOperator;)V" new="replaceAll" s="0" e="0"/>
+   <method old="set(ILjava/lang/Object;)Ljava/lang/Object;" new="set" s="0" e="0"/>
+   <method old="sort(Ljava/util/Comparator;)V" new="sort" s="0" e="0"/>
+  </class>
+  <class old="__pycache__.J0" new="__pycache__.J0">
+   <method old="iterator()L__pycache__/z0;" new="iterator"/>
+  </class>
+  <class old="__pycache__.o0" new="__pycache__.o0">
+   <method old="a(I)Ljava/lang/Object;" new="a" s="0" e="0"/>
+   <method old="a(ILjava/lang/Object;)V" new="a" s="0" e="0"/>
+   <method old="add(Ljava/lang/Object;)V" new="add"/>
+   <method old="b()I" new="b" s="0" e="0"/>
+   <method old="b(I)V" new="b" s="0" e="0"/>
+   <method old="b(ILjava/lang/Object;)V" new="b" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="hasNext()Z" new="hasNext"/>
+   <method old="hasPrevious()Z" new="hasPrevious"/>
+   <method old="next()Ljava/lang/Object;" new="next" s="0" e="0"/>
+   <method old="nextIndex()I" new="nextIndex"/>
+   <method old="previous()Ljava/lang/Object;" new="previous" s="0" e="0"/>
+   <method old="previousIndex()I" new="previousIndex"/>
+   <method old="remove()V" new="remove"/>
+   <method old="set(Ljava/lang/Object;)V" new="set"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d L__pycache__/q0;" new="d"/>
+  </class>
+  <class old="__pycache__.K" new="__pycache__.K">
+   <method old="a()J" new="a"/>
+   <method old="a(J)V" new="a"/>
+   <method old="add(Ljava/lang/Object;)V" new="add" s="0" e="0"/>
+   <method old="b(J)V" new="b"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="hasPrevious()Z" new="hasPrevious"/>
+   <method old="next()Ljava/lang/Long;" new="next" s="0" e="0"/>
+   <method old="next()Ljava/lang/Object;" new="next" s="0" e="0"/>
+   <method old="previous()Ljava/lang/Object;" new="previous" s="0" e="0"/>
+   <method old="remove()V" new="remove"/>
+   <method old="set(Ljava/lang/Object;)V" new="set" s="0" e="0"/>
+  </class>
+  <class old="__pycache__.L" new="__pycache__.L">
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="getComparator()Ljava/util/Comparator;" new="getComparator"/>
+   <method old="tryAdvance(Ljava/util/function/Consumer;)Z" new="tryAdvance" s="0" e="0"/>
+  </class>
+  <class old="__pycache__.M" new="__pycache__.M">
+   <method old="a()I" new="a"/>
+   <method old="a(I)J" new="a"/>
+   <method old="a(II)L__pycache__/L;" new="a"/>
+   <method old="characteristics()I" new="characteristics"/>
+   <method old="estimateSize()J" new="estimateSize" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/lang/Object;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/LongConsumer;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="getComparator()Ljava/util/Comparator;" new="getComparator"/>
+   <method old="tryAdvance(Ljava/lang/Object;)Z" new="tryAdvance" s="0" e="0"/>
+   <method old="tryAdvance(Ljava/util/function/Consumer;)Z" new="tryAdvance"/>
+   <method old="tryAdvance(Ljava/util/function/LongConsumer;)Z" new="tryAdvance" s="0" e="0"/>
+   <field old="a I" new="a"/>
+  </class>
+  <class old="__pycache__.N" new="__pycache__.N">
+   <method old="a()I" new="a" s="0" e="0"/>
+   <method old="a(I)J" new="a"/>
+   <method old="a(II)L__pycache__/L;" new="a"/>
+   <method old="b()I" new="b"/>
+   <method old="c()L__pycache__/L;" new="c" s="0" e="0"/>
+   <method old="characteristics()I" new="characteristics"/>
+   <method old="estimateSize()J" new="estimateSize"/>
+   <method old="forEachRemaining(Ljava/lang/Object;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/LongConsumer;)V" new="forEachRemaining"/>
+   <method old="getComparator()Ljava/util/Comparator;" new="getComparator"/>
+   <method old="tryAdvance(Ljava/lang/Object;)Z" new="tryAdvance"/>
+   <method old="tryAdvance(Ljava/util/function/Consumer;)Z" new="tryAdvance"/>
+   <method old="tryAdvance(Ljava/util/function/LongConsumer;)Z" new="tryAdvance"/>
+   <method old="trySplit()Ljava/util/Spliterator$OfLong;" new="trySplit" s="0" e="0"/>
+   <method old="trySplit()Ljava/util/Spliterator$OfPrimitive;" new="trySplit" s="0" e="0"/>
+   <method old="trySplit()Ljava/util/Spliterator;" new="trySplit" s="0" e="0"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c Z" new="c"/>
+  </class>
+  <class old="__pycache__.O" new="__pycache__.O">
+   <method old="a(DD)Z" new="a" s="0" e="0"/>
+  </class>
+  <class old="__pycache__.D0" new="__pycache__.D0">
+   <field old="a L__pycache__/C0;" new="a"/>
+  </class>
+  <class old="__pycache__.i0" new="__pycache__.i0">
+   <method old="AllatoriDecryptString(Ljava/lang/String;)Ljava/lang/String;" new="ALLATORIxDEMO"/>
+   <method old="a()L__pycache__/i0;" new="a" s="0" e="0"/>
+   <method old="a(IIZ)L__pycache__/i0;" new="a"/>
+   <method old="a(ILjava/lang/Object;)V" new="a"/>
+   <method old="estimateSize()J" new="estimateSize" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/lang/Object;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining" s="0" e="0"/>
+   <method old="tryAdvance(Ljava/lang/Object;)Z" new="tryAdvance" s="0" e="0"/>
+   <method old="tryAdvance(Ljava/util/function/Consumer;)Z" new="tryAdvance" s="0" e="0"/>
+   <method old="trySplit()Ljava/util/Spliterator;" new="trySplit" s="0" e="0"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d Z" new="d"/>
+   <field old="e Z" new="e"/>
+   <field old="f L__pycache__/l0;" new="f"/>
+  </class>
+  <class old="__pycache__.P" new="__pycache__.P">
+   <method old="a()Ltoday/opai/api/interfaces/modules/values/NumberValue;" new="a" s="0" e="0"/>
+   <method old="a(Ljava/lang/String;Z)Ltoday/opai/api/interfaces/modules/values/BooleanValue;" new="a" s="0" e="0"/>
+   <method old="a([Ljava/lang/String;)Ltoday/opai/api/interfaces/modules/values/ModeValue;" new="a" s="0" e="0"/>
+   <method old="addValues([Ltoday/opai/api/interfaces/modules/Value;)V" new="addValues"/>
+   <field old="a Ltoday/opai/api/OpenAPI;" new="a"/>
+   <field old="b Ltoday/opai/api/interfaces/game/entity/LocalPlayer;" new="b"/>
+   <field old="c Ltoday/opai/api/interfaces/game/world/World;" new="c"/>
+   <field old="d Z" new="d"/>
+  </class>
+  <class old="__pycache__.Q" new="__pycache__.Q">
+   <field old="a Ltoday/opai/api/interfaces/game/entity/LocalPlayer;" new="a"/>
+  </class>
+  <class old="__pycache__.S" new="__pycache__.S">
+   <method old="a(IDDD)Ltoday/opai/api/interfaces/game/network/server/SPacket12Velocity;" new="a" s="0" e="0"/>
+   <method old="onPacketSend(Ltoday/opai/api/events/EventPacketSend;)V" new="onPacketSend"/>
+   <field old="a Ltoday/opai/api/interfaces/game/network/client/CPacket0BEntityAction;" new="a"/>
+   <field old="b Ltoday/opai/api/interfaces/game/network/client/CPacket0BEntityAction;" new="b"/>
+  </class>
+  <class old="__pycache__.T" new="__pycache__.T">
+  </class>
+  <class old="__pycache__.U" new="__pycache__.U">
+   <method old="iterator()L__pycache__/z0;" new="iterator"/>
+  </class>
+  <class old="__pycache__.c0" new="__pycache__.c0">
+   <method old="AllatoriDecryptString(Ljava/lang/String;)Ljava/lang/String;" new="ALLATORIxDEMO"/>
+   <method old="a(ILjava/lang/Object;)V" new="a" s="0" e="0"/>
+   <method old="b()I" new="b"/>
+   <method old="forEachRemaining(Ljava/lang/Object;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="hasNext()Z" new="hasNext"/>
+   <method old="next()Ljava/lang/Object;" new="next" s="0" e="0"/>
+   <method old="remove()V" new="remove"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d Z" new="d"/>
+   <field old="e L__pycache__/r0;" new="e"/>
+   <field old="f L__pycache__/l0;" new="f"/>
+   <field old="g L__pycache__/l0;" new="g"/>
+  </class>
+  <class old="__pycache__.V" new="__pycache__.V">
+   <method old="a()L__pycache__/J0;" new="a"/>
+   <method old="a(Ljava/util/function/BiConsumer;L__pycache__/T;)V" new="a" s="0" e="0"/>
+   <method old="apply(Ljava/lang/Object;)Ljava/lang/Object;" new="apply"/>
+   <method old="compute(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;" new="compute" s="0" e="0"/>
+   <method old="computeIfPresent(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;" new="computeIfPresent" s="0" e="0"/>
+   <method old="containsKey(Ljava/lang/Object;)Z" new="containsKey"/>
+   <method old="entrySet()Ljava/util/Set;" new="entrySet" s="0" e="0"/>
+   <method old="forEach(Ljava/util/function/BiConsumer;)V" new="forEach" s="0" e="0"/>
+   <method old="get(Ljava/lang/Object;)Ljava/lang/Object;" new="get"/>
+   <method old="merge(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;" new="merge" s="0" e="0"/>
+   <method old="put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" new="put"/>
+   <method old="putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" new="putIfAbsent" s="0" e="0"/>
+   <method old="remove(Ljava/lang/Object;)Ljava/lang/Object;" new="remove"/>
+   <method old="remove(Ljava/lang/Object;Ljava/lang/Object;)Z" new="remove" s="0" e="0"/>
+   <method old="replace(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" new="replace" s="0" e="0"/>
+   <method old="replace(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z" new="replace" s="0" e="0"/>
+  </class>
+  <class old="__pycache__.W" new="__pycache__.W">
+   <method old="a()L__pycache__/J0;" new="a"/>
+   <method old="a(Ljava/util/function/BiConsumer;L__pycache__/T;)V" new="a"/>
+   <method old="apply(Ljava/lang/Object;)Ljava/lang/Object;" new="apply"/>
+   <method old="clear()V" new="clear"/>
+   <method old="clone()Ljava/lang/Object;" new="clone"/>
+   <method old="compute(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;" new="compute"/>
+   <method old="computeIfPresent(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;" new="computeIfPresent"/>
+   <method old="containsKey(Ljava/lang/Object;)Z" new="containsKey"/>
+   <method old="containsValue(Ljava/lang/Object;)Z" new="containsValue"/>
+   <method old="entrySet()Ljava/util/Set;" new="entrySet"/>
+   <method old="equals(Ljava/lang/Object;)Z" new="equals" s="0" e="0"/>
+   <method old="forEach(Ljava/util/function/BiConsumer;)V" new="forEach"/>
+   <method old="get(Ljava/lang/Object;)Ljava/lang/Object;" new="get"/>
+   <method old="getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" new="getOrDefault"/>
+   <method old="hashCode()I" new="hashCode"/>
+   <method old="isEmpty()Z" new="isEmpty"/>
+   <method old="keySet()Ljava/util/Set;" new="keySet"/>
+   <method old="merge(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;" new="merge"/>
+   <method old="put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" new="put"/>
+   <method old="putAll(Ljava/util/Map;)V" new="putAll"/>
+   <method old="putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" new="putIfAbsent"/>
+   <method old="remove(Ljava/lang/Object;)Ljava/lang/Object;" new="remove"/>
+   <method old="remove(Ljava/lang/Object;Ljava/lang/Object;)Z" new="remove"/>
+   <method old="replace(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" new="replace"/>
+   <method old="replace(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z" new="replace"/>
+   <method old="size()I" new="size"/>
+   <method old="toString()Ljava/lang/String;" new="toString"/>
+   <method old="values()Ljava/util/Collection;" new="values"/>
+  </class>
+  <class old="__pycache__.X" new="__pycache__.X">
+   <field old="a L__pycache__/W;" new="a"/>
+  </class>
+  <class old="__pycache__.Y" new="__pycache__.Y">
+   <method old="clear()V" new="clear" s="0" e="0"/>
+   <method old="contains(Ljava/lang/Object;)Z" new="contains" s="0" e="0"/>
+   <method old="forEach(Ljava/util/function/Consumer;)V" new="forEach" s="0" e="0"/>
+   <method old="iterator()L__pycache__/z0;" new="iterator"/>
+   <method old="iterator()Ljava/util/Iterator;" new="iterator"/>
+   <method old="size()I" new="size" s="0" e="0"/>
+   <method old="spliterator()Ljava/util/Spliterator;" new="spliterator"/>
+   <method old="toString()Ljava/lang/String;" new="toString"/>
+   <field old="a L__pycache__/l0;" new="a"/>
+  </class>
+  <class old="__pycache__.Z" new="__pycache__.Z">
+   <method old="AllatoriDecryptString(Ljava/lang/String;)Ljava/lang/String;" new="ALLATORIxDEMO"/>
+   <method old="a(ILjava/lang/Object;)V" new="a" s="0" e="0"/>
+   <method old="b()I" new="b"/>
+   <method old="forEachRemaining(Ljava/lang/Object;)V" new="forEachRemaining"/>
+   <method old="forEachRemaining(Ljava/util/function/Consumer;)V" new="forEachRemaining"/>
+   <method old="hasNext()Z" new="hasNext"/>
+   <method old="next()Ljava/lang/Object;" new="next"/>
+   <method old="remove()V" new="remove" s="0" e="0"/>
+   <field old="a I" new="a"/>
+   <field old="b I" new="b"/>
+   <field old="c I" new="c"/>
+   <field old="d Z" new="d"/>
+   <field old="e L__pycache__/r0;" new="e"/>
+   <field old="f L__pycache__/l0;" new="f"/>
+   <field old="g L__pycache__/f0;" new="g"/>
+   <field old="h L__pycache__/l0;" new="h"/>
+  </class>
+  <sources>
+   <source old="SourceFile" new="q"/>
+  </sources>
+  <lines>
+   <line l="19"/>
+   <line l="29"/>
+   <line l="73"/>
+   <line l="43"/>
+   <line l="169"/>
+   <line l="2"/>
+   <line l="32"/>
+   <line l="67"/>
+   <line l="120"/>
+   <line l="183"/>
+   <line l="127"/>
+   <line l="132"/>
+   <line l="42"/>
+   <line l="188"/>
+   <line l="154"/>
+   <line l="116"/>
+   <line l="66"/>
+   <line l="49"/>
+   <line l="196"/>
+   <line l="74"/>
+   <line l="24"/>
+   <line l="131"/>
+   <line l="94"/>
+   <line l="168"/>
+   <line l="0"/>
+   <line l="111"/>
+   <line l="161"/>
+   <line l="125"/>
+   <line l="36"/>
+   <line l="40"/>
+   <line l="129"/>
+   <line l="16"/>
+   <line l="90"/>
+   <line l="185"/>
+   <line l="71"/>
+   <line l="61"/>
+   <line l="8"/>
+   <line l="138"/>
+   <line l="69"/>
+   <line l="22"/>
+   <line l="4"/>
+   <line l="166"/>
+   <line l="77"/>
+   <line l="37"/>
+   <line l="190"/>
+   <line l="58"/>
+   <line l="115"/>
+   <line l="64"/>
+   <line l="91"/>
+   <line l="14"/>
+   <line l="6"/>
+   <line l="187"/>
+   <line l="85"/>
+   <line l="142"/>
+   <line l="78"/>
+   <line l="158"/>
+   <line l="20"/>
+   <line l="199"/>
+   <line l="52"/>
+   <line l="63"/>
+   <line l="53"/>
+   <line l="51"/>
+   <line l="45"/>
+   <line l="7"/>
+   <line l="56"/>
+   <line l="113"/>
+   <line l="110"/>
+   <line l="192"/>
+   <line l="194"/>
+   <line l="112"/>
+   <line l="99"/>
+   <line l="165"/>
+   <line l="159"/>
+   <line l="145"/>
+   <line l="176"/>
+   <line l="38"/>
+   <line l="170"/>
+   <line l="76"/>
+   <line l="151"/>
+   <line l="172"/>
+   <line l="101"/>
+   <line l="121"/>
+   <line l="87"/>
+   <line l="191"/>
+   <line l="180"/>
+   <line l="105"/>
+   <line l="148"/>
+   <line l="152"/>
+   <line l="126"/>
+   <line l="3"/>
+   <line l="33"/>
+   <line l="141"/>
+   <line l="44"/>
+   <line l="28"/>
+   <line l="171"/>
+   <line l="130"/>
+   <line l="96"/>
+   <line l="175"/>
+   <line l="5"/>
+   <line l="79"/>
+   <line l="59"/>
+   <line l="47"/>
+   <line l="55"/>
+   <line l="39"/>
+   <line l="195"/>
+   <line l="34"/>
+   <line l="108"/>
+   <line l="17"/>
+   <line l="12"/>
+   <line l="167"/>
+   <line l="133"/>
+   <line l="102"/>
+   <line l="109"/>
+   <line l="163"/>
+   <line l="136"/>
+   <line l="146"/>
+   <line l="54"/>
+   <line l="15"/>
+   <line l="149"/>
+   <line l="118"/>
+   <line l="182"/>
+   <line l="31"/>
+   <line l="122"/>
+   <line l="107"/>
+   <line l="25"/>
+   <line l="124"/>
+   <line l="26"/>
+   <line l="41"/>
+   <line l="80"/>
+   <line l="139"/>
+   <line l="100"/>
+   <line l="147"/>
+   <line l="114"/>
+   <line l="27"/>
+   <line l="97"/>
+   <line l="68"/>
+   <line l="93"/>
+   <line l="11"/>
+   <line l="48"/>
+   <line l="162"/>
+   <line l="123"/>
+   <line l="57"/>
+   <line l="128"/>
+   <line l="106"/>
+   <line l="174"/>
+   <line l="92"/>
+   <line l="143"/>
+   <line l="153"/>
+   <line l="160"/>
+   <line l="134"/>
+   <line l="193"/>
+   <line l="157"/>
+   <line l="179"/>
+   <line l="9"/>
+   <line l="189"/>
+   <line l="13"/>
+   <line l="181"/>
+   <line l="103"/>
+   <line l="72"/>
+   <line l="117"/>
+   <line l="155"/>
+   <line l="60"/>
+   <line l="178"/>
+   <line l="70"/>
+   <line l="30"/>
+   <line l="84"/>
+   <line l="95"/>
+   <line l="173"/>
+   <line l="156"/>
+   <line l="83"/>
+   <line l="23"/>
+   <line l="65"/>
+   <line l="164"/>
+   <line l="177"/>
+   <line l="81"/>
+   <line l="18"/>
+   <line l="88"/>
+   <line l="144"/>
+   <line l="46"/>
+   <line l="119"/>
+   <line l="82"/>
+   <line l="98"/>
+   <line l="21"/>
+   <line l="89"/>
+   <line l="35"/>
+   <line l="150"/>
+   <line l="140"/>
+   <line l="198"/>
+   <line l="86"/>
+   <line l="197"/>
+   <line l="10"/>
+   <line l="1"/>
+   <line l="135"/>
+   <line l="50"/>
+   <line l="62"/>
+   <line l="186"/>
+   <line l="184"/>
+   <line l="104"/>
+   <line l="75"/>
+   <line l="137"/>
+  </lines>
+ </mapping>
+</allatori>
