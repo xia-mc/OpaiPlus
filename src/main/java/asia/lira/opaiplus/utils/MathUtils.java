@@ -9,4 +9,8 @@ public class MathUtils {
 
         return Math.abs(first - second) < 0.001;
     }
+
+    public static double limit(double value, double min, double max) {
+        return value > max ? max : Math.max(value, min);
+    }
 }
