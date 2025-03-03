@@ -2,6 +2,7 @@ package asia.lira.opaiplus;
 
 import asia.lira.opaiplus.internal.NetworkManager;
 import asia.lira.opaiplus.modules.misc.BugFixer;
+import asia.lira.opaiplus.modules.visual.SilenceSpoof;
 import asia.lira.opaiplus.utils.ChatFormatting;
 import asia.lira.opaiplus.modules.combat.VelocityPlus;
 import asia.lira.opaiplus.utils.MathUtils;
@@ -11,6 +12,7 @@ import org.jetbrains.annotations.NotNull;
 import today.opai.api.Extension;
 import today.opai.api.OpenAPI;
 import today.opai.api.annotations.ExtensionInfo;
+import today.opai.api.enums.EnumNotificationType;
 import today.opai.api.interfaces.dataset.Vector3d;
 import today.opai.api.interfaces.game.network.server.SPacket12Velocity;
 
@@ -28,6 +30,7 @@ public final class OpaiPlus extends Extension {
             NetworkManager.init();
             api.registerFeature(new VelocityPlus());
             api.registerFeature(new BugFixer());
+            api.registerFeature(new SilenceSpoof());
 
             success(String.format("Initialize successful. [%dms]", Timer.end()));
         } catch (Throwable e) {
@@ -49,16 +52,16 @@ public final class OpaiPlus extends Extension {
         return API;
     }
 
-    public static void info(String message) {
+    public static void log(String message) {
         API.printMessage(ChatFormatting.GRAY + "[OpaiPlus] " + ChatFormatting.WHITE + message);
     }
 
     public static void success(String message) {
-        API.printMessage(ChatFormatting.GRAY + "[OpaiPlus] " + ChatFormatting.GREEN + message);
+        API.popNotification(EnumNotificationType.SUCCESSFULLY, "OpaiPlus", message, 2000);
     }
 
     public static void error(String message) {
-        API.printMessage(ChatFormatting.GRAY + "[OpaiPlus] " + ChatFormatting.RED + message);
+        API.popNotification(EnumNotificationType.ERROR, "OpaiPlus", message, 5000);
     }
 
     private static void checkCompatibility() {

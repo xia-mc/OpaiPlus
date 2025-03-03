@@ -14,7 +14,7 @@ import today.opai.api.interfaces.modules.values.NumberValue;
 
 public class VelocityPlus extends Module {
     private final ModeValue mode = createModes("Mode", "Prediction", "Prediction");
-    private final NumberValue reduceCount = createNumber("Reduce Count", 4, 1, 4, 1);
+    private final NumberValue reduceCount = createNumber("Reduce Count", 4, 1, 6, 1);
     private final BooleanValue notWhileUsingItem = createBoolean("Not While Using Item", true);
     private final BooleanValue debug = createBoolean("Debug", false);
 
@@ -48,7 +48,7 @@ public class VelocityPlus extends Module {
                 doReduce();
                 if (debug.getValue()) {
                     Vector3d motion = player.getMotion();
-                    OpaiPlus.info(String.format("%d Reduced %.3f %.3f", tick, motion.getX(), motion.getZ()));
+                    OpaiPlus.log(String.format("%d Reduced %.3f %.3f", tick, motion.getX(), motion.getZ()));
                 }
                 unReduceTimes--;
             } else {
