@@ -115,7 +115,7 @@ public class SilenceSpoof extends Module {
             }
             bwHeaderModule.setHidden(false);
             bwHeaderModule.setEnabled(true);
-        } else if (bwHeaderModule.isEnabled()) {
+        } else if (bwHeaderModule != null && bwHeaderModule.isEnabled()) {
             bwHeaderModule.setHidden(true);
             bwHeaderModule.setEnabled(false);
         }
@@ -127,7 +127,7 @@ public class SilenceSpoof extends Module {
             }
             swHeaderModule.setHidden(false);
             swHeaderModule.setEnabled(true);
-        } else if (swHeaderModule.isEnabled()) {
+        } else if (swHeaderModule != null && swHeaderModule.isEnabled()) {
             swHeaderModule.setHidden(true);
             swHeaderModule.setEnabled(false);
         }
