@@ -29,10 +29,10 @@ val lombokLib = "org.projectlombok:lombok:1.18.30"
 val libraries = listOf(
     "com.github.opai-client:opensource-components:-SNAPSHOT",
     "org.lwjgl:lwjgl:2.9.4-nightly",
-    fastutilLib,
-    lombokLib,
     "org.jetbrains:annotations:24.0.0",
-    "com.gradleup.shadow:shadow-gradle-plugin:9.0.0-beta4"
+    "com.gradleup.shadow:shadow-gradle-plugin:9.0.0-beta4",
+    files("libs/allatori-annotations.jar"),
+    fastutilLib
 )
 
 dependencies {
@@ -68,8 +68,9 @@ val javaRuntime: String = when {
         "$javaHome/lib/rt.jar"
     }
 }
+val isRelease = project.hasProperty("release")
 
-fun doOptimize(inputJar: File, outputJar: File) {
+fun doOptimize(inputJar: File, outputJar: File, extraArg: List<String> = mutableListOf()) {
     if (!r8Jar.exists()) {
         throw GradleException("R8 JAR not found at ${r8Jar.absolutePath}, please reconfigure the gradle project.")
     }
@@ -87,6 +88,8 @@ fun doOptimize(inputJar: File, outputJar: File) {
             "--output", outputJar.absolutePath,
             inputJar.absolutePath
         )
+        
+        extraArg.forEach(command::add)
 
         dependenciesJars.forEach { jar ->
             command.add("--classpath")
@@ -101,11 +104,12 @@ val optimize = tasks.register("optimize") {
     group = "optimization"
     description = "Run R8 to minimize the shadowJar output"
 
+    onlyIf { isRelease }
     doLast {
-        val inputJar = File(buildDir, "libs/%s-unoptimized.jar".format(project.name))
-        val outputJar = File(buildDir, "libs/%s-universal.jar".format(project.name))
-
-        doOptimize(inputJar, outputJar)
+        doOptimize(
+            File(buildDir, "libs/%s-unoptimized.jar".format(project.name)),
+            File(buildDir, "libs/%s-universal.jar".format(project.name))
+        )
     }
 
     finalizedBy(obfuscate)
@@ -117,6 +121,7 @@ val obfuscate = tasks.register("obfuscate") {
     group = "obfuscation"
     description = "Run Allatori to obfuscate the R8 output"
 
+    onlyIf { isRelease }
     doLast {
         if (!allatoriJar.exists()) {
             throw GradleException("Allatori JAR not found at ${allatoriJar.absolutePath}, please download it manually.")
@@ -134,10 +139,21 @@ val obfuscate = tasks.register("obfuscate") {
         exec {
             commandLine("java", "-jar", allatoriJar.absolutePath, configFile)
         }
+    }
 
+    finalizedBy(postOptimize)
+}
+
+val postOptimize = tasks.register("postOptimize") {
+    group = "PostOptimization"
+    description = "Run R8 to minimize the Allatori output"
+
+    onlyIf { isRelease }
+    doLast {
         doOptimize(
             File(buildDir, "libs/%s-obfuscated.jar".format(project.name)),
-            File(buildDir, "libs/%s.jar".format(project.name))
+            File(buildDir, "libs/%s.jar".format(project.name)),
+            mutableListOf("--pg-conf", "post-r8-rules.pro")
         )
     }
 }

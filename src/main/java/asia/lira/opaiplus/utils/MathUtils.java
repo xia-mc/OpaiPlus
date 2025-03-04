@@ -11,6 +11,10 @@ public class MathUtils {
     }
 
     public static double limit(double value, double min, double max) {
-        return value > max ? max : Math.max(value, min);
+        return Math.min(Math.max(value, min), max);
+    }
+
+    public static int limit(int value, int min, int max) {
+        return Math.min(Math.max(value, min), max);
     }
 }

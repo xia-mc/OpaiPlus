@@ -185,6 +185,20 @@ public final class ReflectionUtils {
     }
 
     /**
+     * 调用静态方法
+     */
+    @SuppressWarnings("unchecked")
+    public static <T> T callDeclared(@NotNull Class<?> aClass, @NotNull String method, Class<?>[] paramTypes, Object[] params) {
+        final MethodData data = new MethodData(aClass, method, paramTypes);
+
+        try {
+            return (T) getMethod(data).invoke(null, params);
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
      * 调用构造器
      */
     @SuppressWarnings("unchecked")

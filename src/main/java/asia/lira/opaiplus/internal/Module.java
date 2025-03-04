@@ -10,6 +10,7 @@ import today.opai.api.interfaces.game.world.World;
 import today.opai.api.interfaces.modules.Value;
 import today.opai.api.interfaces.modules.values.BooleanValue;
 import today.opai.api.interfaces.modules.values.ModeValue;
+import today.opai.api.interfaces.modules.values.MultiBooleanValue;
 import today.opai.api.interfaces.modules.values.NumberValue;
 
 import java.util.Arrays;

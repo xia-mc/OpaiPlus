@@ -2,7 +2,6 @@ package asia.lira.opaiplus.internal;
 
 import asia.lira.opaiplus.OpaiPlus;
 import asia.lira.opaiplus.utils.ReflectionUtils;
-import asia.lira.opaiplus.utils.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import today.opai.api.enums.EnumEntityAction;
 import today.opai.api.events.EventPacketSend;
@@ -46,7 +45,7 @@ public class NetworkManager implements EventHandler {
             return (SPacket12Velocity) result;
         } catch (RuntimeException e) {
             OpaiPlus.error("Failed to create S12 Packet. Maybe Opai update?");
-            OpaiPlus.error(StringUtils.limitLength(StringUtils.getStackTraceAsString(e), 512));
+//            OpaiPlus.error(StringUtils.limitLength(StringUtils.getStackTraceAsString(e), 512));
             throw new RuntimeException(e);
         }
     }

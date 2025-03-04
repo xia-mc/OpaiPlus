@@ -11,6 +11,7 @@ import today.opai.api.enums.EnumModuleCategory;
 import today.opai.api.events.EventMove;
 import today.opai.api.events.EventPacketSend;
 import today.opai.api.events.EventRender2D;
+import today.opai.api.interfaces.game.network.client.CPacket09SlotChange;
 import today.opai.api.interfaces.game.network.client.CPacket0BEntityAction;
 import today.opai.api.interfaces.modules.PresetModule;
 import today.opai.api.interfaces.modules.values.BooleanValue;
@@ -18,12 +19,14 @@ import today.opai.api.interfaces.modules.values.BooleanValue;
 public class BugFixer extends Module {
     private final BooleanValue sprintState = createBoolean("Fix Sprint", true);
     private final BooleanValue lowTimer = createBoolean("Fix Timer", true);
+    private final BooleanValue slot = createBoolean("Fix Slot", true);
     private final BooleanValue debug = createBoolean("Debug", false);
 
     private final PresetModule moduleStep = API.getModuleManager().getModule("Step");
     private final PresetModule moduleSpeed = API.getModuleManager().getModule("Speed");
     private boolean serverSprintState = false;
     private boolean clientSprintState = false;
+    private int serverSlot = -1;
 
     public BugFixer() {
         super("Bug Fixer", "Fix some bugs from original Opai", EnumModuleCategory.MISC);
@@ -32,6 +35,7 @@ public class BugFixer extends Module {
     @Override
     public void onEnabled() {
         serverSprintState = clientSprintState = player.isSprinting();
+        serverSlot = player.getItemSlot();
     }
 
     @Override
@@ -74,6 +78,15 @@ public class BugFixer extends Module {
 
                 serverSprintState = false;
             }
+        } else if (event.getPacket() instanceof CPacket09SlotChange) {
+            if (!slot.getValue()) return;
+            int packetSlot = ((CPacket09SlotChange) event.getPacket()).getSlot();
+            if (serverSlot != -1 && packetSlot == serverSlot) {
+                event.setCancelled(true);
+                onSuppress("silent hold");
+                return;
+            }
+            serverSlot = packetSlot;
         }
     }
 
@@ -89,7 +102,7 @@ public class BugFixer extends Module {
 
     private void onSuppress(String type) {
         if (debug.getValue()) {
-            OpaiPlus.log(String.format("Suppressed %s bug.", type));
+            OpaiPlus.log(String.format("Suppressed a %s bug.", type));
         }
     }
 
@@ -101,5 +114,11 @@ public class BugFixer extends Module {
             NetworkManager.createStartSprint().sendPacketNoEvent();
             serverSprintState = true;
         }
+    }
+
+    @Override
+    public void onLoadWorld() {
+        onEnabled();
+        serverSlot = -1;
     }
 }

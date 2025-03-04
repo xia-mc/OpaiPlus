@@ -5,9 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="添加SilenceSpoof&#10;改进BugFixer&#10;改进Velocity+">
-      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/movement/LongJumpPlus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/allatori-annotations.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/post-r8-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Installer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/visual/silence/BWHUDHeader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/visual/silence/SWHUDHeader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allatori.xml" beforeDir="false" afterPath="$PROJECT_DIR$/allatori.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/r8-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/r8-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/OpaiPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/OpaiPlus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Module.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/NetworkManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/NetworkManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/BugFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/BugFixer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/visual/SilenceSpoof.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/visual/SilenceSpoof.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/MathUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/MathUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/MoveUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/MoveUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/ReflectionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/ReflectionUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,9 +88,6 @@
     &quot;accountId&quot;: &quot;00ce1d39-395e-47a8-be25-36991c21ed1e&quot;
   }
 }</component>
-  <component name="PerforceDirect.Settings">
-    <option name="CHARSET" value="无" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -87,51 +99,57 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Gradle.OpaiPlus [build].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Build.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.OpaiPlus [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.OpaiPlus [deploy].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.OpaiPlus [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.OpaiPlus [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.OpaiPlus [site].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.4448276&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Gradle.Build Debug.executor": "Run",
+    "Gradle.Build Release.executor": "Run",
+    "Gradle.OpaiPlus [build].executor": "Run",
+    "Maven.Build.executor": "Run",
+    "Maven.OpaiPlus [compile].executor": "Run",
+    "Maven.OpaiPlus [deploy].executor": "Run",
+    "Maven.OpaiPlus [install].executor": "Run",
+    "Maven.OpaiPlus [package].executor": "Run",
+    "Maven.OpaiPlus [site].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "项目",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.4448276",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\OpaiPlus\libs" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="asia.lira.opaiplus.modules.misc" />
       <recent name="asia.lira.internal" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="asia.lira.opaiplus.modules.visual.silence" />
       <recent name="asia.lira.opaiplus.utils" />
       <recent name="asia.lira.internal" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="OpaiPlus [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.Build Release">
+    <configuration name="Build Debug" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -148,9 +166,35 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="Build Release" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="-Prelease" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.Build Release" />
+      <item itemvalue="Gradle.Build Debug" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.OpaiPlus [build]" />
+        <item itemvalue="Gradle.Build Debug" />
       </list>
     </recent_temporary>
   </component>
@@ -176,6 +220,7 @@
       <workItem from="1740985731816" duration="2234000" />
       <workItem from="1740988002601" duration="14810000" />
       <workItem from="1741003635859" duration="14336000" />
+      <workItem from="1741066933540" duration="21239000" />
     </task>
     <task id="LOCAL-00001" summary="添加两个模块，Velocity+和BugFixer">
       <option name="closed" value="true" />

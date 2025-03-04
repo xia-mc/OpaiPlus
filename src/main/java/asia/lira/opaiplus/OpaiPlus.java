@@ -16,7 +16,7 @@ import today.opai.api.enums.EnumNotificationType;
 import today.opai.api.interfaces.dataset.Vector3d;
 import today.opai.api.interfaces.game.network.server.SPacket12Velocity;
 
-@ExtensionInfo(name = "OpaiPlus", author = "xia__mc", version = "0.0.1 (For b18.4Beta)")
+@ExtensionInfo(name = "OpaiPlus", author = "xia__mc", version = "0.0.2 (For b18.4Beta)")
 public final class OpaiPlus extends Extension {
     private static OpenAPI API = null;
 
@@ -57,7 +57,7 @@ public final class OpaiPlus extends Extension {
     }
 
     public static void success(String message) {
-        API.popNotification(EnumNotificationType.SUCCESSFULLY, "OpaiPlus", message, 2000);
+        API.popNotification(EnumNotificationType.SUCCESSFULLY, "OpaiPlus", message, 5000);
     }
 
     public static void error(String message) {
