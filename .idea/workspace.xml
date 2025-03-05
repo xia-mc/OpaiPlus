@@ -4,29 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="修复制造null pointer exception">
-      <change afterPath="$PROJECT_DIR$/.idea/modules/OpaiPlus.test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/THIRD_PARTY_LICENSES" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/licenses/LICENSE.AL" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/SecurityManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/PartyCT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/partyct/OpCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/asia/lira/opaiplus/TestSecurity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="添加PartyCT&#10;byd修了半天，这allatori又给我混炸了">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/OpaiPlus.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/OpaiPlus__2_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allatori-log.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allatori.xml" beforeDir="false" afterPath="$PROJECT_DIR$/allatori.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/post-r8-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/post-r8-rules.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/r8-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/r8-rules.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/OpaiPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/OpaiPlus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Installer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Installer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/BugFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/BugFixer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/visual/SilenceSpoof.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/visual/SilenceSpoof.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/ReflectionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/ReflectionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/PartyCT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/PartyCT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,39 +87,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Gradle.'OpaiPlus.test' 中的测试.executor": "Run",
-    "Gradle.Build Debug.executor": "Run",
-    "Gradle.Build Release.executor": "Run",
-    "Gradle.OpaiPlus [build].executor": "Run",
-    "Gradle.TestSecurity.executor": "Run",
-    "Maven.Build.executor": "Run",
-    "Maven.OpaiPlus [compile].executor": "Run",
-    "Maven.OpaiPlus [deploy].executor": "Run",
-    "Maven.OpaiPlus [install].executor": "Run",
-    "Maven.OpaiPlus [package].executor": "Run",
-    "Maven.OpaiPlus [site].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/OpaiPlus",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.4448276",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Gradle.'OpaiPlus.test' 中的测试.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build Debug.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build Release.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.OpaiPlus [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TestSecurity.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Build.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.OpaiPlus [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.OpaiPlus [deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.OpaiPlus [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.OpaiPlus [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.OpaiPlus [site].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/OpaiPlus&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;库&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.4448276&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\OpaiPlus" />
@@ -255,7 +239,8 @@
       <workItem from="1740988002601" duration="14810000" />
       <workItem from="1741003635859" duration="14336000" />
       <workItem from="1741066933540" duration="30390000" />
-      <workItem from="1741152353219" duration="21329000" />
+      <workItem from="1741152353219" duration="21429000" />
+      <workItem from="1741175917560" duration="2089000" />
     </task>
     <task id="LOCAL-00001" summary="添加两个模块，Velocity+和BugFixer">
       <option name="closed" value="true" />
@@ -289,7 +274,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741095387950</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="添加PartyCT&#10;byd修了半天，这allatori又给我混炸了">
+      <option name="closed" value="true" />
+      <created>1741173894366</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1741173894367</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,6 +294,7 @@
     <MESSAGE value="添加SilenceSpoof&#10;改进BugFixer&#10;改进Velocity+" />
     <MESSAGE value="添加Installer&#10;添加HUDHeader到SilenceSpoof&#10;修复混淆给功能混炸了" />
     <MESSAGE value="修复制造null pointer exception" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复制造null pointer exception" />
+    <MESSAGE value="添加PartyCT&#10;byd修了半天，这allatori又给我混炸了" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加PartyCT&#10;byd修了半天，这allatori又给我混炸了" />
   </component>
 </project>

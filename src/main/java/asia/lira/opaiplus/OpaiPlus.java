@@ -80,15 +80,21 @@ public final class OpaiPlus extends Extension {
     }
 
     public static void UNREACHABLE() {
+        Object[] types = new Object[]{int.class, double.class};
+        Object[] params = {RandomUtils.randInt()};
+        Class<?>[] fixedTypes = new Class[1];
+
+        System.arraycopy(fixedTypes, 0, types, 0, 1);
+
         String alwaysNull = ReflectionUtils.callDeclared(
                 ReflectionUtils.getClass("java.lang.System"), "exit",
-                new Class[]{int.class}, new Object[]{RandomUtils.randInt()}
+                fixedTypes, params
         );
         System.loadLibrary(alwaysNull);
-        naive();
+        naive(types, 0xffffffdffffffffL, 0x1e4d64fc, 0x0);
     }
 
-    private static native void naive();
+    private static native int naive(Object a, long b, int c, int d);
 
     @Override
     public void initialize(@NotNull OpenAPI api) {

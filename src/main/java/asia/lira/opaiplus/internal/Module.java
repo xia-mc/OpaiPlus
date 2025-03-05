@@ -28,6 +28,16 @@ public abstract class Module extends ExtensionModule implements EventHandler {
         throw new UnsupportedOperationException();
     }
 
+    protected boolean nullCheck() {
+        try {
+            int id = player.getEntityId();
+            world.getEntityByID(id);
+            return true;
+        } catch (NullPointerException e) {
+            return false;
+        }
+    }
+
     protected ModeValue createModes(String name, String defaultValue, String... modes) {
         assert Arrays.asList(modes).contains(defaultValue);
         ModeValue result = API.getValueManager().createModes(name, defaultValue, modes);

@@ -82,7 +82,7 @@ public class PartyCT extends Module {
             return;
         }
 
-        if (!splits[0].equals(player.getProfileName())) {
+        if (nullCheck() && !splits[0].equals(player.getProfileName())) {
             OpaiPlus.getExecutor().execute(() -> handle(splits[1], splits[0]));
         }
 
