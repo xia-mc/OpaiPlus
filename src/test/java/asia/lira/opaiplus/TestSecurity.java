@@ -1,0 +1,22 @@
+package asia.lira.opaiplus;
+
+import asia.lira.opaiplus.internal.SecurityManager;
+import asia.lira.opaiplus.modules.misc.partyct.OpCode;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+public class TestSecurity {
+
+    @Test
+    public void testEncrypt() throws Exception {
+        SecurityManager.init();
+
+        String string = String.format("%d,%s", OpCode.HEARTBEAT, "xia__mc");
+        String encrypted = SecurityManager.encrypt(string, "Global");
+        System.out.printf("Encrypted: %s\n", encrypted);
+        String result = SecurityManager.decrypt(encrypted, "Global");
+        System.out.printf("Decrypted: %s\n", result);
+
+        Assertions.assertEquals(string, result);
+    }
+}

@@ -8,10 +8,7 @@ import today.opai.api.interfaces.EventHandler;
 import today.opai.api.interfaces.game.entity.LocalPlayer;
 import today.opai.api.interfaces.game.world.World;
 import today.opai.api.interfaces.modules.Value;
-import today.opai.api.interfaces.modules.values.BooleanValue;
-import today.opai.api.interfaces.modules.values.ModeValue;
-import today.opai.api.interfaces.modules.values.MultiBooleanValue;
-import today.opai.api.interfaces.modules.values.NumberValue;
+import today.opai.api.interfaces.modules.values.*;
 
 import java.util.Arrays;
 
@@ -46,6 +43,12 @@ public abstract class Module extends ExtensionModule implements EventHandler {
 
     protected BooleanValue createBoolean(String name, boolean defaultValue) {
         BooleanValue result = API.getValueManager().createBoolean(name, defaultValue);
+        super.addValues(result);
+        return result;
+    }
+
+    protected TextValue createText(String name, String defaultValue) {
+        TextValue result = API.getValueManager().createInput(name, defaultValue);
         super.addValues(result);
         return result;
     }

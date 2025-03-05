@@ -3,6 +3,17 @@
         <jar in="../libs/OpaiPlus-universal.jar" out="../libs/OpaiPlus-obfuscated.jar"/>
     </input>
 
+    <keep-names>
+        <class access="private+">
+            <field access="private+"/>
+            <method access="private+"/>
+        </class>
+    </keep-names>
+
+    <ignore-classes>
+        <class template="class it.unimi.dsi.fastutil.*"/>  <!--byd allatori给我混炸了-->
+    </ignore-classes>
+
     <classpath>
 %CLASSPATH%
     </classpath>
@@ -11,7 +22,7 @@
 <!--    <property name="string-encryption-type" value="strong"/>-->
     <property name="control-flow-obfuscation" value="enable"/>
     <property name="extensive-flow-obfuscation" value="maximum"/>
-    <property name="default-package" value=""/>
+    <property name="default-package" value="__pycache__"/>
     <property name="force-default-package" value="enable"/>
     <property name="synthetize-methods" value="all"/>
     <property name="synthetize-fields" value="all"/>
@@ -22,6 +33,11 @@
     <property name="update-resource-contents" value="enable"/>
     <property name="line-numbers" value="remove"/>
     <property name="throws-clause" value="remove"/>
+    <property name="set-fields-to-public" value="all"/>
+    <property name="remove-annotations" value="lombok.*"/>
+    <property name="remove-annotations" value="java.lang.*"/>
+    <property name="remove-annotations" value="javax.annotation.*"/>
+    <property name="remove-annotations" value="org.jetbrains.annotations.*"/>
 
     <property name="log-file" value="allatori-log.xml"/>
 </config>

@@ -27,6 +27,7 @@ public class BugFixer extends Module {
     private boolean serverSprintState = false;
     private boolean clientSprintState = false;
     private int serverSlot = -1;
+    private boolean initializing = false;
 
     public BugFixer() {
         super("Bug Fixer", "Fix some bugs from original Opai", EnumModuleCategory.MISC);
@@ -34,8 +35,15 @@ public class BugFixer extends Module {
 
     @Override
     public void onEnabled() {
+        initializing = false;
+        initialize();
+    }
+
+    private void initialize() {
+        if (!initializing) return;
         serverSprintState = clientSprintState = player.isSprinting();
         serverSlot = player.getItemSlot();
+        initializing = true;
     }
 
     @Override
@@ -52,6 +60,7 @@ public class BugFixer extends Module {
 
     @Override
     public void onPacketSend(@NotNull EventPacketSend event) {
+        initialize();
         if (event.getPacket() instanceof CPacket0BEntityAction) {
             if (!sprintState.getValue()) return;
             CPacket0BEntityAction packet = (CPacket0BEntityAction) event.getPacket();
@@ -118,7 +127,6 @@ public class BugFixer extends Module {
 
     @Override
     public void onLoadWorld() {
-        onEnabled();
-        serverSlot = -1;
+        initializing = false;
     }
 }

@@ -33,7 +33,7 @@ public final class ReflectionUtils {
      */
     @SuppressWarnings("unchecked")
     public static <T> T call(@NotNull Object object, @NotNull String method,
-                             Object @NotNull [] params, Class<?> @NotNull [] paramTypes) {
+                             Class<?> @NotNull [] paramTypes, Object @NotNull [] params) {
         if (params.length != paramTypes.length) {
             throw new RuntimeException("Param length not match with paramTypes length");
         }

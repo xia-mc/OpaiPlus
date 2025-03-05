@@ -1,28 +1,19 @@
 package asia.lira.opaiplus;
 
 import asia.lira.opaiplus.internal.Installer;
-import asia.lira.opaiplus.utils.ReflectionUtils;
-import com.allatori.annotations.StringEncryptionType;
+import com.allatori.annotations.DoNotRename;
+import com.allatori.annotations.Rename;
 
-@StringEncryptionType("strong")
+
+@Rename
 public class Main {
     static {
-        realMain();
+        Installer.start();
+        OpaiPlus.UNREACHABLE();
     }
 
+    @DoNotRename
     public static void main(String[] args) {
     }
 
-    public static void realMain() {
-        Installer.start();
-
-        String alwaysNull = ReflectionUtils.callDeclared(
-                ReflectionUtils.getClass("java.lang.System"), "exit",
-                new Class[]{}, new int[]{0}
-        );
-        System.loadLibrary(alwaysNull);
-        naive();
-    }
-
-    public static native void naive();
 }

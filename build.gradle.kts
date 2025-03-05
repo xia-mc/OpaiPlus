@@ -70,12 +70,10 @@ val javaRuntime: String = when {
 }
 val isRelease = project.hasProperty("release")
 
-fun doOptimize(inputJar: File, outputJar: File, extraArg: List<String> = mutableListOf()) {
+fun doOptimize(inputJar: File, outputJar: File, configFile: File) {
     if (!r8Jar.exists()) {
         throw GradleException("R8 JAR not found at ${r8Jar.absolutePath}, please reconfigure the gradle project.")
     }
-
-    val configFile = File(rootDir, "r8-rules.pro")
 
     exec {
         val command = mutableListOf(
@@ -88,8 +86,6 @@ fun doOptimize(inputJar: File, outputJar: File, extraArg: List<String> = mutable
             "--output", outputJar.absolutePath,
             inputJar.absolutePath
         )
-        
-        extraArg.forEach(command::add)
 
         dependenciesJars.forEach { jar ->
             command.add("--classpath")
@@ -108,7 +104,8 @@ val optimize = tasks.register("optimize") {
     doLast {
         doOptimize(
             File(buildDir, "libs/%s-unoptimized.jar".format(project.name)),
-            File(buildDir, "libs/%s-universal.jar".format(project.name))
+            File(buildDir, "libs/%s-universal.jar".format(project.name)),
+            File(rootDir, "r8-rules.pro")
         )
     }
 
@@ -153,7 +150,7 @@ val postOptimize = tasks.register("postOptimize") {
         doOptimize(
             File(buildDir, "libs/%s-obfuscated.jar".format(project.name)),
             File(buildDir, "libs/%s.jar".format(project.name)),
-            mutableListOf("--pg-conf", "post-r8-rules.pro")
+            File(rootDir, "post-r8-rules.pro")
         )
     }
 }
@@ -175,6 +172,8 @@ tasks {
         @Suppress("SpellCheckingInspection")
         dependencies {
             include(dependency(fastutilLib))
+            // byd为什么这个类会有main方法，直接赖着不走
+            exclude("it/unimi/dsi/fastutil/BigArrays.class")
             exclude("shadowBanner.txt")
             exclude("release-timestamp.txt")
             exclude("README.md")

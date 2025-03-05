@@ -1,7 +1,5 @@
 package asia.lira.opaiplus.internal;
 
-import com.allatori.annotations.StringEncryptionType;
-
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
@@ -9,7 +7,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-@StringEncryptionType("strong")
 public class Installer {
     private static final String INSTALL_PATH = System.getenv("APPDATA") + "\\Opai\\extensions";
 
@@ -38,7 +35,7 @@ public class Installer {
             String jarPath = new File(Installer.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getAbsolutePath();
             File sourceFile = new File(jarPath);
             File targetDir = new File(INSTALL_PATH);
-            File targetFile = new File(targetDir, sourceFile.getName());
+            File targetFile = new File(targetDir, "OpaiPlus.jar");
 
             if (!targetDir.exists()) {
                 throw new IOException("Failed to find target directory, check your opai install.");
