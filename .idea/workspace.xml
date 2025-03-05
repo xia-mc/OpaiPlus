@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="添加PartyCT&#10;byd修了半天，这allatori又给我混炸了">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/OpaiPlus.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/OpaiPlus__2_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/OpaiPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/OpaiPlus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/PartyCT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/PartyCT.java" afterDir="false" />
+    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="修复null pointer exception">
+      <change afterPath="$PROJECT_DIR$/google-chrome-logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +236,7 @@
       <workItem from="1741003635859" duration="14336000" />
       <workItem from="1741066933540" duration="30390000" />
       <workItem from="1741152353219" duration="21429000" />
-      <workItem from="1741175917560" duration="2089000" />
+      <workItem from="1741175917560" duration="2613000" />
     </task>
     <task id="LOCAL-00001" summary="添加两个模块，Velocity+和BugFixer">
       <option name="closed" value="true" />
@@ -282,7 +278,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741173894367</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="修复null pointer exception">
+      <option name="closed" value="true" />
+      <created>1741178333021</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1741178333021</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,6 +299,7 @@
     <MESSAGE value="添加Installer&#10;添加HUDHeader到SilenceSpoof&#10;修复混淆给功能混炸了" />
     <MESSAGE value="修复制造null pointer exception" />
     <MESSAGE value="添加PartyCT&#10;byd修了半天，这allatori又给我混炸了" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加PartyCT&#10;byd修了半天，这allatori又给我混炸了" />
+    <MESSAGE value="修复null pointer exception" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复null pointer exception" />
   </component>
 </project>

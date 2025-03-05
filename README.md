@@ -1,3 +1,13 @@
-# Extension Example
+<div align="center">
 
-A example extension implementation with [opensource-components](https://github.com/opai-client/opensource-components)
+
+# OpaiPlus
+
+<p>
+   <!--suppress CheckImageSize -->
+<img src="./google-chrome-logo.png" alt="Project Mascot" width="100">
+</p>
+
+## More features, More fun.
+
+</div>
