@@ -67,7 +67,7 @@ public class SilenceSpoof extends Module {
     @Override
     public void onEnabled() {
         lastAttack = -1;
-        serverOnGroundState = player.isOnGround();
+        serverOnGroundState = true;
     }
 
     @Override
