@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="修复null pointer exception">
-      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/NoIRC.java" afterDir="false" />
+    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="添加NoIRC&#10;删除fix slot从BugFixer&#10;修复一个BugFixer计算sprint的bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/OpaiPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/OpaiPlus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/BugFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/BugFixer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/PartyCT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/PartyCT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/BugFixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/Fixes.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +238,7 @@
       <workItem from="1741066933540" duration="30390000" />
       <workItem from="1741152353219" duration="21429000" />
       <workItem from="1741175917560" duration="2689000" />
-      <workItem from="1741182506287" duration="1976000" />
+      <workItem from="1741182506287" duration="5463000" />
     </task>
     <task id="LOCAL-00001" summary="添加两个模块，Velocity+和BugFixer">
       <option name="closed" value="true" />
@@ -314,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741182960264</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="添加NoIRC&#10;删除fix slot从BugFixer&#10;修复一个BugFixer计算sprint的bug">
+      <option name="closed" value="true" />
+      <created>1741184719353</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1741184719353</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,6 +335,7 @@
     <MESSAGE value="添加PartyCT&#10;byd修了半天，这allatori又给我混炸了" />
     <MESSAGE value="README" />
     <MESSAGE value="修复null pointer exception" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复null pointer exception" />
+    <MESSAGE value="添加NoIRC&#10;删除fix slot从BugFixer&#10;修复一个BugFixer计算sprint的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加NoIRC&#10;删除fix slot从BugFixer&#10;修复一个BugFixer计算sprint的bug" />
   </component>
 </project>

@@ -14,25 +14,45 @@ import today.opai.api.events.EventRender2D;
 import today.opai.api.interfaces.game.network.client.CPacket0BEntityAction;
 import today.opai.api.interfaces.modules.PresetModule;
 import today.opai.api.interfaces.modules.values.BooleanValue;
+import today.opai.api.interfaces.modules.values.NumberValue;
 
-public class BugFixer extends Module {
-    private final BooleanValue sprintState = createBoolean("Fix Sprint", true);
-    private final BooleanValue lowTimer = createBoolean("Fix Timer", true);
+import java.util.concurrent.locks.ReentrantLock;
+
+public class Fixes extends Module {
+    private final BooleanValue sprintState = createBoolean("Sprint", true);
+    private final BooleanValue lowTimer = createBoolean("Timer", true);
+    private final BooleanValue airStrafe = createBoolean("Air Strafe", false);
+    private final NumberValue keepTicks = createNumber("Keep Ticks", 10, 5, 20, 1);
     private final BooleanValue debug = createBoolean("Debug", false);
 
     private final PresetModule moduleStep = API.getModuleManager().getModule("Step");
     private final PresetModule moduleSpeed = API.getModuleManager().getModule("Speed");
+    private final BooleanValue moduleSpeedAirStrafe = moduleSpeed.getValues().stream()
+            .filter(value -> value.getName().equals("Air Strafe"))
+            .findAny()
+            .map(value -> (BooleanValue) value)
+            .orElseThrow(() -> new RuntimeException("Can't find Air Strafe option in Module Speed."));
+
     private boolean serverSprintState = false;
     private boolean clientSprintState = false;
     private boolean initializing = false;
 
-    public BugFixer() {
-        super("Bug Fixer", "Fix some bugs from original Opai", EnumModuleCategory.MISC);
+    private final ReentrantLock lock = new ReentrantLock();
+    private float lastYaw;
+    private int strafeTicks = 0;
+    private Boolean lastStrafeEnabled = null;
+
+    public Fixes() {
+        super("Fixes", "Fix something from original Opai", EnumModuleCategory.MISC);
+        keepTicks.setHiddenPredicate(() -> !airStrafe.getValue());
     }
 
     @Override
     public void onEnabled() {
         initializing = true;
+
+        // TODO 等cubk改进性能
+        airStrafe.setValue(false);
         ensureInitialized();
     }
 
@@ -40,6 +60,13 @@ public class BugFixer extends Module {
         if (!initializing) return true;
         if (!nullCheck()) return false;
         serverSprintState = clientSprintState = player.isSprinting();
+        lastYaw = MoveUtil.directionYaw();
+
+        if (lastStrafeEnabled != null) {
+            moduleSpeedAirStrafe.setValue(lastStrafeEnabled);
+        }
+        strafeTicks = 0;
+        lastStrafeEnabled = null;
         initializing = false;
         return true;
     }
@@ -50,6 +77,39 @@ public class BugFixer extends Module {
             return;
         }
         syncSprint();
+    }
+
+    @Override
+    public void onLoop() {
+        if (!ensureInitialized()) return;
+        if (!airStrafe.getValue()) return;
+        float yaw = MoveUtil.directionYaw();
+
+        airStrafeUpdater(yaw, lastYaw);
+
+        lastYaw = yaw;
+    }
+
+    private void airStrafeUpdater(float curYaw, float lastYaw) {
+        if (!lock.tryLock()) return;
+        try {
+            if (MoveUtil.isMoving() && MathUtils.posEquals(curYaw, lastYaw)) {
+                if (lastStrafeEnabled == null) {
+                    lastStrafeEnabled = moduleSpeedAirStrafe.getValue();
+                }
+                if (strafeTicks > 0) {
+                    strafeTicks--;
+                } else {
+                    moduleSpeedAirStrafe.setValue(false);
+                }
+            } else if (lastStrafeEnabled != null) {
+                moduleSpeedAirStrafe.setValue(lastStrafeEnabled);
+                strafeTicks = keepTicks.getValue().intValue();
+                lastStrafeEnabled = null;
+            }
+        } finally {
+            lock.unlock();
+        }
     }
 
     @Override

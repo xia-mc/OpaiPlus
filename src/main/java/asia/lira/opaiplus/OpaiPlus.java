@@ -4,11 +4,12 @@ import asia.lira.opaiplus.internal.Module;
 import asia.lira.opaiplus.internal.NetworkManager;
 import asia.lira.opaiplus.internal.SecurityManager;
 import asia.lira.opaiplus.modules.combat.VelocityPlus;
-import asia.lira.opaiplus.modules.misc.BugFixer;
+import asia.lira.opaiplus.modules.misc.Fixes;
 import asia.lira.opaiplus.modules.misc.NoIRC;
 import asia.lira.opaiplus.modules.misc.PartyCT;
 import asia.lira.opaiplus.modules.visual.SilenceSpoof;
 import asia.lira.opaiplus.utils.*;
+import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 import today.opai.api.Extension;
@@ -124,13 +125,14 @@ public final class OpaiPlus extends Extension {
                         return t;
                     }, new ThreadPoolExecutor.DiscardPolicy()
             );
+            modules = new Object2ObjectOpenHashMap<>();
 
             API = api;
             checkCompatibility();
 
             SecurityManager.init();
             NetworkManager.init();
-            addModules(new VelocityPlus(), new BugFixer(), new SilenceSpoof(), new PartyCT(), new NoIRC());
+            addModules(new VelocityPlus(), new Fixes(), new SilenceSpoof(), new PartyCT(), new NoIRC());
 
             success(String.format("Initialize successful. [%dms]", Timer.end()));
         } catch (Throwable e) {
@@ -174,15 +176,17 @@ public final class OpaiPlus extends Extension {
                 ReflectionUtils.call(thread, "stop0",
                         new Class[]{Object.class}, new Object[]{new ThreadDeath()});
             });
-            System.gc();
 
+            executor = null;
+            modules = null;
+
+            System.gc();
             success(String.format("Unloaded! See you next time. [%dms]", Timer.end()));
         } catch (Throwable e) {
             error(String.format("Failed to release resources. [%dms]", Timer.end()));
             e.printStackTrace(System.out);
         } finally {
             API = null;
-            executor = null;
         }
     }
 }
