@@ -7,6 +7,7 @@ import asia.lira.opaiplus.utils.ChatFormatting;
 import it.unimi.dsi.fastutil.objects.Object2LongMap;
 import it.unimi.dsi.fastutil.objects.Object2LongOpenHashMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
+import lombok.Getter;
 import lombok.SneakyThrows;
 import org.jetbrains.annotations.NotNull;
 import today.opai.api.enums.EnumModuleCategory;
@@ -40,6 +41,8 @@ public class PartyCT extends Module {
     private final Object2LongMap<String> lastHeartBeat = new Object2LongOpenHashMap<>();  // 游戏名字：上次心跳包时间
     private long selfLastHeartBeat = -1;
     private boolean initializing = true;
+    @Getter
+    private String lastMsg = "";  // TODO Opai没有event handler priory，所以目前用这种方式防止PartyCT因为NoIRC失效。未来可以重做event bus
 
     public PartyCT() {
         super("Party CT", "Auto cross-team if possible.", EnumModuleCategory.MISC);
@@ -70,6 +73,7 @@ public class PartyCT extends Module {
 
     @Override
     public void onChat(@NotNull EventChatReceived event) {
+        lastMsg = event.getMessage();
         if (!ensureInitialize()) return;
 
         String message = ChatFormatting.getTextWithoutFormattingCodes(event.getMessage());

@@ -11,7 +11,6 @@ import today.opai.api.enums.EnumModuleCategory;
 import today.opai.api.events.EventMove;
 import today.opai.api.events.EventPacketSend;
 import today.opai.api.events.EventRender2D;
-import today.opai.api.interfaces.game.network.client.CPacket09SlotChange;
 import today.opai.api.interfaces.game.network.client.CPacket0BEntityAction;
 import today.opai.api.interfaces.modules.PresetModule;
 import today.opai.api.interfaces.modules.values.BooleanValue;
@@ -19,14 +18,12 @@ import today.opai.api.interfaces.modules.values.BooleanValue;
 public class BugFixer extends Module {
     private final BooleanValue sprintState = createBoolean("Fix Sprint", true);
     private final BooleanValue lowTimer = createBoolean("Fix Timer", true);
-    private final BooleanValue slot = createBoolean("Fix Slot", true);
     private final BooleanValue debug = createBoolean("Debug", false);
 
     private final PresetModule moduleStep = API.getModuleManager().getModule("Step");
     private final PresetModule moduleSpeed = API.getModuleManager().getModule("Speed");
     private boolean serverSprintState = false;
     private boolean clientSprintState = false;
-    private int serverSlot = -1;
     private boolean initializing = false;
 
     public BugFixer() {
@@ -35,24 +32,31 @@ public class BugFixer extends Module {
 
     @Override
     public void onEnabled() {
-        initializing = false;
-        initialize();
+        initializing = true;
+        ensureInitialized();
     }
 
-    private void initialize() {
-        if (!initializing) return;
+    private boolean ensureInitialized() {
+        if (!initializing) return true;
+        if (!nullCheck()) return false;
         serverSprintState = clientSprintState = player.isSprinting();
-        serverSlot = player.getItemSlot();
-        initializing = true;
+        initializing = false;
+        return true;
     }
 
     @Override
     public void onDisabled() {
+        if (!ensureInitialized()) {
+            return;
+        }
         syncSprint();
     }
 
     @Override
     public void onMove(@NotNull EventMove event) {
+        if (!ensureInitialized()) {
+            return;
+        }
         if (!sprintState.getValue()) return;
         if (!MoveUtil.isMoving()) return;
         syncSprint();
@@ -60,7 +64,9 @@ public class BugFixer extends Module {
 
     @Override
     public void onPacketSend(@NotNull EventPacketSend event) {
-        initialize();
+        if (!ensureInitialized()) {
+            return;
+        }
         if (event.getPacket() instanceof CPacket0BEntityAction) {
             if (!sprintState.getValue()) return;
             CPacket0BEntityAction packet = (CPacket0BEntityAction) event.getPacket();
@@ -87,15 +93,6 @@ public class BugFixer extends Module {
 
                 serverSprintState = false;
             }
-        } else if (event.getPacket() instanceof CPacket09SlotChange) {
-            if (!slot.getValue()) return;
-            int packetSlot = ((CPacket09SlotChange) event.getPacket()).getSlot();
-            if (serverSlot != -1 && packetSlot == serverSlot) {
-                event.setCancelled(true);
-                onSuppress("silent hold");
-                return;
-            }
-            serverSlot = packetSlot;
         }
     }
 
@@ -127,6 +124,6 @@ public class BugFixer extends Module {
 
     @Override
     public void onLoadWorld() {
-        initializing = false;
+        initializing = true;
     }
 }

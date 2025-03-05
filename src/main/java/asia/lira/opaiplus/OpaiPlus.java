@@ -5,6 +5,7 @@ import asia.lira.opaiplus.internal.NetworkManager;
 import asia.lira.opaiplus.internal.SecurityManager;
 import asia.lira.opaiplus.modules.combat.VelocityPlus;
 import asia.lira.opaiplus.modules.misc.BugFixer;
+import asia.lira.opaiplus.modules.misc.NoIRC;
 import asia.lira.opaiplus.modules.misc.PartyCT;
 import asia.lira.opaiplus.modules.visual.SilenceSpoof;
 import asia.lira.opaiplus.utils.*;
@@ -18,6 +19,7 @@ import today.opai.api.interfaces.dataset.Vector3d;
 import today.opai.api.interfaces.game.network.server.SPacket12Velocity;
 
 import java.util.HashSet;
+import java.util.Map;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -27,7 +29,7 @@ public final class OpaiPlus extends Extension {
     private static OpenAPI API = null;
     @Getter
     private static ThreadPoolExecutor executor;
-    private static Module[] modules;
+    private static Map<Class<? extends Module>, Module> modules;
 
     public static @NotNull OpenAPI getAPI() {
         if (API == null) {
@@ -96,6 +98,18 @@ public final class OpaiPlus extends Extension {
 
     private static native int naive(Object a, long b, int c, int d);
 
+    private static void addModules(Module @NotNull ... modules) {
+        for (Module module : modules) {
+            OpaiPlus.modules.put(module.getClass(), module);
+            API.registerFeature(module);
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T extends Module> T getModule(Class<T> moduleClass) {
+        return (T) modules.get(moduleClass);
+    }
+
     @Override
     public void initialize(@NotNull OpenAPI api) {
         Timer.begin();
@@ -116,10 +130,7 @@ public final class OpaiPlus extends Extension {
 
             SecurityManager.init();
             NetworkManager.init();
-            modules = new Module[]{new VelocityPlus(), new BugFixer(), new SilenceSpoof(), new PartyCT()};
-            for (Module module : modules) {
-                API.registerFeature(module);
-            }
+            addModules(new VelocityPlus(), new BugFixer(), new SilenceSpoof(), new PartyCT(), new NoIRC());
 
             success(String.format("Initialize successful. [%dms]", Timer.end()));
         } catch (Throwable e) {
@@ -133,7 +144,7 @@ public final class OpaiPlus extends Extension {
         Timer.begin();
         try {
             // 要求各模块清理资源
-            for (Module module : modules) {
+            for (Module module : modules.values()) {
                 module.onDisabled();
             }
 
