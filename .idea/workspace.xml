@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="修复null pointer exception">
-      <change afterPath="$PROJECT_DIR$/google-chrome-logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="README" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -236,7 +233,7 @@
       <workItem from="1741003635859" duration="14336000" />
       <workItem from="1741066933540" duration="30390000" />
       <workItem from="1741152353219" duration="21429000" />
-      <workItem from="1741175917560" duration="2613000" />
+      <workItem from="1741175917560" duration="2689000" />
     </task>
     <task id="LOCAL-00001" summary="添加两个模块，Velocity+和BugFixer">
       <option name="closed" value="true" />
@@ -286,7 +283,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741178333021</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="README">
+      <option name="closed" value="true" />
+      <created>1741178622919</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1741178622919</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,6 +305,7 @@
     <MESSAGE value="修复制造null pointer exception" />
     <MESSAGE value="添加PartyCT&#10;byd修了半天，这allatori又给我混炸了" />
     <MESSAGE value="修复null pointer exception" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复null pointer exception" />
+    <MESSAGE value="README" />
+    <option name="LAST_COMMIT_MESSAGE" value="README" />
   </component>
 </project>

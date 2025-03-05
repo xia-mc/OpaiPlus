@@ -39,6 +39,7 @@ public class PartyCT extends Module {
     private final Map<String, String> friends = new Object2ObjectOpenHashMap<>();  // 游戏名字：IRC名字
     private final Object2LongMap<String> lastHeartBeat = new Object2LongOpenHashMap<>();  // 游戏名字：上次心跳包时间
     private long selfLastHeartBeat = -1;
+    private boolean initializing = true;
 
     public PartyCT() {
         super("Party CT", "Auto cross-team if possible.", EnumModuleCategory.MISC);
@@ -53,10 +54,8 @@ public class PartyCT extends Module {
             return;
         }
 
-        synchronized (GIL) {
-            selfLastHeartBeat = System.currentTimeMillis();
-            OpaiPlus.getExecutor().execute(() -> send(HEARTBEAT | REQUEST));
-        }
+        initializing = true;
+        ensureInitialize();
     }
 
     @Override
@@ -71,6 +70,8 @@ public class PartyCT extends Module {
 
     @Override
     public void onChat(@NotNull EventChatReceived event) {
+        if (!ensureInitialize()) return;
+
         String message = ChatFormatting.getTextWithoutFormattingCodes(event.getMessage());
         String prefix = mode.getValue().equals("Global") ? IRC_GLOBAL_PREFIX : IRC_PARTY_PREFIX;
         if (!message.startsWith(prefix)) {
@@ -93,6 +94,8 @@ public class PartyCT extends Module {
 
     @Override
     public void onLoop() {
+        if (!ensureInitialize()) return;
+
         OpaiPlus.getExecutor().execute(() -> {
             synchronized (GIL) {
                 long time = System.currentTimeMillis();
@@ -113,6 +116,18 @@ public class PartyCT extends Module {
         });
     }
 
+    private boolean ensureInitialize() {
+        if (!initializing) return true;
+
+        if (!nullCheck()) return false;
+        synchronized (GIL) {
+            selfLastHeartBeat = System.currentTimeMillis();
+            OpaiPlus.getExecutor().execute(() -> send(HEARTBEAT | REQUEST));
+            initializing = false;
+        }
+        return true;
+    }
+
     private void send(int opCode) {
         String data = String.format("%d,%s", opCode, player.getProfileName());
         String message = String.format("%s%s", MESSAGE_PREFIX, SecurityManager.encrypt(data, password.getValue()));
@@ -123,9 +138,6 @@ public class PartyCT extends Module {
                 break;
             case "Party":
                 API.getIRC().sendPartyMessage(message);
-                break;
-            default:
-                OpaiPlus.UNREACHABLE();
                 break;
         }
     }
