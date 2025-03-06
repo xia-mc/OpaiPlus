@@ -31,11 +31,11 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class TimerRange extends Module {
-    private final NumberValue lagTicks = createNumber("Lag Ticks", 2, 1, 10, 1);
-    private final NumberValue timerTicks = createNumber("Timer Ticks", 2, 1, 10, 1);
-    private final NumberValue minRange = createNumber("Min Range", 3.6, 2, 8, 1);
-    private final NumberValue maxRange = createNumber("Max Range", 5, 2, 8, 1);
-    private final NumberValue delay = createNumber("Delay", 500, 100, 5000, 100);
+    private final NumberValue lagTicks = createNumber("Lag Ticks", 2, 0, 10, 1);
+    private final NumberValue timerTicks = createNumber("Timer Ticks", 2, 0, 10, 1);
+    private final NumberValue minRange = createNumber("Min Range", 3.6, 2, 8, 0.1);
+    private final NumberValue maxRange = createNumber("Max Range", 5, 2, 8, 0.1);
+    private final NumberValue delay = createNumber("Delay", 500, 100, 5000, 50);
     private final NumberValue fov = createNumber("FOV", 180, 15, 360, 15);
     private final BooleanValue onlyOnGround = createBoolean("Only On Ground", true);
     private final BooleanValue clearMotion = createBoolean("Clear Motion", false);
@@ -64,7 +64,7 @@ public class TimerRange extends Module {
 
     @Override
     public String getSuffix() {
-        return (hasLag == 0 ? lagTicks.getValue().intValue() - hasTimer : hasLag) * 50 + "ms";
+        return (hasLag == 0 ? (hasTimer == 0 ? timerTicks.getValue() : lagTicks.getValue().intValue() - hasTimer) : hasLag) * 50 + "ms";
     }
 
     @Override

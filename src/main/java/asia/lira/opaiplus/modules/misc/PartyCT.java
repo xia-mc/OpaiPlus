@@ -27,8 +27,8 @@ public class PartyCT extends Module {
     public static final String MESSAGE_PREFIX = "[PCT]";
     public static final String IRC_GLOBAL_PREFIX = "IRC Global >> ";
     public static final String IRC_PARTY_PREFIX = "IRC Party >> ";
-    public static final long HEARTBEAT_DELAY = TimeUnit.MINUTES.toMillis(5);
-    public static final long HEARTBEAT_TIMEOUT = TimeUnit.MINUTES.toMillis(10);
+    public static final long HEARTBEAT_DELAY = Long.MAX_VALUE - 1;
+    public static final long HEARTBEAT_TIMEOUT = Long.MAX_VALUE - 1;
 
     private final ModeValue mode = createModes("Mode", "Party", "Global", "Party");
     private final TextValue password = createText("Password", DEFAULT_PASSWORD);

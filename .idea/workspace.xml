@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="添加TimerRange">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="修复null pointer exception">
       <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/combat/TimerRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/combat/TimerRange.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -244,7 +243,7 @@
       <workItem from="1741152353219" duration="21429000" />
       <workItem from="1741175917560" duration="2689000" />
       <workItem from="1741182506287" duration="10614000" />
-      <workItem from="1741240354759" duration="18545000" />
+      <workItem from="1741240354759" duration="19247000" />
     </task>
     <task id="LOCAL-00001" summary="添加两个模块，Velocity+和BugFixer">
       <option name="closed" value="true" />
@@ -342,7 +341,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741258460350</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="修复null pointer exception">
+      <option name="closed" value="true" />
+      <created>1741259116059</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1741259116059</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,10 +374,10 @@
     <MESSAGE value="修复制造null pointer exception" />
     <MESSAGE value="添加PartyCT&#10;byd修了半天，这allatori又给我混炸了" />
     <MESSAGE value="README" />
-    <MESSAGE value="修复null pointer exception" />
     <MESSAGE value="添加NoIRC&#10;删除fix slot从BugFixer&#10;修复一个BugFixer计算sprint的bug" />
     <MESSAGE value="BugFixer改名Fixes&#10;添加AirStrafe选项到Fixes，自适应7tick strafe lowhop  // 已删除，因为cubk写的API性能太拉跨了" />
     <MESSAGE value="添加TimerRange" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加TimerRange" />
+    <MESSAGE value="修复null pointer exception" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复null pointer exception" />
   </component>
 </project>
