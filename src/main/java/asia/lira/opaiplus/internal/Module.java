@@ -1,6 +1,7 @@
 package asia.lira.opaiplus.internal;
 
 import asia.lira.opaiplus.OpaiPlus;
+import org.jetbrains.annotations.NotNull;
 import today.opai.api.OpenAPI;
 import today.opai.api.enums.EnumModuleCategory;
 import today.opai.api.features.ExtensionModule;
@@ -61,5 +62,14 @@ public abstract class Module extends ExtensionModule implements EventHandler {
         TextValue result = API.getValueManager().createInput(name, defaultValue);
         super.addValues(result);
         return result;
+    }
+
+    protected void setDepends(Value<?> value, BooleanValue @NotNull ... deps) {
+        if (deps.length == 0) return;
+        value.setHiddenPredicate(() -> !Arrays.stream(deps).allMatch(Value::getValue));
+    }
+
+    protected void setDepends(@NotNull Value<?> value, ModeValue dep, String depValue) {
+        value.setHiddenPredicate(() -> !dep.isCurrentMode(depValue));
     }
 }

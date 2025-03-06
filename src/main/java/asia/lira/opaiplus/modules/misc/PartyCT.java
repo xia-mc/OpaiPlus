@@ -27,8 +27,8 @@ public class PartyCT extends Module {
     public static final String MESSAGE_PREFIX = "[PCT]";
     public static final String IRC_GLOBAL_PREFIX = "IRC Global >> ";
     public static final String IRC_PARTY_PREFIX = "IRC Party >> ";
-    public static final long HEARTBEAT_DELAY = TimeUnit.SECONDS.toMillis(60);
-    public static final long HEARTBEAT_TIMEOUT = TimeUnit.SECONDS.toMillis(120);
+    public static final long HEARTBEAT_DELAY = TimeUnit.MINUTES.toMillis(5);
+    public static final long HEARTBEAT_TIMEOUT = TimeUnit.MINUTES.toMillis(10);
 
     private final ModeValue mode = createModes("Mode", "Party", "Global", "Party");
     private final TextValue password = createText("Password", DEFAULT_PASSWORD);
@@ -41,11 +41,20 @@ public class PartyCT extends Module {
     private final Object2LongMap<String> lastHeartBeat = new Object2LongOpenHashMap<>();  // 游戏名字：上次心跳包时间
     private long selfLastHeartBeat = -1;
     private boolean initializing = true;
+    private String lastPlayerName = "";
     @Getter
     private String lastMsg = "";  // TODO Opai没有event handler priory，所以目前用这种方式防止PartyCT因为NoIRC失效。未来可以重做event bus
 
     public PartyCT() {
         super("Party CT", "Auto cross-team if possible.", EnumModuleCategory.MISC);
+        mode.setValueCallback(value -> {
+            initializing = true;
+            ensureInitialize();
+        });
+        password.setValueCallback(value -> {
+            initializing = true;
+            ensureInitialize();
+        });
     }
 
     @SneakyThrows
@@ -77,7 +86,7 @@ public class PartyCT extends Module {
         if (!ensureInitialize()) return;
 
         String message = ChatFormatting.getTextWithoutFormattingCodes(event.getMessage());
-        String prefix = mode.getValue().equals("Global") ? IRC_GLOBAL_PREFIX : IRC_PARTY_PREFIX;
+        String prefix = mode.isCurrentMode("Global") ? IRC_GLOBAL_PREFIX : IRC_PARTY_PREFIX;
         if (!message.startsWith(prefix)) {
             return;
         }
@@ -87,7 +96,7 @@ public class PartyCT extends Module {
             return;
         }
 
-        if (nullCheck() && !splits[0].equals(player.getProfileName())) {
+        if (nullCheck()) {
             OpaiPlus.getExecutor().execute(() -> handle(splits[1], splits[0]));
         }
 
@@ -97,14 +106,21 @@ public class PartyCT extends Module {
     }
 
     @Override
-    public void onLoop() {
+    public void onTick() {
         if (!ensureInitialize()) return;
 
         OpaiPlus.getExecutor().execute(() -> {
             synchronized (GIL) {
                 long time = System.currentTimeMillis();
-                if (time - selfLastHeartBeat >= HEARTBEAT_DELAY) {
-                    selfLastHeartBeat = System.currentTimeMillis();
+
+                String profileName = player.getProfileName();
+                if (!profileName.equals(lastPlayerName)) {
+                    send(LEAVE);
+                    lastPlayerName = profileName;
+                    selfLastHeartBeat = time;
+                    send(HEARTBEAT | REQUEST);
+                } else if (time - selfLastHeartBeat >= HEARTBEAT_DELAY) {
+                    selfLastHeartBeat = time;
                     send(HEARTBEAT);
                 }
 
@@ -126,6 +142,7 @@ public class PartyCT extends Module {
         if (!nullCheck()) return false;
         synchronized (GIL) {
             selfLastHeartBeat = System.currentTimeMillis();
+            lastPlayerName = player.getProfileName();
             OpaiPlus.getExecutor().execute(() -> send(HEARTBEAT | REQUEST));
             initializing = false;
         }
@@ -133,15 +150,15 @@ public class PartyCT extends Module {
     }
 
     private void send(int opCode) {
-        String data = String.format("%d,%s", opCode, player.getProfileName());
+        String data = String.format("%d,%s", opCode, lastPlayerName);
         String message = String.format("%s%s", MESSAGE_PREFIX, SecurityManager.encrypt(data, password.getValue()));
 
         switch (mode.getValue()) {
             case "Global":
-                API.getIRC().sendMessage(message);
+                API.getIRC().sendMessage(" " + message);
                 break;
             case "Party":
-                API.getIRC().sendPartyMessage(message);
+                API.getIRC().sendPartyMessage(" " + message);
                 break;
         }
     }
@@ -159,6 +176,9 @@ public class PartyCT extends Module {
     }
 
     private void handle(int opCode, @NotNull String senderIRC, String senderIGN) {
+        if (lastPlayerName.equals(senderIGN)) {
+            return;
+        }
         if (!API.getIRC().getUsername(senderIGN).filter(senderIRC::equals).isPresent()) {
             invalid(senderIRC);
             return;
@@ -172,7 +192,8 @@ public class PartyCT extends Module {
                     API.addFriend(senderIGN);
                     info(String.format("%s joined PartyCT", senderIRC));
                 }
-            } else if ((opCode & LEAVE) != 0) {
+            }
+            if ((opCode & LEAVE) != 0) {
                 String removed = friends.remove(senderIGN);
                 lastHeartBeat.removeLong(senderIGN);
                 if (removed == null || !removed.equals(senderIRC)) {
@@ -181,7 +202,8 @@ public class PartyCT extends Module {
                 }
                 API.removeFriend(senderIGN);
                 info(String.format("%s leaved PartyCT", senderIRC));
-            } else if ((opCode & REQUEST) != 0) {
+            }
+            if ((opCode & REQUEST) != 0) {
                 send(HEARTBEAT);
             }
         }
@@ -199,7 +221,7 @@ public class PartyCT extends Module {
         if (!notification.getValue()) return;
         API.popNotification(
                 EnumNotificationType.INFO, "PartyCT",
-                message, 5000
+                message, 8000
         );
     }
 }

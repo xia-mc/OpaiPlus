@@ -1,20 +1,15 @@
 package asia.lira.opaiplus.utils;
 
-import it.unimi.dsi.fastutil.longs.LongArrayList;
-import it.unimi.dsi.fastutil.longs.LongStack;
+import java.util.LinkedList;
 
 public class Timer {
-    private static final LongStack startTimes = new LongArrayList();
+    private static final ThreadLocal<LinkedList<Long>> startTimes = ThreadLocal.withInitial(LinkedList::new);
 
     public static void begin() {
-        synchronized (startTimes) {
-            startTimes.push(System.nanoTime());
-        }
+        startTimes.get().push(System.nanoTime());
     }
 
     public static long end() {
-        synchronized (startTimes) {
-            return (System.nanoTime() - startTimes.popLong()) / 1000000;
-        }
+        return (System.nanoTime() - startTimes.get().pop()) / 1000000;
     }
 }

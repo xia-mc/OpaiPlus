@@ -45,7 +45,7 @@ public class Installer {
 
             JOptionPane.showMessageDialog(frame, "Installed successful!",
                     "OpaiPlus Installer", JOptionPane.INFORMATION_MESSAGE);
-
+            AntiCrack.UNREACHABLE();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(frame, "Failed to install: " + ex.getMessage(),
                     "OpaiPlus Installer", JOptionPane.ERROR_MESSAGE);

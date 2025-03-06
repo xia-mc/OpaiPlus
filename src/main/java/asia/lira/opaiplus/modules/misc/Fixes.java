@@ -16,12 +16,10 @@ import today.opai.api.interfaces.modules.PresetModule;
 import today.opai.api.interfaces.modules.values.BooleanValue;
 import today.opai.api.interfaces.modules.values.NumberValue;
 
-import java.util.concurrent.locks.ReentrantLock;
-
 public class Fixes extends Module {
     private final BooleanValue sprintState = createBoolean("Sprint", true);
     private final BooleanValue lowTimer = createBoolean("Timer", true);
-    private final BooleanValue airStrafe = createBoolean("Air Strafe", false);
+    private final BooleanValue airStrafe = createBoolean("Air Strafe (Low FPS)", false);
     private final NumberValue keepTicks = createNumber("Keep Ticks", 10, 5, 20, 1);
     private final BooleanValue debug = createBoolean("Debug", false);
 
@@ -37,22 +35,19 @@ public class Fixes extends Module {
     private boolean clientSprintState = false;
     private boolean initializing = false;
 
-    private final ReentrantLock lock = new ReentrantLock();
     private float lastYaw;
     private int strafeTicks = 0;
     private Boolean lastStrafeEnabled = null;
 
     public Fixes() {
         super("Fixes", "Fix something from original Opai", EnumModuleCategory.MISC);
-        keepTicks.setHiddenPredicate(() -> !airStrafe.getValue());
+        setDepends(keepTicks, airStrafe);
     }
 
     @Override
     public void onEnabled() {
         initializing = true;
 
-        // TODO 等cubk改进性能
-        airStrafe.setValue(false);
         ensureInitialized();
     }
 
@@ -61,10 +56,6 @@ public class Fixes extends Module {
         if (!nullCheck()) return false;
         serverSprintState = clientSprintState = player.isSprinting();
         lastYaw = MoveUtil.directionYaw();
-
-        if (lastStrafeEnabled != null) {
-            moduleSpeedAirStrafe.setValue(lastStrafeEnabled);
-        }
         strafeTicks = 0;
         lastStrafeEnabled = null;
         initializing = false;
@@ -76,40 +67,35 @@ public class Fixes extends Module {
         if (!ensureInitialized()) {
             return;
         }
+        if (lastStrafeEnabled != null) {
+            moduleSpeedAirStrafe.setValue(lastStrafeEnabled);
+        }
         syncSprint();
     }
 
     @Override
-    public void onLoop() {
+    public void onTick() {
         if (!ensureInitialized()) return;
         if (!airStrafe.getValue()) return;
-        float yaw = MoveUtil.directionYaw();
+        if (!nullCheck()) return;
+        float curYaw = MoveUtil.directionYaw();
 
-        airStrafeUpdater(yaw, lastYaw);
-
-        lastYaw = yaw;
-    }
-
-    private void airStrafeUpdater(float curYaw, float lastYaw) {
-        if (!lock.tryLock()) return;
-        try {
-            if (MoveUtil.isMoving() && MathUtils.posEquals(curYaw, lastYaw)) {
-                if (lastStrafeEnabled == null) {
-                    lastStrafeEnabled = moduleSpeedAirStrafe.getValue();
-                }
-                if (strafeTicks > 0) {
-                    strafeTicks--;
-                } else {
-                    moduleSpeedAirStrafe.setValue(false);
-                }
-            } else if (lastStrafeEnabled != null) {
-                moduleSpeedAirStrafe.setValue(lastStrafeEnabled);
-                strafeTicks = keepTicks.getValue().intValue();
-                lastStrafeEnabled = null;
+        if (MoveUtil.isMoving() && curYaw != lastYaw && Math.abs(curYaw - lastYaw) > 15) {
+            if (lastStrafeEnabled == null) {
+                lastStrafeEnabled = moduleSpeedAirStrafe.getValue();
             }
-        } finally {
-            lock.unlock();
+            if (strafeTicks > 0) {
+                strafeTicks--;
+            } else {
+                moduleSpeedAirStrafe.setValue(false);
+            }
+        } else if (lastStrafeEnabled != null) {
+            moduleSpeedAirStrafe.setValue(lastStrafeEnabled);
+            strafeTicks = keepTicks.getValue().intValue();
+            lastStrafeEnabled = null;
         }
+
+        lastYaw = curYaw;
     }
 
     @Override

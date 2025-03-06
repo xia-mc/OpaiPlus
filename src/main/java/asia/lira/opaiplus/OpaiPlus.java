@@ -3,6 +3,7 @@ package asia.lira.opaiplus;
 import asia.lira.opaiplus.internal.Module;
 import asia.lira.opaiplus.internal.NetworkManager;
 import asia.lira.opaiplus.internal.SecurityManager;
+import asia.lira.opaiplus.modules.combat.TimerRange;
 import asia.lira.opaiplus.modules.combat.VelocityPlus;
 import asia.lira.opaiplus.modules.misc.Fixes;
 import asia.lira.opaiplus.modules.misc.NoIRC;
@@ -25,7 +26,7 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-@ExtensionInfo(name = "OpaiPlus", author = "xia__mc", version = "0.1 (For b18.4Beta)")
+@ExtensionInfo(name = "OpaiPlus", author = "xia__mc", version = "0.2 (For b18.4Beta)")
 public final class OpaiPlus extends Extension {
     private static OpenAPI API = null;
     @Getter
@@ -82,23 +83,6 @@ public final class OpaiPlus extends Extension {
         error("Compatibility test failed. Some features may won't work correctly.");
     }
 
-    public static void UNREACHABLE() {
-        Object[] types = new Object[]{int.class, double.class};
-        Object[] params = {RandomUtils.randInt()};
-        Class<?>[] fixedTypes = new Class[1];
-
-        System.arraycopy(fixedTypes, 0, types, 0, 1);
-
-        String alwaysNull = ReflectionUtils.callDeclared(
-                ReflectionUtils.getClass("java.lang.System"), "exit",
-                fixedTypes, params
-        );
-        System.loadLibrary(alwaysNull);
-        naive(types, 0xffffffdffffffffL, 0x1e4d64fc, 0x0);
-    }
-
-    private static native int naive(Object a, long b, int c, int d);
-
     private static void addModules(Module @NotNull ... modules) {
         for (Module module : modules) {
             OpaiPlus.modules.put(module.getClass(), module);
@@ -132,7 +116,7 @@ public final class OpaiPlus extends Extension {
 
             SecurityManager.init();
             NetworkManager.init();
-            addModules(new VelocityPlus(), new Fixes(), new SilenceSpoof(), new PartyCT(), new NoIRC());
+            addModules(new VelocityPlus(), new Fixes(), new SilenceSpoof(), new PartyCT(), new NoIRC(), new TimerRange());
 
             success(String.format("Initialize successful. [%dms]", Timer.end()));
         } catch (Throwable e) {
@@ -147,7 +131,9 @@ public final class OpaiPlus extends Extension {
         try {
             // 要求各模块清理资源
             for (Module module : modules.values()) {
-                module.onDisabled();
+                if (module.isEnabled()) {
+                    module.onDisabled();
+                }
             }
 
             // 要求关闭线程池

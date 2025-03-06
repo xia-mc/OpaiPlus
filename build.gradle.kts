@@ -15,6 +15,7 @@ repositories {
     maven("https://jitpack.io")
     maven("https://repo.marcloud.net/releases/")
     maven("https://maven.google.com/")
+    maven("https://repo.carm.cc/repository/maven-public")
 }
 
 java {
@@ -28,7 +29,8 @@ val lombokLib = "org.projectlombok:lombok:1.18.30"
 
 val libraries = listOf(
     "com.github.opai-client:opensource-components:-SNAPSHOT",
-    "org.lwjgl:lwjgl:2.9.4-nightly",
+//    "org.lwjgl:lwjgl:2.9.4-nightly",
+    "org.lwjgl.lwjgl:lwjgl_util:2.9.4-nightly-20150209",
     "org.jetbrains:annotations:24.0.0",
     "com.gradleup.shadow:shadow-gradle-plugin:9.0.0-beta4",
     files("libs/allatori-annotations.jar"),

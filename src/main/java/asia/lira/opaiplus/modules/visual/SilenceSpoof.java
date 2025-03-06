@@ -72,7 +72,7 @@ public class SilenceSpoof extends Module {
 
     @Override
     public void onChat(@NotNull EventChatReceived event) {
-        if (criticals.getValue().equals("None")) {
+        if (criticals.isCurrentMode("None")) {
             return;
         }
 
@@ -84,7 +84,7 @@ public class SilenceSpoof extends Module {
         if (ChatFormatting.getTextWithoutFormattingCodes(message).startsWith("[Criticals]")) {
             event.setCancelled(true);
 
-            if (criticals.getValue().equals("Replace") || criticals.getValue().equals("Replace + Silence")) {
+            if (criticals.isCurrentMode("Replace") || criticals.isCurrentMode("Replace + Silence")) {
                 onCriticals();
             }
         }
@@ -117,7 +117,7 @@ public class SilenceSpoof extends Module {
                     lastAttack = id;
                 }
 
-                if (!(criticals.getValue().equals("Silence") || criticals.getValue().equals("Replace + Silence"))) return;
+                if (!(criticals.isCurrentMode("Silence") || criticals.isCurrentMode("Replace + Silence"))) return;
                 if (!(!serverOnGroundState && player.getFallDistance() > 0)) return;
                 if (livingEntity.getHurtTime() > 1) return;
 
@@ -130,8 +130,8 @@ public class SilenceSpoof extends Module {
     }
 
     @Override
-    public void onLoop() {
-        if (hudHeader.getValue().equals("BedWars")) {
+    public void onTick() {
+        if (hudHeader.isCurrentMode("BedWars")) {
             if (bwHeaderModule == null) {
                 bwHeaderModule = new BWHUDHeader();
                 API.registerFeature(bwHeaderModule);
@@ -143,7 +143,7 @@ public class SilenceSpoof extends Module {
             bwHeaderModule.setEnabled(false);
         }
 
-        if (hudHeader.getValue().equals("SkyWars")) {
+        if (hudHeader.isCurrentMode("SkyWars")) {
             if (swHeaderModule == null) {
                 swHeaderModule = new SWHUDHeader();
                 API.registerFeature(swHeaderModule);
