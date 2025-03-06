@@ -5,6 +5,7 @@ import asia.lira.opaiplus.utils.MathUtils;
 import asia.lira.opaiplus.utils.MoveUtil;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
+import org.jetbrains.annotations.Nullable;
 import today.opai.api.dataset.RotationData;
 import today.opai.api.dataset.Vec3Data;
 import today.opai.api.enums.EnumModuleCategory;
@@ -154,17 +155,7 @@ public class TimerRange extends Module {
         assert fov.getValue() != 0;
         if (System.currentTimeMillis() - lastTimerTime < delay.getValue()) return false;
 
-        IntSet filter;
-        if (onlyKillAuraTarget.getValue()) {
-            List<LivingEntity> targets = moduleKillAura.getTargets();
-            filter = new IntOpenHashSet(targets.size() + 1);
-            for (LivingEntity target : targets) {
-                filter.add(target.getEntityId());
-            }
-            filter.add(moduleKillAura.getBlockTarget().getEntityId());
-        } else {
-            filter = null;
-        }
+        @Nullable IntSet filter = getFilter();
 
         Player target = world.getLoadedPlayerEntities().parallelStream()
                 .filter(Objects::nonNull)
@@ -183,6 +174,23 @@ public class TimerRange extends Module {
 
         double distance = target.getDistanceToPosition(player.getPosition());
         return distance >= minRange.getValue() && distance <= maxRange.getValue();
+    }
+
+    private @Nullable IntSet getFilter() {
+        if (onlyKillAuraTarget.getValue()) {
+            List<LivingEntity> targets = moduleKillAura.getTargets();
+            IntSet filter = new IntOpenHashSet(targets.size() + 1);
+            for (LivingEntity target : targets) {
+                if (target == null) continue;
+                filter.add(target.getEntityId());
+            }
+            LivingEntity blockTarget = moduleKillAura.getBlockTarget();
+            if (blockTarget != null) {
+                filter.add(blockTarget.getEntityId());
+            }
+            return filter;
+        }
+        return null;
     }
 
     private void done() {
