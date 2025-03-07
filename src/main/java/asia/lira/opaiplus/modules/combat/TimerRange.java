@@ -22,6 +22,7 @@ import today.opai.api.interfaces.modules.special.ModuleKillAura;
 import today.opai.api.interfaces.modules.special.ModuleScaffold;
 import today.opai.api.interfaces.modules.special.ModuleTeams;
 import today.opai.api.interfaces.modules.values.BooleanValue;
+import today.opai.api.interfaces.modules.values.LabelValue;
 import today.opai.api.interfaces.modules.values.NumberValue;
 
 import java.util.Comparator;
@@ -43,6 +44,9 @@ public class TimerRange extends Module {
     private final BooleanValue onlyKillAuraTarget = createBoolean("Only KillAura Target", false);
     private final BooleanValue notWhileCombat = createBoolean("Not While Combat", true);
     private final BooleanValue notWhileScaffold = createBoolean("Not While Scaffold", true);
+    @SuppressWarnings("unused")
+    private final LabelValue advanced = createLabel("Advanced");
+    private final NumberValue timerSpeed = createNumber("Timer Speed", 20, 2, 20, 0.1);
 
     private final PresetModule moduleBlink = API.getModuleManager().getModule("Blink");
     private final ModuleScaffold moduleScaffold = (ModuleScaffold) API.getModuleManager().getModule("Scaffold");
@@ -64,7 +68,15 @@ public class TimerRange extends Module {
 
     @Override
     public String getSuffix() {
-        return (hasLag == 0 ? (hasTimer == 0 ? timerTicks.getValue() : lagTicks.getValue().intValue() - hasTimer) : hasLag) * 50 + "ms";
+        int tick;
+        if (hasLag != 0) {
+            tick = hasLag;
+        } else if (hasTimer != 0) {
+            tick = timerTicks.getValue().intValue() - hasTimer;
+        } else {
+            tick = timerTicks.getValue().intValue();
+        }
+        return tick * 50 + "ms";
     }
 
     @Override
@@ -83,7 +95,8 @@ public class TimerRange extends Module {
                 break;
             case TIMER:
                 if (hasTimer < timerTicks.getValue().intValue()) {
-                    API.getOptions().setTimerSpeed(20);  // 没有player.onUpdate。这个timerSpeed方法不一定安全
+                    // 没有player.onUpdate。这个timerSpeed方法不一定安全
+                    API.getOptions().setTimerSpeed(timerSpeed.getValue().floatValue());
                     hasTimer++;
                     break;
                 } else {

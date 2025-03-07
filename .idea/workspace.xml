@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="修复null pointer exception">
+    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="改进TimerRange&#10;移除心跳包">
+      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/partyct/PasswordHider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/movement/StepPlus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Module.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/combat/TimerRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/combat/TimerRange.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/Fixes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/Fixes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/PartyCT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/PartyCT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/asia/lira/opaiplus/TestSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/asia/lira/opaiplus/TestSecurity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,9 +79,6 @@
     &quot;accountId&quot;: &quot;00ce1d39-395e-47a8-be25-36991c21ed1e&quot;
   }
 }</component>
-  <component name="PerforceDirect.Settings">
-    <option name="CHARSET" value="无" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -85,39 +90,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Gradle.'OpaiPlus.test' 中的测试.executor": "Run",
-    "Gradle.Build Debug.executor": "Run",
-    "Gradle.Build Release.executor": "Run",
-    "Gradle.OpaiPlus [build].executor": "Run",
-    "Gradle.TestSecurity.executor": "Run",
-    "Maven.Build.executor": "Run",
-    "Maven.OpaiPlus [compile].executor": "Run",
-    "Maven.OpaiPlus [deploy].executor": "Run",
-    "Maven.OpaiPlus [install].executor": "Run",
-    "Maven.OpaiPlus [package].executor": "Run",
-    "Maven.OpaiPlus [site].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/OpaiPlus",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "库",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.4448276",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Gradle.'OpaiPlus.test' 中的测试.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build Debug.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build Release.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.OpaiPlus [build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TestSecurity.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Build.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.OpaiPlus [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.OpaiPlus [deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.OpaiPlus [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.OpaiPlus [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.OpaiPlus [site].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/OpaiPlus&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;库&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.4448276&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\OpaiPlus" />
@@ -212,8 +217,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Build Debug" />
         <item itemvalue="Gradle.'OpaiPlus.test' 中的测试" />
+        <item itemvalue="Gradle.Build Debug" />
       </list>
     </recent_temporary>
   </component>
@@ -243,7 +248,8 @@
       <workItem from="1741152353219" duration="21429000" />
       <workItem from="1741175917560" duration="2689000" />
       <workItem from="1741182506287" duration="10614000" />
-      <workItem from="1741240354759" duration="19247000" />
+      <workItem from="1741240354759" duration="22713000" />
+      <workItem from="1741363019367" duration="4457000" />
     </task>
     <task id="LOCAL-00001" summary="添加两个模块，Velocity+和BugFixer">
       <option name="closed" value="true" />
@@ -349,7 +355,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741259116059</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="改进TimerRange&#10;移除心跳包">
+      <option name="closed" value="true" />
+      <created>1741260565625</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1741260565625</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,6 +392,7 @@
     <MESSAGE value="BugFixer改名Fixes&#10;添加AirStrafe选项到Fixes，自适应7tick strafe lowhop  // 已删除，因为cubk写的API性能太拉跨了" />
     <MESSAGE value="添加TimerRange" />
     <MESSAGE value="修复null pointer exception" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复null pointer exception" />
+    <MESSAGE value="改进TimerRange&#10;移除心跳包" />
+    <option name="LAST_COMMIT_MESSAGE" value="改进TimerRange&#10;移除心跳包" />
   </component>
 </project>

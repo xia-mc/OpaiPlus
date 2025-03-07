@@ -3,6 +3,7 @@ package asia.lira.opaiplus.modules.misc;
 import asia.lira.opaiplus.OpaiPlus;
 import asia.lira.opaiplus.internal.SecurityManager;
 import asia.lira.opaiplus.internal.Module;
+import asia.lira.opaiplus.modules.misc.partyct.PasswordHider;
 import asia.lira.opaiplus.utils.ChatFormatting;
 import it.unimi.dsi.fastutil.objects.Object2LongMap;
 import it.unimi.dsi.fastutil.objects.Object2LongOpenHashMap;
@@ -18,7 +19,6 @@ import today.opai.api.interfaces.modules.values.ModeValue;
 import today.opai.api.interfaces.modules.values.TextValue;
 
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import static asia.lira.opaiplus.modules.misc.partyct.OpCode.*;
 
@@ -55,6 +55,11 @@ public class PartyCT extends Module {
             initializing = true;
             ensureInitialize();
         });
+    }
+
+    @Override
+    public String getSuffix() {
+        return String.valueOf(friends.size());
     }
 
     @SneakyThrows
@@ -151,7 +156,8 @@ public class PartyCT extends Module {
 
     private void send(int opCode) {
         String data = String.format("%d,%s", opCode, lastPlayerName);
-        String message = String.format("%s%s", MESSAGE_PREFIX, SecurityManager.encrypt(data, password.getValue()));
+        String message = String.format("%s%s", MESSAGE_PREFIX,
+                SecurityManager.encrypt(data, PasswordHider.fixPassword(password.getValue())));
 
         switch (mode.getValue()) {
             case "Global":
@@ -168,7 +174,8 @@ public class PartyCT extends Module {
 
         message = message.substring(MESSAGE_PREFIX.length());
         try {
-            String[] splits = SecurityManager.decrypt(message, password.getValue()).split(",");
+            String[] splits = SecurityManager.decrypt(message,
+                    PasswordHider.fixPassword(password.getValue())).split(",");
             handle(Integer.parseUnsignedInt(splits[0]), senderIRC, splits[1]);
         } catch (Exception e) {
             OpaiPlus.log(e.getMessage());
@@ -220,7 +227,7 @@ public class PartyCT extends Module {
     private void info(String message) {
         if (!notification.getValue()) return;
         API.popNotification(
-                EnumNotificationType.INFO, "PartyCT",
+                EnumNotificationType.NEW, "PartyCT",
                 message, 8000
         );
     }

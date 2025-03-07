@@ -64,6 +64,12 @@ public abstract class Module extends ExtensionModule implements EventHandler {
         return result;
     }
 
+    protected LabelValue createLabel(String string) {
+        LabelValue result = API.getValueManager().createLabel(string);
+        super.addValues(result);
+        return result;
+    }
+
     protected void setDepends(Value<?> value, BooleanValue @NotNull ... deps) {
         if (deps.length == 0) return;
         value.setHiddenPredicate(() -> !Arrays.stream(deps).allMatch(Value::getValue));

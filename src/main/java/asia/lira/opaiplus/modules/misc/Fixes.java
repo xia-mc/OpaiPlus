@@ -80,7 +80,7 @@ public class Fixes extends Module {
         if (!nullCheck()) return;
         float curYaw = MoveUtil.directionYaw();
 
-        if (MoveUtil.isMoving() && curYaw != lastYaw && Math.abs(curYaw - lastYaw) > 15) {
+        if (MoveUtil.isMoving() && (curYaw == lastYaw || Math.abs(curYaw - lastYaw) < 15)) {
             if (lastStrafeEnabled == null) {
                 lastStrafeEnabled = moduleSpeedAirStrafe.getValue();
             }
