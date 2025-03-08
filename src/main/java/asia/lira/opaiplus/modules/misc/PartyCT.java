@@ -15,6 +15,7 @@ import today.opai.api.enums.EnumModuleCategory;
 import today.opai.api.enums.EnumNotificationType;
 import today.opai.api.events.EventChatReceived;
 import today.opai.api.interfaces.modules.values.BooleanValue;
+import today.opai.api.interfaces.modules.values.LabelValue;
 import today.opai.api.interfaces.modules.values.ModeValue;
 import today.opai.api.interfaces.modules.values.TextValue;
 
@@ -30,7 +31,9 @@ public class PartyCT extends Module {
     public static final long HEARTBEAT_DELAY = Long.MAX_VALUE - 1;
     public static final long HEARTBEAT_TIMEOUT = Long.MAX_VALUE - 1;
 
-    private final ModeValue mode = createModes("Mode", "Party", "Global", "Party");
+    @SuppressWarnings("unused")
+    private final LabelValue modeLabel = createLabel("Global mode has been removed to suppress iq issue.");
+    private final ModeValue mode = createModes("Mode", "Party", "Party");
     private final TextValue password = createText("Password", DEFAULT_PASSWORD);
     private final BooleanValue hidePCTMessage = createBoolean("Hide PCT Message", true);
     private final BooleanValue notification = createBoolean("Notification", true);
