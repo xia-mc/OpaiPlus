@@ -32,7 +32,9 @@ public class PartyCT extends Module {
     public static final long HEARTBEAT_TIMEOUT = Long.MAX_VALUE - 1;
 
     @SuppressWarnings("unused")
-    private final LabelValue modeLabel = createLabel("Global mode has been removed to suppress iq issue.");
+    private final LabelValue modeLabel = createLabel("Global mode has been removed,");
+    @SuppressWarnings("unused")
+    private final LabelValue modeLabel2 = createLabel("To suppress possible iq issues.");
     private final ModeValue mode = createModes("Mode", "Party", "Party");
     private final TextValue password = createText("Password", DEFAULT_PASSWORD);
     private final BooleanValue hidePCTMessage = createBoolean("Hide PCT Message", true);
@@ -116,6 +118,7 @@ public class PartyCT extends Module {
     @Override
     public void onTick() {
         if (!ensureInitialize()) return;
+        if (!nullCheck()) return;
 
         OpaiPlus.getExecutor().execute(() -> {
             synchronized (GIL) {

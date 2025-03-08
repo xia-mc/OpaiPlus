@@ -6,6 +6,7 @@ import asia.lira.opaiplus.utils.MoveUtil;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
 import org.jetbrains.annotations.Nullable;
+import org.lwjgl.input.Keyboard;
 import today.opai.api.dataset.RotationData;
 import today.opai.api.dataset.Vec3Data;
 import today.opai.api.enums.EnumModuleCategory;
@@ -32,18 +33,19 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class TimerRange extends Module {
-    private final NumberValue lagTicks = createNumber("Lag Ticks", 2, 0, 10, 1);
-    private final NumberValue timerTicks = createNumber("Timer Ticks", 2, 0, 10, 1);
-    private final NumberValue minRange = createNumber("Min Range", 3.6, 2, 8, 0.1);
-    private final NumberValue maxRange = createNumber("Max Range", 5, 2, 8, 0.1);
-    private final NumberValue delay = createNumber("Delay", 500, 100, 5000, 50);
+    private final NumberValue lagTicks = createNumber("Lag Ticks", 3, 0, 10, 1);
+    private final NumberValue timerTicks = createNumber("Timer Ticks", 3, 0, 10, 1);
+    private final NumberValue minRange = createNumber("Min Range", 4, 2, 6, 0.1);
+    private final NumberValue maxRange = createNumber("Max Range", 4.5, 2, 6, 0.1);
+    private final NumberValue delay = createNumber("Delay", 2000, 0, 5000, 100);
     private final NumberValue fov = createNumber("FOV", 180, 15, 360, 15);
-    private final BooleanValue onlyOnGround = createBoolean("Only On Ground", true);
+    private final BooleanValue onlyOnGround = createBoolean("Only On Ground", false);
     private final BooleanValue clearMotion = createBoolean("Clear Motion", false);
-    private final BooleanValue keepRotation = createBoolean("Keep rotation", false);
+    private final BooleanValue keepRotation = createBoolean("Keep rotation", true);
     private final BooleanValue onlyKillAuraTarget = createBoolean("Only KillAura Target", false);
     private final BooleanValue notWhileCombat = createBoolean("Not While Combat", true);
     private final BooleanValue notWhileScaffold = createBoolean("Not While Scaffold", true);
+    private final BooleanValue notWhileSPressed = createBoolean("Not While S Pressed", true);
     @SuppressWarnings("unused")
     private final LabelValue advanced = createLabel("Advanced");
     private final NumberValue timerSpeed = createNumber("Timer Speed", 20, 2, 20, 0.1);
@@ -164,6 +166,7 @@ public class TimerRange extends Module {
         if (onlyOnGround.getValue() && !player.isOnGround()) return false;
         if (notWhileCombat.getValue() && player.getHurtTime() > 0) return false;
         if (notWhileScaffold.getValue() && moduleScaffold.isEnabled()) return false;
+        if (notWhileSPressed.getValue() && Keyboard.isKeyDown(Keyboard.KEY_S)) return false;
         if (!MoveUtil.isMoving()) return false;
         assert fov.getValue() != 0;
         if (System.currentTimeMillis() - lastTimerTime < delay.getValue()) return false;

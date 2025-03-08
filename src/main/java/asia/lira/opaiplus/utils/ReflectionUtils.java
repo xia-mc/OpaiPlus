@@ -4,13 +4,14 @@ import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.lang.invoke.*;
 import java.lang.reflect.*;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.function.BooleanSupplier;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
 public final class ReflectionUtils {
@@ -81,7 +82,10 @@ public final class ReflectionUtils {
     private static final Map<MethodData, Method> methodMap = new Object2ObjectOpenHashMap<>();
     private static final Map<ConstructorData, Constructor<?>> constuctorMap = new Object2ObjectOpenHashMap<>();
     private static final Map<FieldData, Field> fieldMap = new Object2ObjectOpenHashMap<>();
-    private static final Map<Method, Consumer<?>> fastMethodMap = new Object2ObjectOpenHashMap<>();
+    private static final Map<String, Consumer<?>> fastMethodAnArgMap = new Object2ObjectOpenHashMap<>();
+    private static final Map<String, Runnable> fastMethodNoArgMap = new Object2ObjectOpenHashMap<>();
+    private static final Map<String, Supplier<?>> fastMethodRetMap = new Object2ObjectOpenHashMap<>();
+    private static final Map<String, BooleanSupplier> fastMethodRetBooleanMap = new Object2ObjectOpenHashMap<>();
 
     /**
      * 获取方法，递归查找父类中的方法
@@ -281,28 +285,113 @@ public final class ReflectionUtils {
     }
 
     @SuppressWarnings("unchecked")
-    public static <T, E> @NotNull Consumer<T> getFastMethod(Class<E> objClass, @Nullable E object, Method method, Class<T> parClass)
+    public static <T, E> Consumer<T> getFastMethodAnArg(Class<E> objClass, E object, String methodName, Class<T> argClass)
             throws Throwable {
-        Consumer<?> result = fastMethodMap.get(method);
+        Consumer<?> result = fastMethodAnArgMap.get(methodName);
         if (result != null)
             return (Consumer<T>) result;
+
         MethodHandles.Lookup lookup = MethodHandles.lookup();
+        Method method = objClass.getDeclaredMethod(methodName, argClass);
         MethodHandle methodHandle = lookup.unreflect(method);
+
         CallSite callSite = LambdaMetafactory.metafactory(
                 lookup,
                 "accept",
                 MethodType.methodType(Consumer.class, objClass),
                 MethodType.methodType(void.class, Object.class),
                 methodHandle,
-                MethodType.methodType(void.class, parClass)
+                MethodType.methodType(void.class, argClass)
         );
+
         Consumer<T> target = (Consumer<T>) callSite.getTarget().invoke(object);
-        fastMethodMap.put(method, target);
+        fastMethodAnArgMap.put(methodName, target);
         return target;
     }
 
-    public static boolean isFastMethod(Consumer<?> consumer) {
-        return fastMethodMap.containsValue(consumer);
+    public static <T> Runnable getFastMethodNoArg(Class<T> objClass, T object, String methodName)
+            throws Throwable {
+        Runnable result = fastMethodNoArgMap.get(methodName);
+        if (result != null)
+            return result;
+
+        MethodHandles.Lookup lookup = MethodHandles.lookup();
+        Method method = objClass.getDeclaredMethod(methodName);
+        MethodHandle methodHandle = lookup.unreflect(method);
+
+        CallSite callSite = LambdaMetafactory.metafactory(
+                lookup,
+                "run",
+                MethodType.methodType(Runnable.class, objClass),
+                MethodType.methodType(void.class),
+                methodHandle,
+                MethodType.methodType(void.class)
+        );
+
+        Runnable target = (Runnable) callSite.getTarget().invoke(object);
+        fastMethodNoArgMap.put(methodName, target);
+        return target;
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T, R> Supplier<R> getFastMethodRet(Class<T> objClass, T object, String methodName, Class<R> retClass)
+            throws Throwable {
+        Supplier<?> result = fastMethodRetMap.get(methodName);
+        if (result != null)
+            return (Supplier<R>) result;
+
+        MethodHandles.Lookup lookup = MethodHandles.lookup();
+        Method method = objClass.getDeclaredMethod(methodName);
+        MethodHandle methodHandle = lookup.unreflect(method);
+
+        CallSite callSite = LambdaMetafactory.metafactory(
+                lookup,
+                "get",
+                MethodType.methodType(Supplier.class, objClass),
+                MethodType.methodType(Object.class),
+                methodHandle,
+                MethodType.methodType(retClass)
+        );
+
+        Supplier<R> target = (Supplier<R>) callSite.getTarget().invoke(object);
+        fastMethodRetMap.put(methodName, target);
+        return target;
+    }
+
+    public static <T> BooleanSupplier getFastMethodRetBoolean(@NotNull Class<T> objClass, T object, String methodName)
+            throws Throwable {
+        BooleanSupplier result = fastMethodRetBooleanMap.get(methodName);
+        if (result != null)
+            return result;
+
+        MethodHandles.Lookup lookup = MethodHandles.lookup();
+        Method method = objClass.getDeclaredMethod(methodName);
+        MethodHandle methodHandle = lookup.unreflect(method);
+
+        CallSite callSite = LambdaMetafactory.metafactory(
+                lookup,
+                "getAsBoolean",
+                MethodType.methodType(BooleanSupplier.class, objClass),
+                MethodType.methodType(boolean.class),
+                methodHandle,
+                MethodType.methodType(boolean.class)
+        );
+
+        BooleanSupplier target = (BooleanSupplier) callSite.getTarget().invoke(object);
+        fastMethodRetBooleanMap.put(methodName, target);
+        return target;
+    }
+
+    public static boolean isFastMethod(Consumer<?> method) {
+        return fastMethodAnArgMap.containsValue(method);
+    }
+
+    public static boolean isFastMethod(Runnable method) {
+        return fastMethodNoArgMap.containsValue(method);
+    }
+
+    public static boolean isFastMethod(Supplier<?> method) {
+        return fastMethodRetMap.containsValue(method);
     }
 
     public static @NotNull String getCallerClassName() {

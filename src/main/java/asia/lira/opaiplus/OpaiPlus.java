@@ -17,8 +17,6 @@ import today.opai.api.Extension;
 import today.opai.api.OpenAPI;
 import today.opai.api.annotations.ExtensionInfo;
 import today.opai.api.enums.EnumNotificationType;
-import today.opai.api.interfaces.dataset.Vector3d;
-import today.opai.api.interfaces.game.network.server.SPacket12Velocity;
 
 import java.util.HashSet;
 import java.util.Map;
@@ -26,7 +24,7 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-@ExtensionInfo(name = "OpaiPlus", author = "xia__mc", version = "0.2.1 (For b18.4Beta)")
+@ExtensionInfo(name = "OpaiPlus", author = "xia__mc", version = "0.3 (For b19 WIP4)")
 public final class OpaiPlus extends Extension {
     private static OpenAPI API = null;
     @Getter
@@ -63,24 +61,6 @@ public final class OpaiPlus extends Extension {
     }
 
     private static void checkCompatibility() {
-        try {
-            int id = RandomUtils.randInt();
-            double motionX = RandomUtils.randDouble(0, 3.9);
-            double motionY = RandomUtils.randDouble(0, 3.9);
-            double motionZ = RandomUtils.randDouble(0, 3.9);
-            SPacket12Velocity s12 = NetworkManager.createS12(id, motionX, motionY, motionZ);
-
-            Vector3d motion = s12.getMotion();
-            if (s12.getEntityId() == id
-                    && MathUtils.posEquals(motion.getX() / 8000, motionX)
-                    && MathUtils.posEquals(motion.getY() / 8000, motionY)
-                    && MathUtils.posEquals(motion.getZ() / 8000, motionZ)) {  // 除以8000因为opai的bug
-                return;
-            }
-        } catch (Throwable ignored) {
-        }
-
-        error("Compatibility test failed. Some features may won't work correctly.");
     }
 
     private static void addModules(Module @NotNull ... modules) {

@@ -1,13 +1,11 @@
 package asia.lira.opaiplus.internal;
 
 import asia.lira.opaiplus.OpaiPlus;
-import asia.lira.opaiplus.utils.ReflectionUtils;
 import org.jetbrains.annotations.NotNull;
 import today.opai.api.enums.EnumEntityAction;
 import today.opai.api.events.EventPacketSend;
 import today.opai.api.interfaces.EventHandler;
 import today.opai.api.interfaces.game.network.client.CPacket0BEntityAction;
-import today.opai.api.interfaces.game.network.server.SPacket12Velocity;
 
 /*
 这不是真的NetworkManager类的映射。
@@ -20,6 +18,7 @@ MatrixShield.bw 为SPacket12Velocity实现类，构造传入MatrixShield.Uz
 MatrixShield.Uz 对应S12EntityVelocityPacket，构造传入(int, double, double, double)
 
 byd rename，根据一个opai dev的说法，这些信息在b18.4-beta后不再可靠
+- 已经失效
  */
 
 public class NetworkManager implements EventHandler {
@@ -27,27 +26,6 @@ public class NetworkManager implements EventHandler {
     private static CPacket0BEntityAction STOP_SPRINTING = null;
 
     private NetworkManager() {
-    }
-
-    public static @NotNull SPacket12Velocity createS12(int entityId, double motionX, double motionY, double motionZ) {
-        try {
-            Object packet = ReflectionUtils.callConstructor(
-                    ReflectionUtils.getClass("MatrixShield.Uz"),
-                    new Class<?>[]{int.class, double.class, double.class, double.class},
-                    new Object[]{entityId, motionX, motionY, motionZ}
-            );  // S12EntityVelocityPacket
-
-            Object result = ReflectionUtils.callConstructor(
-                    ReflectionUtils.getClass("MatrixShield.bw"),
-                    packet
-            );
-
-            return (SPacket12Velocity) result;
-        } catch (RuntimeException e) {
-            OpaiPlus.error("Failed to create S12 Packet. Maybe Opai update?");
-//            OpaiPlus.error(StringUtils.limitLength(StringUtils.getStackTraceAsString(e), 512));
-            throw new RuntimeException(e);
-        }
     }
 
     public static CPacket0BEntityAction createStartSprint() {
