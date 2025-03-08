@@ -4,7 +4,7 @@
 
 <p>
    <!--suppress CheckImageSize -->
-   <img src="./google-chrome-logo.png" alt="Project Mascot" width="100">
+   <img src="./mascot.png" alt="Project Mascot" width="600">
 </p>
 
 ## More Features, More Fun.

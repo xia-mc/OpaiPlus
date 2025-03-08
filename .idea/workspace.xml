@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="改进TimerRange&#10;移除心跳包">
-      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/partyct/PasswordHider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/movement/StepPlus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/combat/TimerRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/combat/TimerRange.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/Fixes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/Fixes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/PartyCT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/PartyCT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/asia/lira/opaiplus/TestSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/asia/lira/opaiplus/TestSecurity.java" afterDir="false" />
-    </list>
+    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="改进TimerRange&#10;移除心跳包" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -250,6 +240,7 @@
       <workItem from="1741182506287" duration="10614000" />
       <workItem from="1741240354759" duration="22713000" />
       <workItem from="1741363019367" duration="4457000" />
+      <workItem from="1741415099167" duration="301000" />
     </task>
     <task id="LOCAL-00001" summary="添加两个模块，Velocity+和BugFixer">
       <option name="closed" value="true" />
