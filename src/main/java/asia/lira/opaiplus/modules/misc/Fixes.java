@@ -12,15 +12,17 @@ import today.opai.api.events.EventMove;
 import today.opai.api.events.EventPacketSend;
 import today.opai.api.events.EventRender2D;
 import today.opai.api.interfaces.game.network.client.CPacket0BEntityAction;
+import today.opai.api.interfaces.game.network.client.CPacket0EClickWindow;
 import today.opai.api.interfaces.modules.PresetModule;
 import today.opai.api.interfaces.modules.values.BooleanValue;
 import today.opai.api.interfaces.modules.values.NumberValue;
 
 public class Fixes extends Module {
-    private final BooleanValue sprintState = createBoolean("Sprint", true);
-    private final BooleanValue lowTimer = createBoolean("Timer", true);
-    private final BooleanValue airStrafe = createBoolean("Air Strafe (Low FPS)", false);
-    private final NumberValue keepTicks = createNumber("Keep Ticks", 10, 5, 20, 1);
+    private final BooleanValue sprintBug = createBoolean("Sprint Bug", true);
+    private final BooleanValue timerBug = createBoolean("Timer Bug", true);
+    private final BooleanValue fastStrafe = createBoolean("Fast Strafe", true);
+    private final NumberValue keepTicks = createNumber("Keep Ticks", 8, 5, 20, 1);
+    private final BooleanValue dropItem = createBoolean("1.18+ Drop", false);
     private final BooleanValue debug = createBoolean("Debug", false);
 
     private final PresetModule moduleStep = API.getModuleManager().getModule("Step");
@@ -41,7 +43,7 @@ public class Fixes extends Module {
 
     public Fixes() {
         super("Fixes", "Fix something from original Opai", EnumModuleCategory.MISC);
-        setDepends(keepTicks, airStrafe);
+        setDepends(keepTicks, fastStrafe);
     }
 
     @Override
@@ -76,7 +78,7 @@ public class Fixes extends Module {
     @Override
     public void onTick() {
         if (!ensureInitialized()) return;
-        if (!airStrafe.getValue()) return;
+        if (!fastStrafe.getValue()) return;
         if (!nullCheck()) return;
         float curYaw = MoveUtil.directionYaw();
 
@@ -103,8 +105,8 @@ public class Fixes extends Module {
         if (!ensureInitialized()) {
             return;
         }
-        if (!sprintState.getValue()) return;
-        if (!MoveUtil.isMoving()) return;
+        if (!sprintBug.getValue()) return;
+        if (!MoveUtil.isMoving() || player.isCollidedHorizontally()) return;
         syncSprint();
     }
 
@@ -114,7 +116,7 @@ public class Fixes extends Module {
             return;
         }
         if (event.getPacket() instanceof CPacket0BEntityAction) {
-            if (!sprintState.getValue()) return;
+            if (!sprintBug.getValue()) return;
             CPacket0BEntityAction packet = (CPacket0BEntityAction) event.getPacket();
             if (packet.getAction() == EnumEntityAction.START_SPRINTING) {
                 clientSprintState = true;
@@ -123,7 +125,7 @@ public class Fixes extends Module {
                     return;
                 }
 
-                if (!MoveUtil.isMoving()) {
+                if (!MoveUtil.isMoving() || player.isCollidedHorizontally()) {
                     event.setCancelled(true);
                     onSuppress("sprint");
                     return;
@@ -139,12 +141,18 @@ public class Fixes extends Module {
 
                 serverSprintState = false;
             }
+        } else if (event.getPacket() instanceof CPacket0EClickWindow) {
+            if (!dropItem.getValue()) return;
+            CPacket0EClickWindow packet = (CPacket0EClickWindow) event.getPacket();
+            if (packet.getMode() == 4) {
+                player.swingItem();
+            }
         }
     }
 
     @Override
     public void onRender2D(EventRender2D event) {
-        if (!lowTimer.getValue()) return;
+        if (!timerBug.getValue()) return;
         if (!(moduleStep.isEnabled() && moduleSpeed.isEnabled())) return;
         if (!MathUtils.posEquals(API.getOptions().getTimerSpeed(), 0.2)) return;
 
@@ -159,10 +167,14 @@ public class Fixes extends Module {
     }
 
     private void syncSprint() {
-        if (serverSprintState && !clientSprintState) {
+        syncSprint(clientSprintState);
+    }
+
+    private void syncSprint(boolean target) {
+        if (serverSprintState && !target) {
             NetworkManager.createStopSprint().sendPacketNoEvent();
             serverSprintState = false;
-        } else if (!serverSprintState && clientSprintState) {
+        } else if (!serverSprintState && target) {
             NetworkManager.createStartSprint().sendPacketNoEvent();
             serverSprintState = true;
         }

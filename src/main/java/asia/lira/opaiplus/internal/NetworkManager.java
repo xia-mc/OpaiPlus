@@ -1,31 +1,62 @@
 package asia.lira.opaiplus.internal;
 
 import asia.lira.opaiplus.OpaiPlus;
+import asia.lira.opaiplus.internal.unsafe.DeobfuscateUtils;
+import asia.lira.opaiplus.utils.ReflectionUtils;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import today.opai.api.dataset.BlockPosition;
+import today.opai.api.enums.EnumDirection;
 import today.opai.api.enums.EnumEntityAction;
 import today.opai.api.events.EventPacketSend;
 import today.opai.api.interfaces.EventHandler;
+import today.opai.api.interfaces.game.item.ItemStack;
 import today.opai.api.interfaces.game.network.client.CPacket0BEntityAction;
 
 /*
 这不是真的NetworkManager类的映射。
-
-一些辅助信息：
-类 MatrixShield.SM 对应 NetworkManager
-有方法protected void channelRead0(ChannelHandlerContext, Object)
-
-MatrixShield.bw 为SPacket12Velocity实现类，构造传入MatrixShield.Uz
-MatrixShield.Uz 对应S12EntityVelocityPacket，构造传入(int, double, double, double)
-
-byd rename，根据一个opai dev的说法，这些信息在b18.4-beta后不再可靠
-- 已经失效
  */
-
 public class NetworkManager implements EventHandler {
     private static CPacket0BEntityAction START_SPRINTING = null;
     private static CPacket0BEntityAction STOP_SPRINTING = null;
 
     private NetworkManager() {
+    }
+
+    public static void sendPacket(Object packet) {
+        Object object = ReflectionUtils.getDeclared(ReflectionUtils.getClass("MatrixShield.iR"), "b");
+        object = ReflectionUtils.call(object, "f");
+        object = ReflectionUtils.call(object, "d");
+        ReflectionUtils.call(object, "a",
+                new Class[]{ReflectionUtils.getClass("MatrixShield.TX")},
+                new Object[]{packet}
+        );
+    }
+
+    public static void sendPacketNoEvent(Object packet) {
+        Object object = ReflectionUtils.getDeclared(ReflectionUtils.getClass("MatrixShield.iR"), "b");
+        object = ReflectionUtils.call(object, "f");
+        object = ReflectionUtils.call(object, "d");
+        ReflectionUtils.call(object, "b",
+                new Class[]{ReflectionUtils.getClass("MatrixShield.TX")},
+                new Object[]{packet}
+        );
+    }
+
+    public static @NotNull Object createC08(@NotNull BlockPosition blockPos, int direction,
+                                            @Nullable ItemStack itemStack, float hitPosX, float hitPosY, float hitPosZ) {
+        Object mcBlockPos = ReflectionUtils.callConstructor(ReflectionUtils.getClass("MatrixShield.Zs"),
+                new Class[]{int.class, int.class, int.class},
+                new Object[]{blockPos.x, blockPos.y, blockPos.z}
+        );
+        Object mcItemStack = itemStack == null ? null : ReflectionUtils.get(itemStack, "h");
+
+        return ReflectionUtils.callConstructor(ReflectionUtils.getClass("MatrixShield.UG"),
+                new Class[]{mcBlockPos.getClass(), int.class, ReflectionUtils.getClass("MatrixShield.Sp"),
+                        float.class, float.class, float.class},
+                new Object[]{mcBlockPos, direction, mcItemStack,
+                        hitPosX, hitPosY, hitPosZ}
+        );
     }
 
     public static CPacket0BEntityAction createStartSprint() {

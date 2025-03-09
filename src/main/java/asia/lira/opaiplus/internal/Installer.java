@@ -1,5 +1,7 @@
 package asia.lira.opaiplus.internal;
 
+import asia.lira.opaiplus.internal.unsafe.AntiCrack;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;

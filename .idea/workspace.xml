@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="mascot">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/player/ChestAura.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/AimSimulator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/minecraft/AxisAlignedBB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/minecraft/Vec3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/OpaiPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/OpaiPlus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/AntiCrack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/AntiCrack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/PartyCT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/misc/PartyCT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Module.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/MathUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/MathUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,8 +138,8 @@
       <recent name="asia.lira.internal" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="asia.lira.opaiplus.modules.visual.silence" />
       <recent name="asia.lira.opaiplus.utils" />
+      <recent name="asia.lira.opaiplus.modules.visual.silence" />
       <recent name="asia.lira.internal" />
     </key>
   </component>
@@ -250,6 +254,7 @@
       <workItem from="1741433499850" duration="286000" />
       <workItem from="1741435185242" duration="693000" />
       <workItem from="1741446644424" duration="930000" />
+      <workItem from="1741489305332" duration="5793000" />
     </task>
     <task id="LOCAL-00001" summary="添加两个模块，Velocity+和BugFixer">
       <option name="closed" value="true" />

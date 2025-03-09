@@ -1,7 +1,7 @@
 package asia.lira.opaiplus.modules.combat;
 
 import asia.lira.opaiplus.OpaiPlus;
-import asia.lira.opaiplus.internal.AntiCrack;
+import asia.lira.opaiplus.internal.unsafe.AntiCrack;
 import asia.lira.opaiplus.internal.Module;
 import today.opai.api.dataset.Vec3Data;
 import today.opai.api.enums.EnumModuleCategory;

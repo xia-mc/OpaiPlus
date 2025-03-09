@@ -1,5 +1,6 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import org.gradle.internal.os.OperatingSystem
+import java.util.ArrayList
 
 plugins {
     id("java")
@@ -27,15 +28,23 @@ val compileClasspathOnly: Configuration by configurations.creating
 val fastutilLib = "it.unimi.dsi:fastutil:8.5.15"
 val lombokLib = "org.projectlombok:lombok:1.18.30"
 
-val libraries = listOf(
+val extraLibs = mutableListOf(
+    "org.ow2.asm:asm:9.7.1",
+    "org.ow2.asm:asm-util:9.7.1",
+    "org.ow2.asm:asm-commons:9.7.1",
+    "org.ow2.asm:asm-tree:9.7.1",
+    fastutilLib
+)
+
+val libraries = arrayListOf(
     "com.github.opai-client:opensource-components:-SNAPSHOT",
 //    "org.lwjgl:lwjgl:2.9.4-nightly",
     "org.lwjgl.lwjgl:lwjgl_util:2.9.4-nightly-20150209",
     "org.jetbrains:annotations:24.0.0",
     "com.gradleup.shadow:shadow-gradle-plugin:9.0.0-beta4",
-    files("libs/allatori-annotations.jar"),
-    fastutilLib
+    files("libs/allatori-annotations.jar")
 )
+libraries.addAll(extraLibs)
 
 dependencies {
     for (it in libraries) {
@@ -173,7 +182,7 @@ tasks {
 
         @Suppress("SpellCheckingInspection")
         dependencies {
-            include(dependency(fastutilLib))
+            extraLibs.forEach { include(dependency(it)) }
             // byd为什么这个类会有main方法，直接赖着不走
             exclude("it/unimi/dsi/fastutil/BigArrays.class")
             exclude("shadowBanner.txt")

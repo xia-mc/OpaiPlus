@@ -1,7 +1,6 @@
 package asia.lira.opaiplus.internal;
 
 import asia.lira.opaiplus.OpaiPlus;
-import asia.lira.opaiplus.utils.ReflectionUtils;
 import org.jetbrains.annotations.NotNull;
 import today.opai.api.OpenAPI;
 import today.opai.api.enums.EnumModuleCategory;
@@ -13,23 +12,14 @@ import today.opai.api.interfaces.modules.Value;
 import today.opai.api.interfaces.modules.values.*;
 
 import java.util.Arrays;
-import java.util.function.BooleanSupplier;
 
 public abstract class Module extends ExtensionModule implements EventHandler {
     protected final OpenAPI API = OpaiPlus.getAPI();
     protected final LocalPlayer player = API.getLocalPlayer();
     protected final World world = API.getWorld();
 
-    private final BooleanSupplier nullCheck0;
-
     public Module(String name, String description, EnumModuleCategory category) {
         super(name, description, category);
-        try {
-            nullCheck0 = ReflectionUtils.getFastMethodRetBoolean(OpenAPI.class, API, "isNull");
-        } catch (Throwable e) {
-            OpaiPlus.error("Failed to initialize fast nullCheck.");
-            throw new RuntimeException(e);
-        }
 
         setEventHandler(this);
     }
@@ -41,7 +31,7 @@ public abstract class Module extends ExtensionModule implements EventHandler {
     }
 
     protected boolean nullCheck() {
-        return !nullCheck0.getAsBoolean();
+        return !API.isNull();
     }
 
     protected ModeValue createModes(String name, String defaultValue, String... modes) {

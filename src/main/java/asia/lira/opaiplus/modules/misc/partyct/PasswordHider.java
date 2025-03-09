@@ -1,6 +1,6 @@
 package asia.lira.opaiplus.modules.misc.partyct;
 
-import asia.lira.opaiplus.internal.AntiCrack;
+import asia.lira.opaiplus.internal.unsafe.AntiCrack;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 

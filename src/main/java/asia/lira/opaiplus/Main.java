@@ -1,6 +1,6 @@
 package asia.lira.opaiplus;
 
-import asia.lira.opaiplus.internal.AntiCrack;
+import asia.lira.opaiplus.internal.unsafe.AntiCrack;
 import asia.lira.opaiplus.internal.Installer;
 import com.allatori.annotations.DoNotRename;
 import com.allatori.annotations.Rename;

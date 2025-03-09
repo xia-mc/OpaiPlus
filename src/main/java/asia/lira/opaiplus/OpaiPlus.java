@@ -8,6 +8,7 @@ import asia.lira.opaiplus.modules.combat.VelocityPlus;
 import asia.lira.opaiplus.modules.misc.Fixes;
 import asia.lira.opaiplus.modules.misc.NoIRC;
 import asia.lira.opaiplus.modules.misc.PartyCT;
+import asia.lira.opaiplus.modules.player.ChestAura;
 import asia.lira.opaiplus.modules.visual.SilenceSpoof;
 import asia.lira.opaiplus.utils.*;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
@@ -16,6 +17,7 @@ import org.jetbrains.annotations.NotNull;
 import today.opai.api.Extension;
 import today.opai.api.OpenAPI;
 import today.opai.api.annotations.ExtensionInfo;
+import today.opai.api.dataset.BlockPosition;
 import today.opai.api.enums.EnumNotificationType;
 
 import java.util.HashSet;
@@ -61,6 +63,19 @@ public final class OpaiPlus extends Extension {
     }
 
     private static void checkCompatibility() {
+        try {
+            API.isNull();
+            API.getPacketUtil();
+
+            Object ignored = NetworkManager.createC08(
+                    new BlockPosition(-1, -1, -1), 255, null, 0, 0, 0
+            );
+
+            return;
+        } catch (Throwable ignored) {
+        }
+
+        error("Compatibility test failed. Some features may won't work correctly.");
     }
 
     private static void addModules(Module @NotNull ... modules) {
@@ -96,7 +111,7 @@ public final class OpaiPlus extends Extension {
 
             SecurityManager.init();
             NetworkManager.init();
-            addModules(new VelocityPlus(), new Fixes(), new SilenceSpoof(), new PartyCT(), new NoIRC(), new TimerRange());
+            addModules(new VelocityPlus(), new Fixes(), new SilenceSpoof(), new PartyCT(), new NoIRC(), new TimerRange(), new ChestAura());
 
             success(String.format("Initialize successful. [%dms]", Timer.end()));
         } catch (Throwable e) {

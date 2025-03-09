@@ -6,6 +6,7 @@ import org.jetbrains.annotations.Range;
 import today.opai.api.dataset.PositionData;
 import today.opai.api.interfaces.game.entity.Entity;
 import today.opai.api.interfaces.game.entity.LocalPlayer;
+import today.opai.api.interfaces.modules.values.NumberValue;
 
 public class MathUtils {
     private static final LocalPlayer player = OpaiPlus.getAPI().getLocalPlayer();
@@ -61,4 +62,31 @@ public class MathUtils {
         return angle;
     }
 
+    public static float normalize(float yaw) {
+        return normalize(yaw, -180, 180);
+    }
+
+    /**
+     * normalize the yaw from min to max.
+     * @return min <= yaw < max
+     */
+    public static float normalize(float yaw, float min, float max) {
+        yaw %= 360.0F;
+        if (yaw >= max) {
+            yaw -= 360.0F;
+        }
+        if (yaw < min) {
+            yaw += 360.0F;
+        }
+
+        return yaw;
+    }
+
+    public static void correctValue(@NotNull NumberValue min, @NotNull NumberValue max) {
+        double minValue, maxValue;
+        if ((minValue = min.getValue()) <= (maxValue = max.getValue()))
+            return;
+        min.setValue(maxValue);
+        max.setValue(minValue);
+    }
 }
