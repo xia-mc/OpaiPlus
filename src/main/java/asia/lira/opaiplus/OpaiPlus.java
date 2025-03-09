@@ -3,11 +3,13 @@ package asia.lira.opaiplus;
 import asia.lira.opaiplus.internal.Module;
 import asia.lira.opaiplus.internal.NetworkManager;
 import asia.lira.opaiplus.internal.SecurityManager;
+import asia.lira.opaiplus.internal.unsafe.Unsafe;
 import asia.lira.opaiplus.modules.combat.TimerRange;
 import asia.lira.opaiplus.modules.combat.VelocityPlus;
 import asia.lira.opaiplus.modules.misc.Fixes;
 import asia.lira.opaiplus.modules.misc.NoIRC;
 import asia.lira.opaiplus.modules.misc.PartyCT;
+import asia.lira.opaiplus.modules.movement.SaveMoveKeys;
 import asia.lira.opaiplus.modules.player.ChestAura;
 import asia.lira.opaiplus.modules.visual.SilenceSpoof;
 import asia.lira.opaiplus.utils.*;
@@ -26,7 +28,7 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-@ExtensionInfo(name = "OpaiPlus", author = "xia__mc", version = "0.3 (For b19 WIP4)")
+@ExtensionInfo(name = "OpaiPlus", author = "xia__mc", version = "0.4 (For b19 WIP4)")
 public final class OpaiPlus extends Extension {
     private static OpenAPI API = null;
     @Getter
@@ -70,6 +72,7 @@ public final class OpaiPlus extends Extension {
             Object ignored = NetworkManager.createC08(
                     new BlockPosition(-1, -1, -1), 255, null, 0, 0, 0
             );
+            Unsafe.getCurrentScreen();
 
             return;
         } catch (Throwable ignored) {
@@ -111,7 +114,11 @@ public final class OpaiPlus extends Extension {
 
             SecurityManager.init();
             NetworkManager.init();
-            addModules(new VelocityPlus(), new Fixes(), new SilenceSpoof(), new PartyCT(), new NoIRC(), new TimerRange(), new ChestAura());
+            addModules(
+                    new Fixes(), new SilenceSpoof(),
+                    new PartyCT(), new NoIRC(),
+                    new VelocityPlus(), new TimerRange(), new ChestAura(), new SaveMoveKeys()
+            );
 
             success(String.format("Initialize successful. [%dms]", Timer.end()));
         } catch (Throwable e) {

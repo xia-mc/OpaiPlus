@@ -7,4 +7,3 @@
 
 -repackageclasses __pycache__
 -assumenosideeffects class java.lang.AssertionError { <init>(...); }
--renamesourcefileattribute

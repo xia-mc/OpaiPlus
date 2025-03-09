@@ -47,7 +47,8 @@ val libraries = arrayListOf(
 libraries.addAll(extraLibs)
 
 dependencies {
-    for (it in libraries) {
+    libraries.forEach(::compileOnly)
+    extraLibs.forEach {
         implementation(it)
         shadow(it)
     }
@@ -66,7 +67,7 @@ tasks.test {
 
 val r8Jar = compileClasspathOnly.filter { it.name.contains("r8") }.singleFile
 val classpathSeparator = if (OperatingSystem.current().isWindows) ";" else ":"
-val dependenciesJars: MutableSet<File> = configurations.runtimeClasspath.get().files
+val dependenciesJars: MutableSet<File> = configurations.compileClasspath.get().files
 val javaHome: String = System.getProperty("java.home")
 val javaRuntime: String = when {
     javaHome.contains("jdk") || javaHome.contains("openjdk") -> {

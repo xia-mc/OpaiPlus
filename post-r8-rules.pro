@@ -6,4 +6,6 @@
 
 -repackageclasses __pycache__
 -assumenosideeffects class java.lang.AssertionError { <init>(...); }
--renamesourcefileattribute
+
+# R8的静态分析不是无敌的😭
+-dontoptimize
