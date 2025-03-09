@@ -1,12 +1,10 @@
 package asia.lira.opaiplus.internal;
 
 import asia.lira.opaiplus.OpaiPlus;
-import asia.lira.opaiplus.internal.unsafe.DeobfuscateUtils;
 import asia.lira.opaiplus.utils.ReflectionUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import today.opai.api.dataset.BlockPosition;
-import today.opai.api.enums.EnumDirection;
 import today.opai.api.enums.EnumEntityAction;
 import today.opai.api.events.EventPacketSend;
 import today.opai.api.interfaces.EventHandler;

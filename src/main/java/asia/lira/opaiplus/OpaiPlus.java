@@ -122,52 +122,56 @@ public final class OpaiPlus extends Extension {
 
     @Override
     public void onUnload() {
-        Timer.begin();
         try {
-            // 要求各模块清理资源
-            for (Module module : modules.values()) {
-                if (module.isEnabled()) {
-                    module.onDisabled();
-                }
-            }
-
-            // 要求关闭线程池
-            executor.shutdown();
-            executor.setKeepAliveTime(1, TimeUnit.MILLISECONDS);
-            executor.allowCoreThreadTimeOut(true);
             try {
-                boolean ignored = executor.awaitTermination(1000, TimeUnit.MILLISECONDS);
-            } catch (InterruptedException ignored) {
-            }
-            executor.shutdownNow();
-
-            // 强制清理资源
-            HashSet<Object> workers = ReflectionUtils.get(executor, "workers");
-            assert workers != null;
-            workers.forEach(worker -> {
-                Thread thread = ReflectionUtils.get(workers, "thread");
-                if (thread == null) return;
-                thread.interrupt();
+                Timer.begin();
                 try {
-                    thread.join(100);
-                } catch (InterruptedException ignored) {
+                    // 要求各模块清理资源
+                    modules.values().forEach(Module::unload);
+
+                    // 要求关闭线程池
+                    executor.shutdown();
+                    executor.setKeepAliveTime(1, TimeUnit.MILLISECONDS);
+                    executor.allowCoreThreadTimeOut(true);
+                    try {
+                        boolean ignored = executor.awaitTermination(1000, TimeUnit.MILLISECONDS);
+                    } catch (InterruptedException ignored) {
+                    }
+                    executor.shutdownNow();
+
+                    // 强制清理资源
+                    HashSet<Object> workers = ReflectionUtils.get(executor, "workers");
+                    assert workers != null;
+                    workers.forEach(worker -> {
+                        Thread thread = ReflectionUtils.get(workers, "thread");
+                        if (thread == null) return;
+                        thread.interrupt();
+                        try {
+                            thread.join(100);
+                        } catch (InterruptedException ignored) {
+                        }
+                        if (!thread.isAlive()) return;
+
+                        ReflectionUtils.call(thread, "stop0",
+                                new Class[]{Object.class}, new Object[]{new ThreadDeath()});
+                    });
+
+                    executor = null;
+                    modules = null;
+
+                    System.gc();
+                    success(String.format("Unloaded! See you next time. [%dms]", Timer.end()));
+                } catch (Throwable e) {
+                    error(String.format("Failed to release resources. [%dms]", Timer.end()));
+                    e.printStackTrace(System.out);
+                } finally {
+                    API = null;
                 }
-                if (!thread.isAlive()) return;
-
-                ReflectionUtils.call(thread, "stop0",
-                        new Class[]{Object.class}, new Object[]{new ThreadDeath()});
-            });
-
-            executor = null;
-            modules = null;
-
-            System.gc();
-            success(String.format("Unloaded! See you next time. [%dms]", Timer.end()));
-        } catch (Throwable e) {
-            error(String.format("Failed to release resources. [%dms]", Timer.end()));
-            e.printStackTrace(System.out);
-        } finally {
-            API = null;
+            } catch (Throwable e) {
+                System.out.println("Error while unloading OpaiPlus.\n");
+                e.printStackTrace(System.out);
+            }
+        } catch (Throwable ignored) {
         }
     }
 }

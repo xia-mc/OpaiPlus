@@ -24,6 +24,13 @@ public abstract class Module extends ExtensionModule implements EventHandler {
         setEventHandler(this);
     }
 
+    public final void unload() {
+        setEventHandler(null);
+        if (isEnabled()) {
+            onDisabled();
+        }
+    }
+
     @Override
     @Deprecated
     public void addValues(Value<?>... values) {

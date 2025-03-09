@@ -3,6 +3,7 @@ package asia.lira.opaiplus.modules.player;
 import asia.lira.opaiplus.internal.AimSimulator;
 import asia.lira.opaiplus.internal.Module;
 import asia.lira.opaiplus.internal.NetworkManager;
+import asia.lira.opaiplus.internal.unsafe.Unsafe;
 import asia.lira.opaiplus.utils.*;
 import asia.lira.opaiplus.utils.BlockUtils.PlaceSide;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
@@ -69,6 +70,7 @@ public class ChestAura extends Module {
         assert nullCheck();
         long time = System.currentTimeMillis();
         if (time - lastAura < delay) return;
+        if (Unsafe.getCurrentScreen() != null) return;
         if (targetNearbyCheck.getValue() && PlayerUtils.isTargetNearby()) return;
 
         BlockPosition blockPos = findChest();
