@@ -11,7 +11,6 @@ import asia.lira.opaiplus.modules.misc.NoIRC;
 import asia.lira.opaiplus.modules.misc.PartyCT;
 import asia.lira.opaiplus.modules.movement.SaveMoveKeys;
 import asia.lira.opaiplus.modules.player.ChestAura;
-import asia.lira.opaiplus.modules.player.TimerPlus;
 import asia.lira.opaiplus.modules.visual.SilenceSpoof;
 import asia.lira.opaiplus.utils.*;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
@@ -118,7 +117,7 @@ public final class OpaiPlus extends Extension {
             addModules(
                     new Fixes(), new SilenceSpoof(),
                     new PartyCT(), new NoIRC(),
-                    new VelocityPlus(), new TimerRange(), new ChestAura(), new SaveMoveKeys(), new TimerPlus()
+                    new VelocityPlus(), new TimerRange(), new ChestAura(), new SaveMoveKeys()
             );
 
             success(String.format("Initialize successful. [%dms]", Timer.end()));

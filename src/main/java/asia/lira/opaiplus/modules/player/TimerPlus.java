@@ -18,24 +18,25 @@ import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class TimerPlus extends Module {
-    private final ModeValue mode = createModes("Mode", "Watchdog", "Watchdog");
+    private final ModeValue mode = createModes("Mode", "Balance", "Balance");
     private final ModeValue releaseMode = createModes("Release Mode", "Moving", "Moving", "Damage");
-    private final NumberValue maxStoreTicks = createNumber("Max Store Ticks", 20, 1, 20, 1);
-    private final NumberValue maxKeepTime = createNumber("Max Keep Time", 1000, 500, 5000, 500);
+    private final NumberValue maxStoreTicks = createNumber("Max Store Ticks", 20, 1, 600, 1);
+    private final NumberValue maxKeepTime = createNumber("Max Keep Time", 1000, 500, 30000, 500);
     private final NumberValue timer = createNumber("Timer", 2, 1, 10, 0.1);
 
     private final byte[] GIL = new byte[0];
     private long lastStoreTime = 0;
     private final Deque<Queue<NetPacket>> delayedPackets = new LinkedBlockingDeque<>();
     private int storeTicks = 0;
+    private boolean working = false;
 
     public TimerPlus() {
-        super("Timer+", "A set of additional Timer implementations", EnumModuleCategory.PLAYER);
+        super("Timer+", "A set of additional Timer implementations", EnumModuleCategory.MISC);
     }
 
     @Override
     public void onLoop() {
-        if (mode.isCurrentMode("Watchdog")) {
+        if (mode.isCurrentMode("Balance")) {
             setSuffix(String.format("%dms", storeTicks * 50));
         } else {
             setSuffix(mode.getValue());
@@ -51,24 +52,22 @@ public class TimerPlus extends Module {
     @Override
     public void onPacketSend(@NotNull EventPacketSend event) {
         PositionData position = player.getPosition();
-        if (!player.getLastTickPosition().equals(position)) {
-            return;
-        }
 
         if (event.getPacket() instanceof CPacket04Position) {
             if (!((CPacket04Position) event.getPacket()).getPosition().equals(position)) {
-                release();
                 return;
             }
         }
         if (event.getPacket() instanceof CPacket06PositionRotation) {
             if (!((CPacket06PositionRotation) event.getPacket()).getPosition().equals(position)) {
-                release();
                 return;
             }
         }
 
         if (event.getPacket() instanceof CPacket03Player) {
+            if (MoveUtil.isMoving()) {
+                return;
+            }
             event.setCancelled(true);
             synchronized (GIL) {
                 lastStoreTime = System.currentTimeMillis();
@@ -93,8 +92,6 @@ public class TimerPlus extends Module {
                     peeked.add(event.getPacket());
                 }
             }
-        } else {
-            release();
         }
     }
 
@@ -111,6 +108,7 @@ public class TimerPlus extends Module {
             }
 
             API.getOptions().setTimerSpeed(timer.getValue().floatValue());
+            working = true;
             if (!delayedPackets.isEmpty()) {
                 delayedPackets.poll().forEach(NetPacket::sendPacket);
             }
@@ -122,14 +120,11 @@ public class TimerPlus extends Module {
         if (!MoveUtil.isMoving()) {
             return false;
         }
-        if (player.getLastTickPosition().equals(player.getPosition())) {
-            return false;
-        }
         switch (releaseMode.getValue()) {
             case "Moving":
                 return true;
             case "Damage":
-                return player.getHurtTime() > 0;
+                return player.getHurtTime() > 0 || working;
             default:
                 return AntiCrack.UNREACHABLE(player);
         }
@@ -137,8 +132,9 @@ public class TimerPlus extends Module {
 
     private void release() {
         synchronized (GIL) {
-            if (lastStoreTime == 0) {
+            if (working) {
                 API.getOptions().setTimerSpeed(1);
+                working = false;
             }
 
             if (nullCheck()) {
