@@ -11,6 +11,7 @@ import asia.lira.opaiplus.modules.misc.NoIRC;
 import asia.lira.opaiplus.modules.misc.PartyCT;
 import asia.lira.opaiplus.modules.movement.SaveMoveKeys;
 import asia.lira.opaiplus.modules.player.ChestAura;
+import asia.lira.opaiplus.modules.player.TimerPlus;
 import asia.lira.opaiplus.modules.visual.SilenceSpoof;
 import asia.lira.opaiplus.utils.*;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
@@ -28,7 +29,7 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-@ExtensionInfo(name = "OpaiPlus", author = "xia__mc", version = "0.5 (For b19 WIP4)")
+@ExtensionInfo(name = "OpaiPlus", author = "xia__mc", version = "0.6 (For b19 WIP4)")
 public final class OpaiPlus extends Extension {
     private static OpenAPI API = null;
     @Getter

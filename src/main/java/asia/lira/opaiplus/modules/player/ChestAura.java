@@ -36,6 +36,7 @@ public class ChestAura extends Module {
     @SuppressWarnings("unused")
     private final LabelValue miscRotation = createLabel("Misc");
     private final BooleanValue movementFix = createBoolean("Movement Fix", false);
+    private final BooleanValue doubleClick = createBoolean("Double Click", false);
     private final BooleanValue silentSwing = createBoolean("Silent Swing", false);
     private final BooleanValue openableCheck = createBoolean("Openable Check", true);
     private final BooleanValue targetNearbyCheck = createBoolean("Target Nearby Check", true);
@@ -125,20 +126,22 @@ public class ChestAura extends Module {
     }
 
     private void aura(BlockPosition blockPos, PlaceSide target) {
-        if (mode.isCurrentMode("Legit")) {
-            player.rightClickMouse();
-        } else {
-            Vec3Data hitPos = target.getHitPos();
-            Object packet = NetworkManager.createC08(
-                    blockPos, target.getDirection().ordinal(), player.getHeldItem(),
-                    (float) (hitPos.xCoord - blockPos.x), (float) (hitPos.yCoord - blockPos.y), (float) (hitPos.zCoord - blockPos.z)
-            );
-            NetworkManager.sendPacket(packet);
-
-            if (silentSwing.getValue()) {
-                API.getPacketUtil().createSwing().sendPacket();
+        for (int i = 0; i < (doubleClick.getValue() ? 2 : 1); i++) {
+            if (mode.isCurrentMode("Legit")) {
+                player.rightClickMouse();
             } else {
-                player.swingItem();
+                Vec3Data hitPos = target.getHitPos();
+                Object packet = NetworkManager.createC08(
+                        blockPos, target.getDirection().ordinal(), player.getHeldItem(),
+                        (float) (hitPos.xCoord - blockPos.x), (float) (hitPos.yCoord - blockPos.y), (float) (hitPos.zCoord - blockPos.z)
+                );
+                NetworkManager.sendPacket(packet);
+
+                if (silentSwing.getValue()) {
+                    API.getPacketUtil().createSwing().sendPacket();
+                } else {
+                    player.swingItem();
+                }
             }
         }
 
