@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="mascot">
-      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/player/ChestAura.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/AimSimulator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/minecraft/AxisAlignedBB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/minecraft/Vec3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="添加SaveMoveKeys&#10;修复混淆">
+      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/player/TimerPlus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/OpaiPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/OpaiPlus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/MathUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/MathUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +138,7 @@
       <recent name="asia.lira.internal" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Build Release">
+  <component name="RunManager" selected="Gradle.Build Debug">
     <configuration name="Build Debug" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -217,8 +212,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.'OpaiPlus.test' 中的测试" />
         <item itemvalue="Gradle.Build Debug" />
+        <item itemvalue="Gradle.'OpaiPlus.test' 中的测试" />
       </list>
     </recent_temporary>
   </component>
@@ -255,6 +250,9 @@
       <workItem from="1741435185242" duration="693000" />
       <workItem from="1741446644424" duration="930000" />
       <workItem from="1741489305332" duration="5793000" />
+      <workItem from="1741499351567" duration="18677000" />
+      <workItem from="1741540303052" duration="98000" />
+      <workItem from="1741584914645" duration="5225000" />
     </task>
     <task id="LOCAL-00001" summary="添加两个模块，Velocity+和BugFixer">
       <option name="closed" value="true" />
@@ -376,7 +374,47 @@
       <option name="project" value="LOCAL" />
       <updated>1741433697274</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="添加ChestAura&#10;完全适配b19 WIP4">
+      <option name="closed" value="true" />
+      <created>1741527660919</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1741527660919</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fix">
+      <option name="closed" value="true" />
+      <created>1741527774441</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1741527774441</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fix">
+      <option name="closed" value="true" />
+      <created>1741527796032</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1741527796032</updated>
+    </task>
+    <task id="LOCAL-00019" summary="改进ChestAura&#10;改进unload">
+      <option name="closed" value="true" />
+      <created>1741533943520</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1741533943520</updated>
+    </task>
+    <task id="LOCAL-00020" summary="添加SaveMoveKeys&#10;修复混淆">
+      <option name="closed" value="true" />
+      <created>1741540128783</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1741540128783</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,6 +445,10 @@
     <MESSAGE value="修复null pointer exception" />
     <MESSAGE value="改进TimerRange&#10;移除心跳包" />
     <MESSAGE value="mascot" />
-    <option name="LAST_COMMIT_MESSAGE" value="mascot" />
+    <MESSAGE value="添加ChestAura&#10;完全适配b19 WIP4" />
+    <MESSAGE value="fix" />
+    <MESSAGE value="改进ChestAura&#10;改进unload" />
+    <MESSAGE value="添加SaveMoveKeys&#10;修复混淆" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加SaveMoveKeys&#10;修复混淆" />
   </component>
 </project>
