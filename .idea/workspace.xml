@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="添加Timer+ （测试）">
+    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="移除Timer+">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/player/TimerPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/player/TimerPlus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/player/ChestAura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/player/ChestAura.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +251,7 @@
       <workItem from="1741489305332" duration="5793000" />
       <workItem from="1741499351567" duration="18677000" />
       <workItem from="1741540303052" duration="98000" />
-      <workItem from="1741584914645" duration="7258000" />
+      <workItem from="1741584914645" duration="8383000" />
     </task>
     <task id="LOCAL-00001" summary="添加两个模块，Velocity+和BugFixer">
       <option name="closed" value="true" />
@@ -422,7 +421,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741590398584</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="移除Timer+">
+      <option name="closed" value="true" />
+      <created>1741592290549</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1741592290549</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,6 +465,7 @@
     <MESSAGE value="改进ChestAura&#10;改进unload" />
     <MESSAGE value="添加SaveMoveKeys&#10;修复混淆" />
     <MESSAGE value="添加Timer+ （测试）" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加Timer+ （测试）" />
+    <MESSAGE value="移除Timer+" />
+    <option name="LAST_COMMIT_MESSAGE" value="移除Timer+" />
   </component>
 </project>

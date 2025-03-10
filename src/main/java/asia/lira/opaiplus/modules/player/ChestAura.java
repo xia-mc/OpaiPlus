@@ -63,6 +63,10 @@ public class ChestAura extends Module {
         MathUtils.correctValue(minDelay, maxDelay);
         MathUtils.correctValue(minRotationSpeed, maxRotationSpeed);
         MathUtils.correctValue(minRotationAccuracy, maxRotationAccuracy);
+
+        if (!waiting) {
+            API.getRotationManager().applyRotation(new RotationData(lastYaw, lastPitch), 180, movementFix.getValue());
+        }
     }
 
     @Override
@@ -103,7 +107,6 @@ public class ChestAura extends Module {
         lastPitch = AimSimulator.rotMove(pitch, lastPitch, rotSpeed, rotAccuracy);
 
         API.getRotationManager().applyRotation(new RotationData(lastYaw, lastPitch), 180, movementFix.getValue());
-
         if (AimSimulator.equals(new Vector2f(lastYaw, lastPitch), new Vector2f(yaw, pitch))) {
             aura(blockPos, target);
         }
@@ -128,7 +131,7 @@ public class ChestAura extends Module {
             Vec3Data hitPos = target.getHitPos();
             Object packet = NetworkManager.createC08(
                     blockPos, target.getDirection().ordinal(), player.getHeldItem(),
-                    (float) hitPos.xCoord, (float) hitPos.yCoord, (float) hitPos.zCoord
+                    (float) (hitPos.xCoord - blockPos.x), (float) (hitPos.yCoord - blockPos.y), (float) (hitPos.zCoord - blockPos.z)
             );
             NetworkManager.sendPacket(packet);
 
