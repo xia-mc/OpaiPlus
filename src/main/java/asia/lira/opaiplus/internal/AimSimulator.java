@@ -79,11 +79,11 @@ public class AimSimulator {
     }
 
     public static boolean yawEquals(float yaw1, float yaw2) {
-        return Math.abs(fixGCD(MathUtils.normalize(yaw1)) - fixGCD(MathUtils.normalize(yaw2))) < getGCD();
+        return Math.abs(fixGCD(MathUtils.normalize(yaw1)) - fixGCD(MathUtils.normalize(yaw2))) <= getGCD();
     }
 
     public static boolean equals(@NotNull Vector2f rot1, @NotNull Vector2f rot2) {
-        return yawEquals(rot1.x, rot2.x) && Math.abs(fixGCD(rot1.y) - fixGCD(rot2.y)) < getGCD();
+        return yawEquals(rot1.x, rot2.x) && Math.abs(fixGCD(rot1.y) - fixGCD(rot2.y)) <= getGCD();
     }
 
     public static float fixGCD(float value) {

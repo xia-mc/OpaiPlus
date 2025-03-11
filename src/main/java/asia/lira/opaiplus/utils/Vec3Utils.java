@@ -13,6 +13,11 @@ public class Vec3Utils {
         return new Vec3Data(blockPos.x, blockPos.y, blockPos.z);
     }
 
+    @Contract("_ -> new")
+    public static @NotNull Vec3Data create(@NotNull Vector3d vector3d) {
+        return new Vec3Data(vector3d.getX(), vector3d.getY(), vector3d.getZ());
+    }
+
     public static double distanceTo(@NotNull Vec3Data left, @NotNull Vec3Data right) {
         double deltaX = left.xCoord - right.xCoord;
         double deltaY = left.yCoord - right.yCoord;

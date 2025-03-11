@@ -12,11 +12,13 @@ import today.opai.api.dataset.BoundingBox;
 import today.opai.api.dataset.Vec3Data;
 import today.opai.api.enums.EnumDirection;
 import today.opai.api.interfaces.dataset.Vector3d;
+import today.opai.api.interfaces.game.world.World;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class BlockUtils {
+    private static final World world = OpaiPlus.getAPI().getWorld();
     private static final Set<EnumDirection> FACINGS = new HashSet<>(new ObjectImmutableList<>(EnumDirection.values()));
 
     @Data
@@ -121,7 +123,7 @@ public class BlockUtils {
                 new BlockPosition(from.x - blockDistance, from.y - blockDistance, from.z - blockDistance),
                 new BlockPosition(from.x + blockDistance, from.y + blockDistance, from.z + blockDistance)
         )) {
-            BoundingBox box = getCollisionBoundingBox(blockPos);
+            BoundingBox box = world.getBoundingBox(blockPos);
             if (box == null) continue;
 
             Vec3Data vec3From = Vec3Utils.create(from);
@@ -133,10 +135,6 @@ public class BlockUtils {
         return blocks;
     }
 
-    private static BoundingBox getCollisionBoundingBox(BlockPosition blockPos) {
-        return OpaiPlus.getAPI().getWorld().getBoundingBox(blockPos);
-    }
-
     @Contract("_, _, _ -> new")
     public static @NotNull BlockPosition createPos(double x, double y, double z) {
         return new BlockPosition((int) x, (int) y, (int) z);
@@ -145,5 +143,69 @@ public class BlockUtils {
     @Contract("_ -> new")
     public static @NotNull BlockPosition createPos(@NotNull Vector3d vector3d) {
         return createPos(vector3d.getX(), vector3d.getY(),  vector3d.getZ());
+    }
+
+    public static EnumDirection getDirectionFromYaw(float yaw) {
+        yaw = MathUtils.normalize(yaw);
+
+        if (yaw >= -45 && yaw < 45) {
+            return EnumDirection.SOUTH;
+        } else if (yaw >= 45 && yaw < 135) {
+            return EnumDirection.WEST;
+        } else if (yaw >= 135 || yaw < -135) {
+            return EnumDirection.NORTH;
+        } else {
+            assert yaw < -45;
+            return EnumDirection.EAST;
+        }
+    }
+
+    public static EnumDirection getDirectionFromHitPos(@NotNull Vec3Data hitPos, @NotNull BoundingBox boundingBox) {
+        Vec3Data min = boundingBox.getMin();
+        Vec3Data max = boundingBox.getMax();
+
+        // hitPos归一化，范围为[0, 1]
+        double deltaX = MathUtils.limit(hitPos.getX(), min.xCoord, max.xCoord) - min.xCoord;
+        double deltaY = MathUtils.limit(hitPos.getY(), min.yCoord, max.yCoord) - min.yCoord;
+        double deltaZ = MathUtils.limit(hitPos.getZ(), min.zCoord, max.zCoord) - min.zCoord;
+
+        // 计算优先级，范围为[0, 1]
+        double prioryX = Math.abs(deltaX / 2) * 2;
+        double prioryY = Math.abs(deltaY / 2) * 2;
+        double prioryZ = Math.abs(deltaZ / 2) * 2;
+
+        if (prioryY >= prioryX && prioryY >= prioryZ) {
+            if (deltaY < 0.5) {
+                return EnumDirection.DOWN;
+            } else {
+                return EnumDirection.UP;
+            }
+        }
+        if (prioryX >= prioryY && prioryX >= prioryZ) {
+            if (deltaX < 0.5) {
+                return EnumDirection.WEST;
+            } else {
+                return EnumDirection.EAST;
+            }
+        }
+        // prioryZ >= prioryY && prioryZ >= prioryX
+        if (deltaZ < 0.5) {
+            return EnumDirection.NORTH;
+        } else {
+            return EnumDirection.SOUTH;
+        }
+    }
+
+    @SuppressWarnings("deprecation")
+    public static boolean isFullBlock(BlockPosition blockPos) {
+        if (world.getBlock(blockPos) == 0) {  // TODO Block.getId
+            return false;
+        }
+        BoundingBox boundingBox = world.getBoundingBox(blockPos);
+        if (boundingBox == null) return false;
+
+        Vec3Data min = boundingBox.getMin();
+        Vec3Data max = boundingBox.getMax();
+        return max.xCoord - min.xCoord == 1 && max.yCoord - min.yCoord == 1 && max.zCoord - min.zCoord == 1;
     }
 }

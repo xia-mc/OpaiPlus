@@ -2,9 +2,7 @@ package asia.lira.opaiplus.internal.unsafe;
 
 import asia.lira.opaiplus.utils.RandomUtils;
 import asia.lira.opaiplus.utils.ReflectionUtils;
-import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public class AntiCrack {
     @SuppressWarnings("unchecked")
@@ -29,12 +27,6 @@ public class AntiCrack {
             naive2();
         }
         return (T) new Long(naive(types, 0xffffffdffffffffL, 0x1e4d64fc, (Integer) object[alwaysNull.hashCode()]));
-    }
-
-    @SuppressWarnings({"unchecked", "DataFlowIssue"})
-    @Contract(value = "_ -> fail", pure = true)
-    public static <T extends Throwable> void THROW(@Nullable Object throwable) throws T {
-        throw (T) throwable;
     }
 
     private static native int naive(Object a, long b, int c, int d);

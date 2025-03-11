@@ -1,10 +1,8 @@
-package asia.lira.opaiplus.modules.visual;
+package asia.lira.opaiplus.modules.removed;
 
-import asia.lira.opaiplus.OpaiPlus;
 import asia.lira.opaiplus.internal.Module;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.glu.GLU;
 import today.opai.api.enums.EnumModuleCategory;
 import today.opai.api.events.EventRender3D;
 import today.opai.api.interfaces.modules.values.BooleanValue;

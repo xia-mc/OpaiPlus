@@ -2,7 +2,7 @@ package asia.lira.opaiplus.modules.combat;
 
 import asia.lira.opaiplus.internal.Module;
 import asia.lira.opaiplus.utils.MathUtils;
-import asia.lira.opaiplus.utils.MoveUtil;
+import asia.lira.opaiplus.utils.MoveUtils;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
 import org.jetbrains.annotations.Nullable;
@@ -65,7 +65,7 @@ public class TimerRange extends Module {
     private double motionX, motionY, motionZ;
 
     public TimerRange() {
-        super("TimerRange", "Use timer help you to beat opponent.", EnumModuleCategory.COMBAT);
+        super("Timer Range", "Use timer help you to beat opponent.", EnumModuleCategory.COMBAT);
     }
 
     @Override
@@ -167,7 +167,7 @@ public class TimerRange extends Module {
         if (notWhileCombat.getValue() && player.getHurtTime() > 0) return false;
         if (notWhileScaffold.getValue() && moduleScaffold.isEnabled()) return false;
         if (notWhileSPressed.getValue() && Keyboard.isKeyDown(Keyboard.KEY_S)) return false;
-        if (!MoveUtil.isMoving()) return false;
+        if (!MoveUtils.isMoving()) return false;
         assert fov.getValue() != 0;
         if (System.currentTimeMillis() - lastTimerTime < delay.getValue()) return false;
 

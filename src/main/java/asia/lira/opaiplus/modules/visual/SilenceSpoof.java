@@ -42,7 +42,7 @@ public class SilenceSpoof extends Module {
     private String cachedTitle = null;
 
     public SilenceSpoof() {
-        super("SilenceSpoof", "Spoof some visuals like SilenceFix.", EnumModuleCategory.VISUAL);
+        super("Silence Spoof", "Spoof some visuals like SilenceFix.", EnumModuleCategory.VISUAL);
     }
 
     @Override

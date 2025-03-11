@@ -3,8 +3,9 @@ package asia.lira.opaiplus.modules.misc;
 import asia.lira.opaiplus.OpaiPlus;
 import asia.lira.opaiplus.internal.Module;
 import asia.lira.opaiplus.internal.NetworkManager;
+import asia.lira.opaiplus.internal.unsafe.Unsafe;
 import asia.lira.opaiplus.utils.MathUtils;
-import asia.lira.opaiplus.utils.MoveUtil;
+import asia.lira.opaiplus.utils.MoveUtils;
 import org.jetbrains.annotations.NotNull;
 import today.opai.api.enums.EnumEntityAction;
 import today.opai.api.enums.EnumModuleCategory;
@@ -23,6 +24,7 @@ public class Fixes extends Module {
     private final BooleanValue fastStrafe = createBoolean("Fast Strafe", true);
     private final NumberValue keepTicks = createNumber("Keep Ticks", 8, 5, 20, 1);
     private final BooleanValue dropItem = createBoolean("1.18+ Drop", false);
+    private final BooleanValue noClickDelay = createBoolean("No Click Delay", true);
     private final BooleanValue debug = createBoolean("Debug", false);
 
     private final PresetModule moduleStep = API.getModuleManager().getModule("Step");
@@ -57,7 +59,7 @@ public class Fixes extends Module {
         if (!initializing) return true;
         if (!nullCheck()) return false;
         serverSprintState = clientSprintState = player.isSprinting();
-        lastYaw = MoveUtil.directionYaw();
+        lastYaw = MoveUtils.directionYaw();
         strafeTicks = 0;
         lastStrafeEnabled = null;
         initializing = false;
@@ -80,9 +82,9 @@ public class Fixes extends Module {
         if (!ensureInitialized()) return;
         if (!fastStrafe.getValue()) return;
         if (!nullCheck()) return;
-        float curYaw = MoveUtil.directionYaw();
+        float curYaw = MoveUtils.directionYaw();
 
-        if (MoveUtil.isMoving() && (curYaw == lastYaw || Math.abs(curYaw - lastYaw) < 15)) {
+        if (MoveUtils.isMoving() && (curYaw == lastYaw || Math.abs(curYaw - lastYaw) < 15)) {
             if (lastStrafeEnabled == null) {
                 lastStrafeEnabled = moduleSpeedAirStrafe.getValue();
             }
@@ -106,7 +108,7 @@ public class Fixes extends Module {
             return;
         }
         if (!sprintBug.getValue()) return;
-        if (!MoveUtil.isMoving() || player.isCollidedHorizontally()) return;
+        if (!MoveUtils.isMoving() || player.isCollidedHorizontally()) return;
         syncSprint();
     }
 
@@ -125,7 +127,7 @@ public class Fixes extends Module {
                     return;
                 }
 
-                if (!MoveUtil.isMoving() || player.isCollidedHorizontally()) {
+                if (!MoveUtils.isMoving() || player.isCollidedHorizontally()) {
                     event.setCancelled(true);
                     onSuppress("sprint");
                     return;
@@ -183,5 +185,12 @@ public class Fixes extends Module {
     @Override
     public void onLoadWorld() {
         initializing = true;
+    }
+
+    @Override
+    public void onLoop() {
+        if (noClickDelay.getValue()) {
+            Unsafe.setLeftClickCounter(-1);
+        }
     }
 }

@@ -1,4 +1,4 @@
-package asia.lira.opaiplus.modules.movement;
+package asia.lira.opaiplus.modules.removed;
 
 import asia.lira.opaiplus.internal.Module;
 import today.opai.api.enums.EnumModuleCategory;

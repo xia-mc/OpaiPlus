@@ -1,8 +1,8 @@
-package asia.lira.opaiplus.modules.player;
+package asia.lira.opaiplus.modules.removed;
 
 import asia.lira.opaiplus.internal.Module;
 import asia.lira.opaiplus.internal.unsafe.AntiCrack;
-import asia.lira.opaiplus.utils.MoveUtil;
+import asia.lira.opaiplus.utils.MoveUtils;
 import org.jetbrains.annotations.NotNull;
 import today.opai.api.dataset.PositionData;
 import today.opai.api.enums.EnumModuleCategory;
@@ -65,7 +65,7 @@ public class TimerPlus extends Module {
         }
 
         if (event.getPacket() instanceof CPacket03Player) {
-            if (MoveUtil.isMoving()) {
+            if (MoveUtils.isMoving()) {
                 return;
             }
             event.setCancelled(true);
@@ -117,7 +117,7 @@ public class TimerPlus extends Module {
     }
 
     private boolean canRelease() {
-        if (!MoveUtil.isMoving()) {
+        if (!MoveUtils.isMoving()) {
             return false;
         }
         switch (releaseMode.getValue()) {

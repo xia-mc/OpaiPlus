@@ -11,7 +11,6 @@ import asia.lira.opaiplus.modules.misc.NoIRC;
 import asia.lira.opaiplus.modules.misc.PartyCT;
 import asia.lira.opaiplus.modules.movement.SaveMoveKeys;
 import asia.lira.opaiplus.modules.player.ChestAura;
-import asia.lira.opaiplus.modules.player.TimerPlus;
 import asia.lira.opaiplus.modules.visual.SilenceSpoof;
 import asia.lira.opaiplus.utils.*;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
@@ -23,6 +22,7 @@ import today.opai.api.annotations.ExtensionInfo;
 import today.opai.api.dataset.BlockPosition;
 import today.opai.api.enums.EnumNotificationType;
 
+import java.lang.reflect.Modifier;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.concurrent.SynchronousQueue;

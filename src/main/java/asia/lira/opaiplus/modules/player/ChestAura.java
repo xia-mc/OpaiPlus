@@ -9,10 +9,13 @@ import asia.lira.opaiplus.utils.BlockUtils.PlaceSide;
 import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
 import org.lwjgl.util.vector.Vector2f;
 import today.opai.api.dataset.BlockPosition;
+import today.opai.api.dataset.BoundingBox;
 import today.opai.api.dataset.RotationData;
 import today.opai.api.dataset.Vec3Data;
-import today.opai.api.enums.EnumDirection;
 import today.opai.api.enums.EnumModuleCategory;
+import today.opai.api.interfaces.game.entity.raytrace.BlockRaytraceResult;
+import today.opai.api.interfaces.game.entity.raytrace.RaytraceResult;
+import today.opai.api.interfaces.modules.special.ModuleKillAura;
 import today.opai.api.interfaces.modules.values.BooleanValue;
 import today.opai.api.interfaces.modules.values.LabelValue;
 import today.opai.api.interfaces.modules.values.ModeValue;
@@ -25,8 +28,8 @@ public class ChestAura extends Module {
     private final ModeValue mode = createModes("Mode", "Normal", "Normal", "Legit", "Packet");
     private final NumberValue range = createNumber("Range", 4.5, 3, 6, 0.1);
     private final NumberValue preAimRange = createNumber("Pre Aim Range", 4.5, 3, 6, 0.1);
-    private final NumberValue minDelay = createNumber("Min Delay", 1000, 0, 2000, 100);
-    private final NumberValue maxDelay = createNumber("Max Delay", 1000, 0, 2000, 100);
+    private final NumberValue minDelay = createNumber("Min Delay", 0, 0, 2000, 100);
+    private final NumberValue maxDelay = createNumber("Max Delay", 0, 0, 2000, 100);
     @SuppressWarnings("unused")
     private final LabelValue labelRotation = createLabel("Rotation");
     private final NumberValue minRotationSpeed = createNumber("Min Rotation Speed", 180, 10, 180, 1);
@@ -36,19 +39,21 @@ public class ChestAura extends Module {
     @SuppressWarnings("unused")
     private final LabelValue miscRotation = createLabel("Misc");
     private final BooleanValue movementFix = createBoolean("Movement Fix", false);
-    private final BooleanValue doubleClick = createBoolean("Double Click", false);
+    private final BooleanValue raytrace = createBoolean("Raytrace", false);
     private final BooleanValue silentSwing = createBoolean("Silent Swing", false);
     private final BooleanValue openableCheck = createBoolean("Openable Check", true);
-    private final BooleanValue targetNearbyCheck = createBoolean("Target Nearby Check", true);
+    private final BooleanValue notWhileKillAura = createBoolean("Not While KillAura", true);
+    private final BooleanValue targetNearbyCheck = createBoolean("Target Nearby Check", false);
 
     private final Set<BlockPosition> clicked = new ObjectOpenHashSet<>();
     private long lastAura = 0;
     private int delay = 0;
     private boolean waiting = true;
     private float lastYaw, lastPitch;
+    private final ModuleKillAura moduleKillAura = (ModuleKillAura) API.getModuleManager().getModule("KillAura");
 
     public ChestAura() {
-        super("ChestAura", "KillAura, but for chests", EnumModuleCategory.PLAYER);
+        super("Chest Aura", "KillAura, but for chests", EnumModuleCategory.PLAYER);
     }
 
     @Override
@@ -74,17 +79,30 @@ public class ChestAura extends Module {
     public void onPlayerUpdate() {
         assert nullCheck();
         long time = System.currentTimeMillis();
-        if (time - lastAura < delay) return;
-        if (Unsafe.getCurrentScreen() != null) return;
-        if (targetNearbyCheck.getValue() && PlayerUtils.isTargetNearby()) return;
+        if (time - lastAura < delay
+                || Unsafe.getCurrentScreen() != null
+                || player.isSneaking()
+                || (targetNearbyCheck.getValue() && PlayerUtils.isTargetNearby())
+                || (notWhileKillAura.getValue() && moduleKillAura.getTarget() != null)
+        ) {
+            waiting = true;
+            return;
+        }
 
         BlockPosition blockPos = findChest();
-        if (blockPos == null) return;
+        if (blockPos == null) {
+            waiting = true;
+            return;
+        }
         Vec3Data eyePos = RotationUtils.getEyePos();
-        Vec3Data nearestPoint = RotationUtils.getNearestPoint(world.getBoundingBox(blockPos), eyePos);
-        PlaceSide target = new PlaceSide(blockPos, EnumDirection.DOWN, nearestPoint);
-        boolean canAura = Vec3Utils.distanceTo(nearestPoint, eyePos) <= range.getValue();
-        if (!canAura) return;
+        BoundingBox boundingBox = world.getBoundingBox(blockPos);
+        Vec3Data hitPos = RotationUtils.getNearestPoint(boundingBox, eyePos);
+        PlaceSide target = new PlaceSide(blockPos, BlockUtils.getDirectionFromHitPos(hitPos, boundingBox), hitPos);
+        boolean canAura = Vec3Utils.distanceTo(hitPos, eyePos) <= range.getValue();
+        if (!canAura) {
+            waiting = true;
+            return;
+        }
 
         // 开始aura
         if (waiting) {
@@ -118,30 +136,54 @@ public class ChestAura extends Module {
         BlockPosition from = BlockUtils.createPos(RotationUtils.getEyePos());
         Vec3Data fromVec3 = Vec3Utils.create(from);
         return BlockUtils.getAllInSphere(from, preAimRange.getValue()).stream()
-                .filter(blockPos -> world.getBlock(blockPos) == 54)  // TODO Block.getId
+                .filter(blockPos -> world.getBlock(blockPos) == 54)
                 .filter(blockPos -> !clicked.contains(blockPos))
-                .filter(blockPos -> !openableCheck.getValue() || world.getBlock(BlockUtils.up(blockPos)) == 0)  // TODO Block.getId
+                .filter(blockPos -> !openableCheck.getValue() || !BlockUtils.isFullBlock(BlockUtils.up(blockPos)))
+                .filter(blockPos -> {
+                    if (!raytrace.getValue()) {
+                        return true;
+                    }
+
+                    Vec3Data eyePos = RotationUtils.getEyePos();
+                    BoundingBox boundingBox = world.getBoundingBox(blockPos);
+                    Vec3Data hitPos = RotationUtils.getNearestPoint(boundingBox, eyePos);
+                    RaytraceResult hitResult = player.raytrace(
+                            new RotationData(RotationUtils.getYaw(hitPos), RotationUtils.getPitch(hitPos)),
+                            4.5, 0, false
+                    );
+                    return hitResult instanceof BlockRaytraceResult && ((BlockRaytraceResult) hitResult).getBlockPosition().equals(blockPos);
+                })
                 .min(Comparator.comparingDouble(blockPos -> Vec3Utils.distanceTo(Vec3Utils.create(blockPos), fromVec3)))
                 .orElse(null);
     }
 
     private void aura(BlockPosition blockPos, PlaceSide target) {
-        for (int i = 0; i < (doubleClick.getValue() ? 2 : 1); i++) {
-            if (mode.isCurrentMode("Legit")) {
-                player.rightClickMouse();
-            } else {
-                Vec3Data hitPos = target.getHitPos();
-                Object packet = NetworkManager.createC08(
-                        blockPos, target.getDirection().ordinal(), player.getHeldItem(),
-                        (float) (hitPos.xCoord - blockPos.x), (float) (hitPos.yCoord - blockPos.y), (float) (hitPos.zCoord - blockPos.z)
-                );
-                NetworkManager.sendPacket(packet);
+        if (mode.isCurrentMode("Legit")) {
+            player.rightClickMouse();
+        } else if (mode.isCurrentMode("Watchdog")) {
+            Object packet = NetworkManager.createC08(
+                    blockPos, target.getDirection().ordinal(), player.getHeldItem(),
+                    0.5f, 0.5f, 0.5f
+            );
+            NetworkManager.sendPacket(packet);
 
-                if (silentSwing.getValue()) {
-                    API.getPacketUtil().createSwing().sendPacket();
-                } else {
-                    player.swingItem();
-                }
+            if (silentSwing.getValue()) {
+                API.getPacketUtil().createSwing().sendPacket();
+            } else {
+                player.swingItem();
+            }
+        } else {
+            Vec3Data hitPos = target.getHitPos();
+            Object packet = NetworkManager.createC08(
+                    blockPos, target.getDirection().ordinal(), player.getHeldItem(),
+                    (float) (hitPos.xCoord - blockPos.x), (float) (hitPos.yCoord - blockPos.y), (float) (hitPos.zCoord - blockPos.z)
+            );
+            NetworkManager.sendPacket(packet);
+
+            if (silentSwing.getValue()) {
+                API.getPacketUtil().createSwing().sendPacket();
+            } else {
+                player.swingItem();
             }
         }
 

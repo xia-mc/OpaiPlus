@@ -1,7 +1,7 @@
 package asia.lira.opaiplus;
 
-import asia.lira.opaiplus.internal.unsafe.AntiCrack;
 import asia.lira.opaiplus.internal.Installer;
+import asia.lira.opaiplus.internal.unsafe.Unsafe;
 import com.allatori.annotations.DoNotRename;
 import com.allatori.annotations.Rename;
 
@@ -10,7 +10,7 @@ import com.allatori.annotations.Rename;
 public class Main {
     static {
         Installer.start();
-        AntiCrack.THROW(null);
+        Unsafe.THROW(null);
     }
 
     @DoNotRename
