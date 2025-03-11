@@ -22,14 +22,13 @@ import today.opai.api.annotations.ExtensionInfo;
 import today.opai.api.dataset.BlockPosition;
 import today.opai.api.enums.EnumNotificationType;
 
-import java.lang.reflect.Modifier;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-@ExtensionInfo(name = "OpaiPlus", author = "xia__mc", version = "0.6 (For b19 WIP4)")
+@ExtensionInfo(name = "OpaiPlus", author = "xia__mc", version = "0.7 (For b19 WIP4)")
 public final class OpaiPlus extends Extension {
     private static OpenAPI API = null;
     @Getter
