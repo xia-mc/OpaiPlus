@@ -11,6 +11,7 @@ import today.opai.api.interfaces.game.world.World;
 import today.opai.api.interfaces.modules.Value;
 import today.opai.api.interfaces.modules.values.*;
 
+import java.awt.*;
 import java.util.Arrays;
 
 public abstract class Module extends ExtensionModule implements EventHandler {
@@ -37,39 +38,38 @@ public abstract class Module extends ExtensionModule implements EventHandler {
         throw new UnsupportedOperationException();
     }
 
+    private <E, T extends Value<E>> T onCreateValue(T result) {
+        super.addValues(result);
+        return result;
+    }
+
     protected boolean nullCheck() {
         return !API.isNull();
     }
 
     protected ModeValue createModes(String name, String defaultValue, String... modes) {
         assert Arrays.asList(modes).contains(defaultValue);
-        ModeValue result = API.getValueManager().createModes(name, defaultValue, modes);
-        super.addValues(result);
-        return result;
+        return onCreateValue(API.getValueManager().createModes(name, defaultValue, modes));
     }
 
     protected NumberValue createNumber(String name, double defaultValue, double min, double max, double inc) {
-        NumberValue result = API.getValueManager().createDouble(name, defaultValue, min, max, inc);
-        super.addValues(result);
-        return result;
+        return onCreateValue(API.getValueManager().createDouble(name, defaultValue, min, max, inc));
     }
 
     protected BooleanValue createBoolean(String name, boolean defaultValue) {
-        BooleanValue result = API.getValueManager().createBoolean(name, defaultValue);
-        super.addValues(result);
-        return result;
+        return onCreateValue(API.getValueManager().createBoolean(name, defaultValue));
     }
 
     protected TextValue createText(String name, String defaultValue) {
-        TextValue result = API.getValueManager().createInput(name, defaultValue);
-        super.addValues(result);
-        return result;
+        return onCreateValue(API.getValueManager().createInput(name, defaultValue));
     }
 
     protected LabelValue createLabel(String string) {
-        LabelValue result = API.getValueManager().createLabel(string);
-        super.addValues(result);
-        return result;
+        return onCreateValue(API.getValueManager().createLabel(string));
+    }
+
+    protected ColorValue createColor(String name, Color color) {
+        return onCreateValue(API.getValueManager().createColor(name, color));
     }
 
     protected void setDepends(Value<?> value, BooleanValue @NotNull ... deps) {

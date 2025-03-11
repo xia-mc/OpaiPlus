@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="改进ChestAura">
-      <change afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/combat/AutoGapple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/OpaiPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/OpaiPlus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/combat/TimerRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/combat/TimerRange.java" afterDir="false" />
+    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="版本0.7">
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Module.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/player/ChestAura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/player/ChestAura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/visual/SilenceSpoof.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/visual/SilenceSpoof.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/Vec3Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/Vec3Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/MathUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/MathUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,6 +129,7 @@
       <recent name="D:\OpaiPlus\libs" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="asia.lira.opaiplus.internal.unsafe.Unsafe" />
       <recent name="asia.lira.opaiplus.internal.AntiCrack" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -145,7 +142,7 @@
       <recent name="asia.lira.internal" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Build Release">
+  <component name="RunManager" selected="Gradle.Build Debug">
     <configuration name="Build Debug" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -261,7 +258,7 @@
       <workItem from="1741540303052" duration="98000" />
       <workItem from="1741584914645" duration="11581000" />
       <workItem from="1741619693555" duration="117000" />
-      <workItem from="1741674912046" duration="2861000" />
+      <workItem from="1741674912046" duration="21580000" />
     </task>
     <task id="LOCAL-00001" summary="添加两个模块，Velocity+和BugFixer">
       <option name="closed" value="true" />
@@ -455,7 +452,23 @@
       <option name="project" value="LOCAL" />
       <updated>1741603888341</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="归一化模块名称&#10;改进ChestAura算法&#10;添加raytrace选项到ChestAura&#10;添加not while killaura选项到ChestAura&#10;移除double click选项从chest aura">
+      <option name="closed" value="true" />
+      <created>1741693853989</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1741693853989</updated>
+    </task>
+    <task id="LOCAL-00026" summary="版本0.7">
+      <option name="closed" value="true" />
+      <created>1741693904879</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1741693904879</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -494,6 +507,8 @@
     <MESSAGE value="移除Timer+" />
     <MESSAGE value="修复ChestAura Normal和Packet模式包错误" />
     <MESSAGE value="改进ChestAura" />
-    <option name="LAST_COMMIT_MESSAGE" value="改进ChestAura" />
+    <MESSAGE value="归一化模块名称&#10;改进ChestAura算法&#10;添加raytrace选项到ChestAura&#10;添加not while killaura选项到ChestAura&#10;移除double click选项从chest aura" />
+    <MESSAGE value="版本0.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="版本0.7" />
   </component>
 </project>

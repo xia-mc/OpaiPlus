@@ -3,7 +3,9 @@ package asia.lira.opaiplus.utils;
 import asia.lira.opaiplus.OpaiPlus;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Range;
+import today.opai.api.dataset.BoundingBox;
 import today.opai.api.dataset.PositionData;
+import today.opai.api.dataset.Vec3Data;
 import today.opai.api.interfaces.game.entity.Entity;
 import today.opai.api.interfaces.game.entity.LocalPlayer;
 import today.opai.api.interfaces.modules.values.NumberValue;
@@ -88,5 +90,27 @@ public class MathUtils {
             return;
         min.setValue(maxValue);
         max.setValue(minValue);
+    }
+
+    public static double wrapValue(double value, double lastValue, float partialTicks) {
+        return lastValue + (value - lastValue) * partialTicks;
+    }
+
+    public static @NotNull BoundingBox wrapBoundingBox(@NotNull BoundingBox boundingBox) {
+        float partialTicks = OpaiPlus.getAPI().getRenderUtil().getPartialTicks();
+
+        PositionData position = player.getPosition();
+        PositionData lastTickPosition = player.getLastTickPosition();
+        double x = wrapValue(position.getX(), lastTickPosition.getX(), partialTicks);
+        double y = wrapValue(position.getY(), lastTickPosition.getY(), partialTicks);
+        double z = wrapValue(position.getZ(), lastTickPosition.getZ(), partialTicks);
+
+        Vec3Data min = boundingBox.getMin();
+        Vec3Data max = boundingBox.getMax();
+
+        min = new Vec3Data(min.xCoord - x, min.yCoord - y, min.zCoord - z);
+        max = new Vec3Data(max.xCoord - x, max.yCoord - y, max.zCoord - z);
+
+        return new BoundingBox(min, max);
     }
 }

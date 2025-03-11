@@ -13,14 +13,14 @@ import today.opai.api.dataset.BoundingBox;
 import today.opai.api.dataset.RotationData;
 import today.opai.api.dataset.Vec3Data;
 import today.opai.api.enums.EnumModuleCategory;
+import today.opai.api.events.EventRender3D;
 import today.opai.api.interfaces.game.entity.raytrace.BlockRaytraceResult;
 import today.opai.api.interfaces.game.entity.raytrace.RaytraceResult;
 import today.opai.api.interfaces.modules.special.ModuleKillAura;
-import today.opai.api.interfaces.modules.values.BooleanValue;
-import today.opai.api.interfaces.modules.values.LabelValue;
-import today.opai.api.interfaces.modules.values.ModeValue;
-import today.opai.api.interfaces.modules.values.NumberValue;
+import today.opai.api.interfaces.modules.values.*;
+import today.opai.api.interfaces.render.RenderUtil;
 
+import java.awt.*;
 import java.util.Comparator;
 import java.util.Set;
 
@@ -44,6 +44,8 @@ public class ChestAura extends Module {
     private final BooleanValue openableCheck = createBoolean("Openable Check", true);
     private final BooleanValue notWhileKillAura = createBoolean("Not While KillAura", true);
     private final BooleanValue targetNearbyCheck = createBoolean("Target Nearby Check", false);
+    private final BooleanValue esp = createBoolean("ESP", false);
+    private final ColorValue color = createColor("Color", new Color(255, 255, 255, 128));
 
     private final Set<BlockPosition> clicked = new ObjectOpenHashSet<>();
     private long lastAura = 0;
@@ -191,5 +193,20 @@ public class ChestAura extends Module {
         lastAura = System.currentTimeMillis();
         delay = RandomUtils.randInt(minDelay.getValue().intValue(), maxDelay.getValue().intValue());
         waiting = true;
+    }
+
+    @Override
+    public void onRender3D(EventRender3D event) {
+        if (!nullCheck()) return;
+        if (!esp.getValue()) return;
+        if (clicked.isEmpty()) return;
+
+        RenderUtil renderUtil = API.getRenderUtil();
+        for (BlockPosition blockPos : clicked) {
+            renderUtil.drawBoundingBox(
+                    MathUtils.wrapBoundingBox(world.getBoundingBox(blockPos)),
+                    color.getValue()
+            );
+        }
     }
 }

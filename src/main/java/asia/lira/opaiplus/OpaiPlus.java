@@ -28,7 +28,7 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-@ExtensionInfo(name = "OpaiPlus", author = "xia__mc", version = "0.7 (For b19 WIP4)")
+@ExtensionInfo(name = "OpaiPlus", author = "xia__mc", version = "0.8 (For b19 WIP4)")
 public final class OpaiPlus extends Extension {
     private static OpenAPI API = null;
     @Getter
