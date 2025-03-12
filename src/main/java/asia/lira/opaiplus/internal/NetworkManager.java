@@ -22,35 +22,42 @@ public class NetworkManager implements EventHandler {
     }
 
     public static void sendPacket(Object packet) {
-        Object object = ReflectionUtils.getDeclared(ReflectionUtils.getClass("MatrixShield.iR"), "b");
-        object = ReflectionUtils.call(object, "f");
-        object = ReflectionUtils.call(object, "d");
-        ReflectionUtils.call(object, "a",
-                new Class[]{ReflectionUtils.getClass("MatrixShield.TX")},
+        // iX.l.llII().II().I(Ud)
+        Object object = ReflectionUtils.getDeclared(ReflectionUtils.getClass("MatrixShield.iX"), "l");
+        object = ReflectionUtils.call(object, "llII");
+        object = ReflectionUtils.call(object, "II");
+        ReflectionUtils.call(object, "I",
+                new Class[]{ReflectionUtils.getClass("MatrixShield.Ud")},
                 new Object[]{packet}
         );
     }
 
     public static void sendPacketNoEvent(Object packet) {
-        Object object = ReflectionUtils.getDeclared(ReflectionUtils.getClass("MatrixShield.iR"), "b");
-        object = ReflectionUtils.call(object, "f");
-        object = ReflectionUtils.call(object, "d");
-        ReflectionUtils.call(object, "b",
-                new Class[]{ReflectionUtils.getClass("MatrixShield.TX")},
+        // iX.l.llII().II().l(Ud)
+        Object object = ReflectionUtils.getDeclared(ReflectionUtils.getClass("MatrixShield.iX"), "l");
+        object = ReflectionUtils.call(object, "llII");
+        object = ReflectionUtils.call(object, "II");
+        ReflectionUtils.call(object, "l",
+                new Class[]{ReflectionUtils.getClass("MatrixShield.Ud")},
                 new Object[]{packet}
         );
     }
 
     public static @NotNull Object createC08(@NotNull BlockPosition blockPos, int direction,
                                             @Nullable ItemStack itemStack, float hitPosX, float hitPosY, float hitPosZ) {
-        Object mcBlockPos = ReflectionUtils.callConstructor(ReflectionUtils.getClass("MatrixShield.Zs"),
+        // public UM(Zy param1, int param2, Sv param3, float param4, float param5, float param6)
+        // iX.l.llII().II().I(new UM(((aD)this.l).lI));
+        Class<Object> mcC08Class = ReflectionUtils.getClass("MatrixShield.UM");
+        Class<?> mcBlockPosClass = ReflectionUtils.getClass("MatrixShield.Zy");
+        Class<?> mcItemStackClass = ReflectionUtils.getClass("MatrixShield.Sv");
+
+        Object mcBlockPos = ReflectionUtils.callConstructor(mcBlockPosClass,
                 new Class[]{int.class, int.class, int.class},
                 new Object[]{blockPos.x, blockPos.y, blockPos.z}
         );
-        Object mcItemStack = itemStack == null ? null : ReflectionUtils.get(itemStack, "h");
-
-        return ReflectionUtils.callConstructor(ReflectionUtils.getClass("MatrixShield.UG"),
-                new Class[]{mcBlockPos.getClass(), int.class, ReflectionUtils.getClass("MatrixShield.Sp"),
+        Object mcItemStack = itemStack == null ? null : ReflectionUtils.get(itemStack, "lI");
+        return ReflectionUtils.callConstructor(mcC08Class,
+                new Class[]{mcBlockPosClass, int.class, mcItemStackClass,
                         float.class, float.class, float.class},
                 new Object[]{mcBlockPos, direction, mcItemStack,
                         hitPosX, hitPosY, hitPosZ}

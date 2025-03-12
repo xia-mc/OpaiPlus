@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="版本0.7">
+    <list default="true" id="d6093713-6e9a-4b93-942c-3adfec1b1fff" name="更改" comment="版本0.8&#10;添加ESP到ChestAura">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/OpaiPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/OpaiPlus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/player/ChestAura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/modules/player/ChestAura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/MathUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/utils/MathUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/NetworkManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/NetworkManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/unsafe/Unsafe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asia/lira/opaiplus/internal/unsafe/Unsafe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,9 +75,6 @@
     &quot;accountId&quot;: &quot;00ce1d39-395e-47a8-be25-36991c21ed1e&quot;
   }
 }</component>
-  <component name="PerforceDirect.Settings">
-    <option name="CHARSET" value="无" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -258,7 +257,8 @@
       <workItem from="1741540303052" duration="98000" />
       <workItem from="1741584914645" duration="11581000" />
       <workItem from="1741619693555" duration="117000" />
-      <workItem from="1741674912046" duration="21580000" />
+      <workItem from="1741674912046" duration="22096000" />
+      <workItem from="1741767135315" duration="2613000" />
     </task>
     <task id="LOCAL-00001" summary="添加两个模块，Velocity+和BugFixer">
       <option name="closed" value="true" />
@@ -468,7 +468,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741693904879</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="版本0.8&#10;添加ESP到ChestAura">
+      <option name="closed" value="true" />
+      <created>1741697526351</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1741697526351</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,6 +517,7 @@
     <MESSAGE value="改进ChestAura" />
     <MESSAGE value="归一化模块名称&#10;改进ChestAura算法&#10;添加raytrace选项到ChestAura&#10;添加not while killaura选项到ChestAura&#10;移除double click选项从chest aura" />
     <MESSAGE value="版本0.7" />
-    <option name="LAST_COMMIT_MESSAGE" value="版本0.7" />
+    <MESSAGE value="版本0.8&#10;添加ESP到ChestAura" />
+    <option name="LAST_COMMIT_MESSAGE" value="版本0.8&#10;添加ESP到ChestAura" />
   </component>
 </project>

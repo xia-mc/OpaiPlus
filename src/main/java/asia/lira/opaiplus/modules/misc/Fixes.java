@@ -24,7 +24,7 @@ public class Fixes extends Module {
     private final BooleanValue fastStrafe = createBoolean("Fast Strafe", true);
     private final NumberValue keepTicks = createNumber("Keep Ticks", 8, 5, 20, 1);
     private final BooleanValue dropItem = createBoolean("1.18+ Drop", false);
-    private final BooleanValue noClickDelay = createBoolean("No Click Delay", true);
+    private final BooleanValue fixClickDelay = createBoolean("Fix Click Delay", true);
     private final BooleanValue debug = createBoolean("Debug", false);
 
     private final PresetModule moduleStep = API.getModuleManager().getModule("Step");
@@ -189,7 +189,7 @@ public class Fixes extends Module {
 
     @Override
     public void onLoop() {
-        if (noClickDelay.getValue()) {
+        if (fixClickDelay.getValue()) {
             Unsafe.setLeftClickCounter(-1);
         }
     }

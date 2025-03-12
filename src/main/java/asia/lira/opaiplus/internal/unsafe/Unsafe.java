@@ -7,8 +7,10 @@ import org.jetbrains.annotations.Nullable;
 
 public class Unsafe {
     @Getter
+    private static final Class<?> mcInstanceClass = ReflectionUtils.getClass("MatrixShield.sC");
+    @Getter
     private static final Object mcInstance = ReflectionUtils.getDeclared(
-            ReflectionUtils.getClass("MatrixShield.iR"), "b");
+            ReflectionUtils.getClass("MatrixShield.iX"), "l");
 
     @SuppressWarnings({"unchecked", "DataFlowIssue"})
     @Contract(value = "_ -> fail", pure = true)
@@ -17,10 +19,10 @@ public class Unsafe {
     }
 
     public static @Nullable Object getCurrentScreen() {
-        return ReflectionUtils.get(mcInstance, "A");
+        return ReflectionUtils.get(mcInstance, "Ill");
     }
 
     public static void setLeftClickCounter(int leftClickCounter) {
-        ReflectionUtils.set(mcInstance, "c", leftClickCounter);
+        ReflectionUtils.set(mcInstance, "lI", leftClickCounter);
     }
 }

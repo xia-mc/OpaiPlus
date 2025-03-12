@@ -33,6 +33,15 @@ public abstract class Module extends ExtensionModule implements EventHandler {
     }
 
     @Override
+    public void setEnabled(boolean enabled) {
+        try {
+            super.setEnabled(enabled);
+        } catch (Throwable e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    @Override
     @Deprecated
     public void addValues(Value<?>... values) {
         throw new UnsupportedOperationException();

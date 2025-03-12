@@ -3,6 +3,7 @@ package asia.lira.opaiplus;
 import asia.lira.opaiplus.internal.Module;
 import asia.lira.opaiplus.internal.NetworkManager;
 import asia.lira.opaiplus.internal.SecurityManager;
+import asia.lira.opaiplus.internal.unsafe.DeobfuscateUtils;
 import asia.lira.opaiplus.internal.unsafe.Unsafe;
 import asia.lira.opaiplus.modules.combat.TimerRange;
 import asia.lira.opaiplus.modules.combat.VelocityPlus;
@@ -22,6 +23,7 @@ import today.opai.api.annotations.ExtensionInfo;
 import today.opai.api.dataset.BlockPosition;
 import today.opai.api.enums.EnumNotificationType;
 
+import java.lang.reflect.Modifier;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.concurrent.SynchronousQueue;
