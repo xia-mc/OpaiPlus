@@ -10,11 +10,17 @@
 ## More Features, More Fun.
 
 [![Issues](https://img.shields.io/github/issues/opai-client/OpaiPlus?style=flat)](https://github.com/opai-client/OpaiPlus/issues)
-[![License](https://img.shields.io/badge/license-All_rights_reserved-blue)](./LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 [![Downloads](https://img.shields.io/github/downloads/opai-client/OpaiPlus/total?label=Downloads&style=flat-square)](https://github.com/opai-client/OpaiPlus/releases)
 
 </div>
 
+> [!NOTE]
+> 本仓库已归档，项目已完全停止维护。
+> 
+> 代码仍可访问，但不会有任何更新或支持。
+> 
+> 最后一个兼容的 Opai 版本为 `b19 WIP6` 。
 
 ## Installation
 
